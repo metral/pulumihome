@@ -16,9 +16,9 @@ example := ex.With(integration.ProgramTestOptions{
 
 We have an AWS Athena table and a few saved queries set up to provide reports over this data.  Two useful queries:
 
-[TestTimingsAllTime](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/ac1de368-a1c2-45d7-8d13-34f98db96c8c): Shows timing statistics  of each test phase across all tracked tests over all time.  
+* [TestTimingsAllTime](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/ac1de368-a1c2-45d7-8d13-34f98db96c8c): Shows timing statistics  of each test phase across all tracked tests over all time.  
 
-[TestTimingsByDay](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/2cb12d55-c627-47b1-83ea-e088ec31c42a): Shows timing statistics of each test phase across all tracked tests broken down by day.  Useful for graphing trends over time.
+* [TestTimingsByDay](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/2cb12d55-c627-47b1-83ea-e088ec31c42a): Shows timing statistics of each test phase across all tracked tests broken down by day.  Useful for graphing trends over time.
 
 Example of data from this report:
 
