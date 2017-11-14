@@ -51,3 +51,13 @@ We don't use stack `pulumi update` for managing the Pulumi Service stacks, we go
 
 1. Check all configuration into source code control. You can store Pulumi configuration within a `Pulumi.yaml` or keep it on your local machine in the `.pulumi` folder. All configuration _must_ be in `Pulumi.yaml`, otherwise the next update won't have the local configuration on another developer's machine.
 1. We mirror local checkpoint files to S3. This way `pulumi` can compute the proper resource diff even if the previous deployment was ran on another machine.
+
+## The Pulumi Service Database
+
+All of the data for the Pulumi Service (e.g. user accounts, known GitHub organizations, configured PPCs and Stacks, etc.) are all housed in an [Amazon RDS](https://aws.amazon.com/rds/) instance. (See [infrastructure/database.ts](https://github.com/pulumi/pulumi-service/blob/master/infrastructure/database.ts).)
+
+The mechanics for how the root password is set and migrations are ran can be found in [doc/db.md](https://github.com/pulumi/pulumi-service/blob/master/doc/db.md). For troubleshooting production-related issues, the script to be aware of is `scripts/launch-mysql-prompt.sh`.
+
+Running `launch-mysql-prompt.sh` will start the MySQL console connected to your Pulumi Service database. The specific stack's database is determined by your current environment variables. (`PULUMI_STACK_NAME_OVERRIDE`, the current AWS account ID, etc.)
+
+From there you can run various queries to inspect the state of data. **Be careful**. It is crazy-easy to break things by running an errant query. So unless you know what you are doing, avoid any stateful queries. And even then, you probably shouldn't.
