@@ -21,19 +21,17 @@ We have an AWS Athena table and a few saved queries set up to provide reports ov
 
 * [TestTimingsByDay](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/2cb12d55-c627-47b1-83ea-e088ec31c42a): Shows timing statistics of each test phase across all tracked tests broken down by day.  Useful for graphing trends over time.
 
-* [TestTimingsByDay-LM](https://us-west-2.console.aws.amazon.com/athena/home?force&force=&region=us-west-2#query/saved/46ff66d7-9f38-49d2-bbd9-1f11dbcfaaa1): Shows timing statistics of each test phase across the Learning Machine test scenario, broken down by day.  Useful for graphing trends over time.
- 
+* [TestTimingsByDay-LM](https://us-west-2.console.aws.amazon.com/athena/home?force&force=&region=us-west-2#query/saved/46ff66d7-9f38-49d2-bbd9-1f11dbcfaaa1): Shows timing statistics of each test phase across the Learning Machine test scenario, broken down by day.
+
+* [TestTimingsByDayTravis-LM](https://us-west-2.console.aws.amazon.com/athena/home?force&force=&region=us-west-2#query/saved/38ff9b27-5d74-492e-a9df-de33e3824180): Shows timing statistics of each test phase across the Learning Machine test scenario, filtering to only runs done by Travis - broken down by day.
 
 
-Example of data from this report:
+
+Example of data from these report:
 
 | date       | testName     | stepName               | averageElapsedSeconds | medianElapsedSeconds | p10ElapsedSeconds | p90ElapsedSeconds | minElapsedSeconds | maxElapsedSeconds | count |
 |------------|--------------|------------------------|-----------------------|----------------------|-------------------|-------------------|-------------------|-------------------|-------|
 | 2017-11-14 | crawler      | pulumi-preview-initial | 44.64876842           | 52.58470917          | 35.87321091       | 54.26349258       | 35.87321091       | 54.26349258       | 4     |
-| 2017-11-14 | containers   | pulumi-preview-initial | 46.20082951           | 51.51049423          | 36.7494812        | 52.2133522        | 36.7494812        | 52.2133522        | 4     |
-| 2017-11-14 | countdown    | pulumi-update-initial  | 53.98117447           | 55.47883224          | 47.28860474       | 59.07168198       | 47.28860474       | 59.07168198       | 4     |
-| 2017-11-14 | timers       | pulumi-update-initial  | 75.60348129           | 78.62023163          | 70.83625031       | 80.89278412       | 70.83625031       | 80.89278412       | 4     |
-| 2017-11-14 | todo         | pulumi-update-initial  | 97.99446487           | 104.2246475          | 81.93669891       | 121.76297         | 81.93669891       | 121.76297         | 4     |
 
 ## Dashboards
 
