@@ -1,7 +1,7 @@
 We are now archiving integration test timing and metadata for the following repos/tests:
-* pulumi/pulumi: `minimal`
-* pulumi/pulumi-cloud: `todo`, `crawler`, `countdown`, `containers`, `timers`, `httpEndpoint`
-* pulumi/pulumi-home: `learningmachine-cts`
+* [pulumi/pulumi](https://github.com/pulumi/pulumi): `minimal`
+* [pulumi/pulumi-cloud](https://github.com/pulumi/pulumi-cloud): `todo`, `crawler`, `countdown`, `containers`, `timers`, `httpEndpoint`
+* [pulumi/home](https://github.com/pulumi/home): `learningmachine-cts`
 
 Raw results are in the S3 bucket at https://s3.console.aws.amazon.com/s3/buckets/eng.pulumi.com/testreports/.
 
