@@ -1,17 +1,9 @@
 We are now archiving integration test timing and metadata for the following repos/tests:
 * pulumi/pulumi: `minimal`
-* pulumi/pulumi-cloud: All (`todo`, `crawler`, `countdown`, `containers`, `timers`, `httpEndpoint`)
+* pulumi/pulumi-cloud: `todo`, `crawler`, `countdown`, `containers`, `timers`, `httpEndpoint`
 * pulumi/pulumi-home: `learningmachine-cts`
 
 Raw results are in the S3 bucket at https://s3.console.aws.amazon.com/s3/buckets/eng.pulumi.com/testreports/.
-
-Additional integration tests can report data into the same system using code like the following:
-
-```golang
-example := ex.With(integration.ProgramTestOptions{
-    ReportStats: integration.NewS3Reporter("us-west-2", "eng.pulumi.com", "testreports"),
-})
-```
 
 ## Reports
 
@@ -36,3 +28,13 @@ Example of data from these report:
 ## Dashboards
 
 We do not yet have any dashboards set up to track this data over time.  Results can be downloaded from Athena and visualized manually in Excel/Sheets.  We expect to hook up PowerBI/Tableau/QuickSight or similar to this (and other) data in the future.  For now, please add links to any useful worksheets or reports here.
+
+## Reporting for additional tests
+
+Additional integration tests can report data into the same system using code like the following:
+
+```golang
+example := ex.With(integration.ProgramTestOptions{
+    ReportStats: integration.NewS3Reporter("us-west-2", "eng.pulumi.com", "testreports"),
+})
+```
