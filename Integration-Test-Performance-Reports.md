@@ -7,7 +7,7 @@ Raw results are in the S3 bucket at https://s3.console.aws.amazon.com/s3/buckets
 
 ## Reports
 
-We have an AWS Athena table and a few saved queries set up to provide reports over this data.  Two useful queries:
+We have an AWS Athena table and a few saved queries set up to provide reports over this data.  A few useful queries:
 
 * [TestTimingsAllTime](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/ac1de368-a1c2-45d7-8d13-34f98db96c8c): Shows timing statistics  of each test phase across all tracked tests over all time.  
 
@@ -17,13 +17,14 @@ We have an AWS Athena table and a few saved queries set up to provide reports ov
 
 * [TestTimingsByDayTravis-LM](https://us-west-2.console.aws.amazon.com/athena/home?force&force=&region=us-west-2#query/saved/38ff9b27-5d74-492e-a9df-de33e3824180): Shows timing statistics of each test phase across the Learning Machine test scenario, filtering to only runs done by Travis - broken down by day.
 
-
-
 Example of data from these report:
 
 | date       | testName     | stepName               | averageElapsedSeconds | medianElapsedSeconds | p10ElapsedSeconds | p90ElapsedSeconds | minElapsedSeconds | maxElapsedSeconds | count |
 |------------|--------------|------------------------|-----------------------|----------------------|-------------------|-------------------|-------------------|-------------------|-------|
 | 2017-11-14 | crawler      | pulumi-preview-initial | 44.64876842           | 52.58470917          | 35.87321091       | 54.26349258       | 35.87321091       | 54.26349258       | 4     |
+
+A few notes on the data that can be useful for queries:
+* 
 
 ## Dashboards
 
