@@ -6,6 +6,14 @@ In a Pulumi program, the code to provision infrastructure runs in a separate "ph
 
 TODO
 
+#### Stack
+
+TODO
+
+#### Component
+
+TODO
+
 #### CLI deployment
 
 The process of running `pulumi update` on the command line, as opposed to the managed model of a Pulumi Private Cloud Instance.
