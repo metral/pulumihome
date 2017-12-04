@@ -11,9 +11,9 @@ Please take a look around and please make it better as you see fit.
 ### Operations
 
 * [Our AWS Accounts](https://docs.google.com/document/d/1Do4YHOQSM6yxnXVef0dcsZ_8sqpOLm4w6Tri0KfzUFM)
-* [Live Site Investigations](TODO)
-* [Deploying](TODO)
-* [Reading List](TODO)
+* [Live Site Investigations](Ops Live Site Investigations)
+* [Deploying Updates](Ops Deploying Updates)
+* [Reading List](Ops Reading List)
 
 ### Daily Development
 
