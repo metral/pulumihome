@@ -8,6 +8,12 @@ Please take a look around and please make it better as you see fit.
 
 ## Engineering
 
+### Operations
+
+* [Debugging Failures](TODO)
+* [Deploying](TODO)
+* [Reading List](TODO)
+
 ### Daily Development
 
 * [Pulumi Design Notes (PDNs)](https://drive.google.com/drive/folders/0B0siYR6Ttr5LVk85eU9NYmI1UW8)
