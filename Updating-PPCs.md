@@ -19,6 +19,9 @@ pulumi config set --save --stack=testing-moolumi-ppc-default key value
 Updating the PPC requires some undocumented and poorly explained environment variables. We'll make these the default after the M9 bits shake out.
 
 ```
+# Download the latest PPC package. (You need to do this before changing the AWS creds.)
+./scripts/ppc/sync-ppc-package.sh
+
 # Set your current AWS keys to be one from the testing account.
 export AWS_ACCESS_KEY_ID="AKIAJ2OH7AXVDPKFM4UA"
 export AWS_SECRET_ACCESS_KEY="..."
