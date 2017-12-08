@@ -29,6 +29,7 @@ export AWS_SECRET_ACCESS_KEY="..."
 # Update PPC  "testing-moolumi-ppc-default"
 # PPC name has two parts "testing-moolumi" and PPC suffix "default"
 export PULUMI_STACK_NAME_OVERRIDE="testing-moolumi"
+export PULUMI_CONFIG_PASSPHRASE="<in shared passwords doc on Google Drive>"
 export PULUMI_USE_POPS_S3_BUCKET="true"
 ./scripts/ppc/update-ppc.sh default
 ```
