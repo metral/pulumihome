@@ -21,7 +21,7 @@ The script clones `pulumi-cloud` at the specific commit, then use the `Gopkg.loc
 
 ## Building an SDK manually
 
-You should never need to do this, since we always queue builds automatically for each pulumi-cloud build. If the SDK builds fail, you can just have Travis or AppVeyor rebuild. You could also run `./scripts/queue-sdk-build.sh` manually from `pulumi-cloud` (you'll need your Travis API Key and AppVeyor API Key to do so).
+You should never need to do this, since we always queue builds automatically for each pulumi-cloud build. If the SDK builds fail, you can just have Travis or AppVeyor rebuild. You could also run `./scripts/queue-sdk-build.sh` manually from `pulumi-cloud` (you'll need your Travis API Key (you can get this from the Travis UI or by running `travis token --pro` locally if you've installed the travis CLI) and [AppVeyor API Key](https://ci.appveyor.com/api-token) to do so).
 
 If you find yourself having to produce SDKs manually, we should figure out why that is and add automation so you don't have to.
 
