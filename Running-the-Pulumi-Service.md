@@ -45,6 +45,14 @@ When Travis (https://travis-ci.com) starts an automated build, it runs a Makefil
 
 This is done in the `scripts/set-travis-env.sh` script, which is called when Travis is fist starting. (See `before_install` in `.travis.yml`.) That script changes the values of the environment variables needed to update the Pulumi Stack, based on the branch being deployed into.
 
+### Updating Staging and Production
+
+We deploy to `staging` and `production` environments directly from the `staging` and `production` branches.
+
+To update `staging`, ensure that `master` is green, then create a PR between `master` and `staging`.  Once that PR is green and approved, make sure that you merge with the "create a merge commit" option.
+
+Similarly, to update `production`, ensure that `staging` is green, then create a PR between `staging` and `production`.  Once that PR is green and approved, make sure that you merge with the "create a merge commit" option.
+
 ### Pulumi CLI Integration
 
 We don't use stack `pulumi update` for managing the Pulumi Service stacks, we go out of our way to ensure that two different people can update a production environment without any problems. So we do two things to ensure this:
