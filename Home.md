@@ -13,7 +13,7 @@ Please take a look around and please make it better as you see fit.
 * [Our AWS Accounts](https://docs.google.com/document/d/1Do4YHOQSM6yxnXVef0dcsZ_8sqpOLm4w6Tri0KfzUFM)
 * [Live Site Investigations](Ops-Live-Site-Investigations)
     * [Updating PPCs](Updating-PPCs)
-* [Deploying Updates](Ops-Deploying-Updates)
+* [Deploying Updates](Deploying-Updates)
 * [Reading List](Ops-Reading-List)
 
 ### Daily Development
