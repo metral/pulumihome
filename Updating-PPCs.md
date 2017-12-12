@@ -71,14 +71,16 @@ pulumi config set --save --stack=testing-moolumi-ppc-default key value
 # Download the latest PPC package. (You need to do this before changing the AWS creds.)
 ./scripts/ppc/sync-ppc-package.sh
 
-# Set your current AWS keys to be one from the testing account.
+# Set your current AWS keys to those from the account that owns the PPC.
 export AWS_ACCESS_KEY_ID="AKIAJ2OH7AXVDPKFM4UA"
 export AWS_SECRET_ACCESS_KEY="..."
 
-# Update PPC  "testing-moolumi-ppc-default"
+# Update PPC "testing-moolumi-ppc-default"
 # PPC name has two parts "testing-moolumi" and PPC suffix "default"
 export PULUMI_STACK_NAME_OVERRIDE="testing-moolumi"
 export PULUMI_CONFIG_PASSPHRASE="<in shared passwords doc on Google Drive>"
 export PULUMI_USE_POPS_S3_BUCKET="true"
 ./scripts/ppc/update-ppc.sh default
 ```
+
+Note that there is a spreadsheet with PPC account info at https://docs.google.com/spreadsheets/d/1ASpyMHUvC1rCN_6cRP6tq1D3378YzSC0PlHzvv_G42I, and the shared passwords doc is at https://docs.google.com/document/d/1qetreL_sCvRVHAQildw-z3AkXFvg1AKowsxKm2G2h4M.
