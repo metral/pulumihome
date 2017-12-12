@@ -12,6 +12,7 @@ Please take a look around and please make it better as you see fit.
 
 * [Our AWS Accounts](https://docs.google.com/document/d/1Do4YHOQSM6yxnXVef0dcsZ_8sqpOLm4w6Tri0KfzUFM)
 * Deployments
+    * [Building the SDK](https://github.com/pulumi/home/wiki/Producing-an-SDK)
     * [Updating the Service](Updating-the-Service) 
     * [Updating PPCs](Updating-PPCs)
 * [Live Site Investigations](Ops-Live-Site-Investigations)
@@ -26,7 +27,3 @@ Please take a look around and please make it better as you see fit.
     - [On Windows](https://github.com/pulumi/home/blob/master/docs/setting-up-windows-environment.md)
 * [Running the Pulumi Service](https://github.com/pulumi/home/wiki/Running-the-Pulumi-Service)
 * [Integration Test Performance](https://github.com/pulumi/home/wiki/Integration-Test-Performance-Reports)
-
-### From Time to Time...
-
-* [Building an SDK Release](https://github.com/pulumi/home/wiki/Producing-an-SDK)
