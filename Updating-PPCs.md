@@ -58,7 +58,7 @@ Hopefully the PPC Pulumi program updated successfully. When finished, be sure to
 
 Updating the PPC requires some undocumented and poorly explained environment variables. We'll make these the default after the M9 bits shake out.
 
-```
+```bash
 # Change config for stack "testing-moolumi-ppc-default"
 
 # Step 1: Download the latest PPC package. (You need to do this before changing the AWS creds.)
