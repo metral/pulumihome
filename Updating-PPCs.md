@@ -60,23 +60,16 @@ Updating the PPC requires some undocumented and poorly explained environment var
 
 ```
 # Change config for stack "testing-moolumi-ppc-default"
-# BUG? Note that the stack might not exist locally. You might need to run `update-ppc.sh` to download the
-# checkpoint file so your local Pulumi doesn't get confused.
-cd scripts/ppc
-pulumi config set --save --stack=testing-moolumi-ppc-default key value
-```
 
-
-```
-# Download the latest PPC package. (You need to do this before changing the AWS creds.)
+# Step 1: Download the latest PPC package. (You need to do this before changing the AWS creds.)
 ./scripts/ppc/sync-ppc-package.sh
 
-# Set your current AWS keys to those from the account that owns the PPC.
+# Step 2: Set your current AWS keys to those from the account that owns the PPC.
 export AWS_ACCESS_KEY_ID="AKIAJ2OH7AXVDPKFM4UA"
 export AWS_SECRET_ACCESS_KEY="..."
 
-# Update PPC "testing-moolumi-ppc-default"
-# PPC name has two parts "testing-moolumi" and PPC suffix "default"
+# Step 3: Update PPC "testing-moolumi-ppc-default".
+#         Notice that the PPC name has two parts "testing-moolumi" and PPC suffix "default":
 export PULUMI_STACK_NAME_OVERRIDE="testing-moolumi"
 export PULUMI_CONFIG_PASSPHRASE="<in shared passwords doc on Google Drive>"
 export PULUMI_USE_POPS_S3_BUCKET="true"
