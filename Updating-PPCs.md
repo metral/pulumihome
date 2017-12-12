@@ -62,7 +62,7 @@ Updating the PPC requires some undocumented and poorly explained environment var
 # Change config for stack "testing-moolumi-ppc-default"
 # BUG? Note that the stack might not exist locally. You might need to run `update-ppc.sh` to download the
 # checkpoint file so your local Pulumi doesn't get confused.
-cd scripts-ppc
+cd scripts/ppc
 pulumi config set --save --stack=testing-moolumi-ppc-default key value
 ```
 
