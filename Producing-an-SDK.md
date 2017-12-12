@@ -29,7 +29,7 @@ If you find yourself having to produce SDKs manually, we should figure out why t
 Once you've made a new release, you'll probably want to update [docs.pulumi.com](https://docs.pulumi.com/) to have the new build. That's easy as well:
 
 1. In your `pulumi/docs` repository, navigate to the `releases` folder. Make sure you have [git lfs](https://git-lfs.github.com/) installed, since we managed the binaries with git lfs.
-2. Download the 3 SDK's you published to S3 (`scripts/download-sdks.sh` automates this using `aws s3 cp`).
-3. Update `install/index.md` to have the new version number and links
-4. Commit (when you commit git lfs will upload the binaries)
-5. Push, then follow the directions in https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md for information on how to regenerate the docs website.
+2. Download the 3 SDK's you published to S3. Run `scripts/download-sdks.sh <version>`, with version being something like "v0.9.1". This downloads and puts the files into the `/releases` folder via `aws s3 cp`.
+3. Update `install/index.md` to have the new version number. Set the `currentVersion` in the JavaScript section, and the links will be updated automatically.
+4. Commit (when you commit git lfs will upload the binaries) and then Push. (If you create a GitHub PR, be sure to merge that into `master` before proceeding to the next step.)
+5. Follow the directions in https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md for information on how to regenerate the docs website.
