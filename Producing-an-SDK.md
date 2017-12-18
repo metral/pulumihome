@@ -26,10 +26,8 @@ You should never need to do this, since we always queue builds automatically for
 If you find yourself having to produce SDKs manually, we should figure out why that is and add automation so you don't have to.
 
 ## Updating the docs website
-Once you've made a new release, you'll probably want to update [docs.pulumi.com](https://docs.pulumi.com/) to have the new build. That's easy as well:
+Once you've made a new release and we've validate it, you'll probably want to update the [install page on docs.pulumi.com](https://docs.pulumi.com/install/). The /releases/ endpoint on `docs.pulumi.com` will proxy any requests for published SDKs without a prerelease tag to the S3, so you do not need to worry about uploading binaries anywhere.  However, you'll want to update the "latest" version.
 
-1. In your `pulumi/docs` repository, navigate to the `releases` folder. Make sure you have [git lfs](https://git-lfs.github.com/) installed, since we managed the binaries with git lfs.
-2. Download the 3 SDK's you published to S3. Run `scripts/download-sdks.sh <version>`, with version being something like "v0.9.1". This downloads and puts the files into the `/releases` folder via `aws s3 cp`.
-3. Update `install/index.md` to have the new version number. Set the `currentVersion` in the JavaScript section, and the links will be updated automatically.
-4. Commit (when you commit git lfs will upload the binaries) and then Push. (If you create a GitHub PR, be sure to merge that into `master` before proceeding to the next step.)
-5. Follow the directions in https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md for information on how to regenerate the docs website.
+1. In your `pulumi/docs` repository, update `install/index.md` to have the new version number. Set the `currentVersion` in the JavaScript section, and the links will be updated automatically.
+2. Commit and then Push. (If you create a GitHub PR, be sure to merge that into `master` before proceeding to the next step.)
+3. Follow the directions in https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md for information on how to regenerate the docs website.
