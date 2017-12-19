@@ -56,7 +56,9 @@ Hopefully the PPC Pulumi program updated successfully. When finished, be sure to
 
 ## Updating
 
-Updating the PPC requires some undocumented and poorly explained environment variables. We'll make these the default after the M9 bits shake out.
+Updating a PPC is currently a manual process.  We are actively building tooling to automate more and more over time.
+
+First, be careful that you are using the correct version of the CLI.  If you aren't, you may end up compiling and deploying the program using an incorrect version of the CLI, which may cause unexpected failures.
 
 ```bash
 # Change config for stack "testing-moolumi-ppc-default"
