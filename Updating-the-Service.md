@@ -12,11 +12,11 @@ To perform a deployment, create a PR on GitHub targeting the environment you wis
 
 All changes eventually get merged into `master`.  This triggers an update of the test environment.
 
-**To promote a change to staging**, after it has been verified in the testing environment, create a PR on GitHub where the "base" branch is `staging` and the "compare" branch is `production`.  It should be auto-mergeable:
+**To promote a change to staging**, after it has been verified in the testing environment _(TODO: describe the practical meaning of "verified")_, create a PR on GitHub where the "base" branch is `staging` and the "compare" branch is `production`.  It should be auto-mergeable:
 
 ![image](https://user-images.githubusercontent.com/3953235/33845199-870fb526-de57-11e7-9fc1-25488088b45f.png)
 
-**To promote a change to production**, after it has been verified in the staging environment, create a PR on GitHub where the "base" branch is `production` and the "compare" branch is `staging`.  It should be auto-mergeable:
+**To promote a change to production**, after it has been verified in the staging environment _(TODO: describe the practical meaning of "verified")_, create a PR on GitHub where the "base" branch is `production` and the "compare" branch is `staging`.  It should be auto-mergeable:
 
 ![image](https://user-images.githubusercontent.com/3953235/33845119-3bd6ae5c-de57-11e7-8767-655672a544a8.png)
 
