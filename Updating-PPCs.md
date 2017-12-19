@@ -60,6 +60,8 @@ Updating a PPC is currently a manual process.  We are actively building tooling 
 
 First, be careful that you are using the correct version of the CLI.  If you aren't, you may end up compiling and deploying the program using an incorrect version of the CLI, which may cause unexpected failures.
 
+Now that you've done that, here are the steps to run, in order:
+
 ```bash
 # Change config for stack "testing-moolumi-ppc-default"
 
