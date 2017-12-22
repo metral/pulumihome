@@ -41,7 +41,7 @@ Deploying a new SDK to `pulumi/pulumi-ppc` or `pulumi/pulumi-service` generally 
 
 But this is not entirely sufficient, because these repos *also* have source dependencies on the `pulumi/pulumi` repo, which is also the foundation of the SDK.  (This is to share API types and various logic.)  So, we need to use `dep` here too.
 
-The process is not terribly dissimilar to the earlier.  These repos also use a `[[constraint]]` for branch `master`, so the latest is easy to consume.  For instance, to get the latest `pulumi/pulumi` into `pulumi/pulumi-ppc`:
+The process is not terribly dissimilar to the one explained above for the SDK's inter-dependencies.  These repos also use a `[[constraint]]` for branch `master`, so the latest is easy to consume.  For instance, to get the latest `pulumi/pulumi` into `pulumi/pulumi-ppc`:
 
 ```bash
 pulumi-ppc/$ pulumi ensure -update github.com/pulumi/pulumi
@@ -53,4 +53,4 @@ This will pick up the latest, and the same syntax as above can be used to consum
 pulumi-ppc/$ pulumi ensure -update github.com/pulumi/pulumi@v0.9.7
 ```
 
-**There is one major subtlety here to be aware of**.  There are now two versions on "SDK code" here: the actual released SDK bits, used dynamically, and the `pulumi/pulumi` statically linked dependency.  These must be compatible!  Because of our approach to versioning, it is generally safe for the statically linked dependencies to "race ahead" of the SDK.  This can happen sometimes if features in lower layers need to be consumed to enable the service repos to advance ahead of the SDK.  For instance, perhaps a new API has been added, and the shared definitions need to be consumed by the service repos before the new SDK can be released and used against the service.  This is entirely fine and must be staged accordingly.
+**There is one major subtlety here to be aware of**.  There are now two versions on "SDK code" here: the actual released SDK bits, used dynamically, and the `pulumi/pulumi` statically linked dependency.  These must be compatible!  Because of our approach to versioning, it is generally safe for the statically linked dependencies to "race ahead" of the SDK.  This can happen sometimes if features in lower layers need to be consumed to enable the service repos to advance ahead of the SDK.  For instance, perhaps a new API has been added, and the shared definitions need to be consumed by the service repos before the new SDK can be released and used against the service.  This is fine but must be staged accordingly.
