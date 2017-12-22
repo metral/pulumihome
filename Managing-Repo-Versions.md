@@ -33,6 +33,8 @@ As we build official releases, however, the process is a little different.  This
 pulumi-aws/$ pulumi ensure -update github.com/pulumi/pulumi@v0.9.7
 ```
 
+The updated lockfile must be committed and tagged accordingly so that upstream dependents can consume the result.
+
 ## Updating Service Dependencies
 
 Deploying a new SDK to `pulumi/pulumi-ppc` or `pulumi/pulumi-service` generally entails simply updating the installation scripts to refer to the newly released SDK version.
