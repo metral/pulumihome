@@ -22,7 +22,7 @@ The SDK repos depend on each other using a `[[constraint]]` that specifies the `
 This means, for example, that if you want to pick up the latest `pulumi/pulumi` from `pulumi/pulumi-aws`, you simply run
 
 ```bash
-pulumi-aws/$ pulumi ensure -update github.com/pulumi/pulumi
+pulumi-aws/$ dep ensure -update github.com/pulumi/pulumi
 ```
 
 This will update your `Gopkg.lock` file's entry for the `pulumi/pulumi` repo to the latest commit in `master`.  This is the standard development workflow in between releases, where you only care about getting "the latest."
