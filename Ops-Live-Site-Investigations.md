@@ -1,3 +1,13 @@
+## Looking at Pulumi Service Logs
+
+To look at the logs of the Pulumi Service, first log into the AWS console and switch to the _production_ account (account ID `0586-0759-8222`). Then, switch to region `us-west-2` and open up the CloudWatch console.
+
+From there click "Dashboards" and then "production". That is the production dashboard as created in `pulumi-service/infrastructure/dashboard`. The top of the dashboard will contain a link to the correct CloudWatch logs group. Something like "production--fe8e2a2".
+
+There are many different _CloudWatch Log Streams_ being sent to that log group. One for each instance of the service and frontend, of which there are multiple tasks.
+
+The "pulumi-web" logs are for the console frontend, and are unlikely to contain anything interesting. The logs you are interested in are "pulumi-service" log streams, which correspond to the API service.
+
 ## Getting Site Administrator Access
 
 The Pulumi Service has a way to grant a user access to view resources they normally wouldn't be authorized to. The `Users` table has a `site_access` field, which when non-zero, implies a special set of site access privileges.
