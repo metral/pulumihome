@@ -10,7 +10,7 @@ The "pulumi-web" logs are for the console frontend, and are unlikely to contain 
 
 ## Looking at PPC Logs
 
-**TODO: Document using `pulumi-service/blob/master/scripts/ppc/logs-ppc.sh` as that is much easier.
+**TODO**: Document using `pulumi-service/blob/master/scripts/ppc/logs-ppc.sh` as that is much easier.
 
 To look at the logs for a PPC, log into the AWS console and then switch to the AWS account the PPC is housed in. (Refer to the [spreadsheet of doom](https://docs.google.com/spreadsheets/d/1ASpyMHUvC1rCN_6cRP6tq1D3378YzSC0PlHzvv_G42I/edit?ts=5a1c642f#gid=0). Then be sure to switch to the region the PPC service is running in. e.g. `us-east-1`. From there, head to the CloudWatch console.
 
