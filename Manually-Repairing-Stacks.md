@@ -44,7 +44,7 @@ $ aws --profile the-ppc-profile s3 cp s3://learningmachine-ppc-malta-bucket97748
 $ aws --profile the-ppc-profile s3 cp ~/temp/36d6ec7ae9e24adadda405df5b560e150fd8d4298797acf17c02052727667c5f s3://learningmachine-ppc-malta-bucket97748f67/checkpoints/64bf3496-9c01-4eb2-999d-0d31ceace5ef/36d6ec7ae9e24adadda405df5b560e150fd8d4298797acf17c02052727667c5f
 ```
 
-See [pulumi/pulumi-ppc#43](https://github.com/pulumi/pulumi-ppc/issues/43) for a work item tracking adding tools to make this easier.
+:construction: See [pulumi/pulumi-ppc#43](https://github.com/pulumi/pulumi-ppc/issues/43) for a work item tracking adding tools to make this easier.
 
 # PPC Update Failed Partway Through
 
