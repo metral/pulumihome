@@ -38,6 +38,18 @@ The exact mechanics of source integration and testing done are described below, 
 
 ## Code Promotion Process
 
+The Pulumi Service updating process is (ab)uses Travis. Every update or test step is performed as part of a Travis job. Because of this, it is important to know when and how Travis jobs are triggered.
+
+There are four times of Travis jobs: `push`, `pull_request`, `cron`, and `api`.
+
+A `pull_request` job is created whenever a GitHub pull request is created or source branch is pushed to. We use `pull_request` jobs where the source branch is { _rando feature branch_, `master`, or `staging` } to perform testing of changes before we merge them into { `master`, `staging`, or `production` }. Note that the service environment will _not_ be updated as part of this Travis job; we just test the changes.
+
+A `push` job is created whenever a Git branch is updated. This is where we update the Pulumi Service environment to reflect what has been checked in. For example, whenever code gets merged into the `master` branch, the corresponding Travis `push` job runs `pulumi update` on the service in the testing environment and its corresponding PPC(s).
+
+One important thing that falls out of this, is that in order to "roll back" a change you would need to trigger a new `push` job. (e.g. something like `git checkout HEAD^1 --hard && git push origin master --force`.) However, that might not work. If the Pulumi SDK used to deploy the service was updated as part of the commit, rolling back to an older Pulumi SDK might have consequences.
+
+An `api` job is one which is triggered using the Travis API or CLI. We use Travis `api` jobs to perform specialized operations or long-running tests. For example, to update customer PPCs we may trigger a new `api` job to run a different set of Makefile targets than typical `push` jobs run.
+
 ### Testing to Staging
 
 Every night at 2AM, the service repo attempts to promote the `master` (_testing_ environment) branch to `staging` (_staging_ environment). This is done by creating a GitHub pull request, which is done automatically via tool.
