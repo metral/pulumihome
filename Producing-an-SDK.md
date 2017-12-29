@@ -9,7 +9,9 @@ Our SDK is comprised of these repos, in order of dependencies:
 * [`pulumi/pulumi-aws`](https://github.com/pulumi/pulumi-aws): the AWS provider package
 * [`pulumi/pulumi-cloud`](https://github.com/pulumi/pulumi-cloud): the Pulumi Cloud Framework packages
 
-In general, we build and tag each one using semvers.  The process of updating versions is [outlined here](https://github.com/pulumi/home/wiki/Managing-Repo-Versions), however suffice it to say, it is manual and labor intensive at the moment.  :construction: We are actively working on automation to make this more...automated.
+In general, we build and tag each one using semvers.  The process of updating versions is [outlined here](https://github.com/pulumi/home/wiki/Managing-Repo-Versions), however suffice it to say, it is manual and labor intensive at the moment.
+
+:construction: *We are actively working on automation to make this more...automated.*
 
 As we tag versions, our CI jobs will publish builds (per the below).  As soon as all of the above SDK repos are built, a job in [`pulumi/sdk`](https://github.com/pulumi/sdk) will run to produce the final package.
 
