@@ -2,6 +2,21 @@
 
 ## Overview
 
+Our SDK is comprised of these repos, in order of dependencies:
+
+* [`pulumi/pulumi`](https://github.com/pulumi/pulumi): the core engine
+* [`pulumi/pulumi-terraform`](https://github.com/pulumi/pulumi-terraform): the Terraform bridge for our resource providers
+* [`pulumi/pulumi-aws`](https://github.com/pulumi/pulumi-aws): the AWS provider package
+* [`pulumi/pulumi-cloud`](https://github.com/pulumi/pulumi-cloud): the Pulumi Cloud Framework packages
+
+In general, we build and tag each one using semvers.  The process of updating versions is [outlined here](https://github.com/pulumi/home/wiki/Managing-Repo-Versions), however suffice it to say, it is manual and labor intensive at the moment.  :construction: We are actively working on automation to make this more...automated.
+
+As we tag versions, our CI jobs will publish builds (per the below).  As soon as all of the above SDK repos are built, a job in [`pulumi/sdk`](https://github.com/pulumi/sdk) will run to produce the final package.
+
+After doing this, you will need to update the consuming services, like [`pulumi/pulumi-ppc`](https://github.com/pulumi/pulumi-ppc) and [`pulumi/pulumi-service`](https://github.com/pulumi/pulumi-service), to consume the new SDK.
+
+## Publishing Builds
+
 When Travis or AppVeyor build any branch (or tag) successfully, they run our publishing scripts to upload binaries to [s3://eng.pulumi.com/releases](https://s3.console.aws.amazon.com/s3/buckets/eng.pulumi.com/releases/?region=us-east-1#).
 
 We publish each build under three different names:
