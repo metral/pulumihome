@@ -23,8 +23,7 @@ Example of data from these report:
 |------------|--------------|------------------------|-----------------------|----------------------|-------------------|-------------------|-------------------|-------------------|-------|
 | 2017-11-14 | crawler      | pulumi-preview-initial | 44.64876842           | 52.58470917          | 35.87321091       | 54.26349258       | 35.87321091       | 54.26349258       | 4     |
 
-A few notes on the data that can be useful for queries:
-* 
+An example summary of results for the `learningmachine-cts` stack from 11/14/2017-1/3/2018 is compiled at https://docs.google.com/document/d/1XXEeYWX8RlHKHILcsGVoEKk2DCZPiIMjIxPqW3ZhwzI.
 
 ## Dashboards
 
