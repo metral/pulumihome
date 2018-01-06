@@ -45,6 +45,6 @@ If you find yourself having to produce SDKs manually, we should figure out why t
 ## Updating the docs website
 Once you've made a new release and we've validate it, you'll probably want to update the [install page on docs.pulumi.com](https://docs.pulumi.com/install/). The /releases/ endpoint on `docs.pulumi.com` will proxy any requests for published SDKs without a prerelease tag to the S3, so you do not need to worry about uploading binaries anywhere.  However, you'll want to update the "latest" version.
 
-1. In your `pulumi/docs` repository, update `install/index.md` to have the new version number. Set the `currentVersion` in the JavaScript section, and the links will be updated automatically.
+1. In your `pulumi/docs` repository, update [`install/index.md`](https://github.com/pulumi/docs/blob/master/install/index.md). Update the variable `installer_version` in the YAML [front matter](https://jekyllrb.com/docs/frontmatter/). Verify that the links are correct when you generate the site locally.
 2. Commit and then Push. (If you create a GitHub PR, be sure to merge that into `master` before proceeding to the next step.)
 3. Follow the directions in https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md for information on how to regenerate the docs website.
