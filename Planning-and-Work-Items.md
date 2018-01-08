@@ -1,0 +1,13 @@
+We have some "ground rules" for planning and work item management.
+
+**All work must be tracked by work items, no matter how small.**  This helps with scheduling and release notes, which we are trying to semi-automate.
+
+**All work items must have an assigned owner.**  At this stage, you should know who is the natural choice for any piece of work.  Assign it to them when creating the work item.  Assign it to them if you see one without an owner.  The assignment can change, of course, when scheduled, but the owner of the area is the de facto shepherd for the area and associated work.
+
+**Any new work item must be tagged appropriately.**  See Donna’s M9 release notes.
+
+**Any completed work item must be tagged in the current milestone.**  Sometimes we reach forward and pull in work items earlier than expected for various reasons.  Ideally, we would schedule that work item when realizing it will get done sooner.  In the worst case, however, the work item should be placed into the current milestone when closing it.  This ensures that we don’t miss something when generating our release notes.
+
+**No person can be “overbooked” for a milestone.**  At the start of each sprint, count the number of business days (15 for a 3-week sprint), then add up your work items with their estimated days.  If that number exceeds the available time in the sprint, you are overbooked.  We must never overbook anybody.  We have been quite bad here and usually scramble to punt work items every sprint.  I’ve been letting it slide more than makes me comfortable -- and to be honest, GitHub doesn’t make this easy to manage! -- but for us to credibly know what it takes to ship our product with the required features and bug fixes, we will need to be disciplined here.  Thankfully, given the team’s background, you all know exactly what I mean.
+
+**No work item can be <1d or >5 for purposes of planning.**  Anybody who has worked with me or Eric knows this rule.  On the average, very few work items take less than 1 day to finish, especially if the work is of high quality with good tests (which it must be), and especially given our multi-repo and service-oriented world.  And any work item that is more than 5 days screams one of two things: either “I don’t actually know what this work entails” or “multiple things got glommed into a single work item,” both of which can be remedied by splitting the work into multiple, smaller work items.
