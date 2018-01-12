@@ -56,7 +56,7 @@ Hopefully the PPC Pulumi program updated successfully. When finished, be sure to
 
 ## Updating
 
-Updating a PPC is currently a manual process.  We are actively building tooling to automate more and more over time.
+The following details how to update a PPC by hand. This is what you'll need when maintaining a "dev stack" PPCs. For updating PPCs that are associated with an instance of the Pulumi Service (e.g. one we use for a production environment and/or customer PPC, see the "Updating Service PPCs" section below.)
 
 First, be careful that you are using the correct version of the CLI.  If you aren't, you may end up compiling and deploying the program using an incorrect version of the CLI, which may cause unexpected failures.
 
@@ -81,3 +81,47 @@ export PULUMI_USE_POPS_S3_BUCKET="true"
 ```
 
 Note that there is a spreadsheet with PPC account info at https://docs.google.com/spreadsheets/d/1ASpyMHUvC1rCN_6cRP6tq1D3378YzSC0PlHzvv_G42I, and the shared passwords doc is at https://docs.google.com/document/d/1qetreL_sCvRVHAQildw-z3AkXFvg1AKowsxKm2G2h4M.
+
+## Updating Service PPCs
+
+Updating PPCs associated with a service instance follows the same steps as listed above, however there is more automation around updating PPCs in-bulk.
+
+There are current (as of 1/18) two "types" of PPCs: those that are updated with the service instance, and those in a "customer-production" bucket.
+
+### Service-dependent PPCs
+
+Each service environment has a PPC we use for testing attached to the `Moolumi` organization. This is updated along with the Pulumi service for each environment. The production service environment also has a PPC attached to the `Pulumi` organization too, which is also updated along with the service.
+
+These PPCs will automatically be updated whenever a commit is made to the `master`, `staging`, or `production` branches. Specifically, the operations are:
+
+1. `Make deploy`
+1. `scripts/update-environment.sh`
+1. `scripts/update-ppcs.sh`
+
+### Customer-Production PPCs
+
+PPCs that our customers use however are _not_ updated automatically with the service, and instead require some additional manual steps. This is to allow for more testing, as well as better coordinating with our customers to avoid disruption.
+
+The current steps for updating these Customer-Production PPCs is as follows. (Assuming things like the `Gopkg.lock` version of the `pulumi-ppc` dependency is correct, and the currently installed Pulumi SDK matches what we want, etc.)
+
+1. Coordinate with the customer to identify when the PPCs can safely be updated. Currently the PPCs will be unavailable during the update, and so we need to ensure any in-progress updates are finished and no updates will be started, otherwise their stacks might become corrupted!
+2. Manually mark the PPCs as being in "maintenance mode". Marking a PPC as being in "maintenance mode" is a flag in the Pulumi Service that will prevent the PPC from receiving any new update requests, and instead returns "503 Service unavailable". This can only be done by manually running a SQL query against the database (`scripts/launch-mysql-prompt.sh`).
+
+```sql
+# Get the Organization ID for the organization, e.g. "moolumi".
+SELECT name, github_login FROM Organizations WHERE github_login = 'moolumi';
+
+# Mark all of the Organization's Clouds as in maintenance mode (flag 0x1)
+UPDATE Clouds SET flags = 1 WHERE org_id = '< org ID from previous query >';
+```
+
+From this point on, `pulumi` commands against that stack will fail, ideally with "[503] Service Unavailable: The requested Cloud is unavailable due to maintenance".
+
+3. Run `scripts/ops/launch-update-customer-ppcs.job.sh` -- This will spawn a new Travis job that will perform the PPC update. (It requires that you have a valid `TRAVIS_ACCESS_TOKEN` environment variable set.) It will in-turn call `Make travis_api` which will in-turn call `scripts/ops/update-ppcs.sh production_customer`.
+4. The customer PPCs get updated in that Travis job.
+5. When the PPCs are finished being updated, unset the maintenance mode flag:
+
+```sql
+# Clear all of the Organization's Clouds's maintenance mode flags.
+UPDATE Clouds SET flags = 0 WHERE org_id = '< org ID from previous query >';
+```
