@@ -20,7 +20,7 @@ For instance, take that first row:
 
 ![image](https://user-images.githubusercontent.com/3953235/34442712-c530f322-ec78-11e7-9521-d4412b24293d.png)
 
-And then go to the entries table and look for `27a4723a-51d9-4edd-bd43-24ee31f9ea4f`:
+And then go to the updates table and look for `27a4723a-51d9-4edd-bd43-24ee31f9ea4f`:
 
 ![image](https://user-images.githubusercontent.com/3953235/34442735-e36b9270-ec78-11e7-97c4-7078f203e129.png)
 
