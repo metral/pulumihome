@@ -124,9 +124,10 @@ UPDATE Clouds SET flags = 1 WHERE flags = 0 AND org_id IN (
 
 From this point on, `pulumi` commands against that stack will fail, ideally with "[503] Service Unavailable: The requested Cloud is unavailable due to maintenance".
 
-3. Run `scripts/ops/launch-update-customer-ppcs-job.sh` -- This will spawn a new Travis job that will perform the PPC update. (It requires that you have a valid `TRAVIS_ACCESS_TOKEN` environment variable set.) It will in-turn call `Make travis_api` which will in-turn call `scripts/ops/update-ppcs.sh production_customer`.
-4. The customer PPCs get updated in that Travis job.
-5. When the PPCs are finished being updated, unset the maintenance mode flag:
+3. Run `travis endpoint --pro --set-default` to prepare to submit Travis jobs.
+4. Run `scripts/ops/launch-update-customer-ppcs-job.sh` -- This will spawn a new Travis job that will perform the PPC update. (It requires that you have a valid `TRAVIS_ACCESS_TOKEN` environment variable set.) It will in-turn call `Make travis_api` which will in-turn call `scripts/ops/update-ppcs.sh production_customer`.
+5. The customer PPCs get updated in that Travis job.
+6. When the PPCs are finished being updated, unset the maintenance mode flag:
 
 ```sql
 # Clear all of the Organization's Clouds's maintenance mode flags.
