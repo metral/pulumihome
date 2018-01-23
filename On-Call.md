@@ -8,6 +8,8 @@ Our on-call schedule is [here](https://docs.google.com/spreadsheets/d/1J-AWVK1F_
 
 At all times, there is a *primary* on-call person and a *secondary* on-call person to act as a backup.
 
+TODO: talk about the impact this has on your work schedule.
+
 # PagerDuty
 
 We use PagerDuty for escalations.
