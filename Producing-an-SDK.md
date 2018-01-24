@@ -15,7 +15,7 @@ In general, we build and tag each one using semvers.  The process of updating ve
 
 As we tag versions, our CI jobs will publish builds (per the below).  As soon as all of the above SDK repos are built, a job in [`pulumi/sdk`](https://github.com/pulumi/sdk) will run to produce the final package.
 
-After doing this, you will need to update the consuming services, like [`pulumi/pulumi-ppc`](https://github.com/pulumi/pulumi-ppc) and [`pulumi/pulumi-service`](https://github.com/pulumi/pulumi-service), to consume the new SDK.
+After doing this, you will need to update the consuming services, [`pulumi/pulumi-ppc`](https://github.com/pulumi/pulumi-ppc), [`pulumi/pulumi-service`](https://github.com/pulumi/pulumi-service), and [`pulumi/home`](https://github.com/pulumi/home) to consume the new SDK. This will require updates to the version specified in the `.travis.yml` file in addition to normal edits to `Gopkg.toml` followed by `dep ensure update`.
 
 ## Publishing Builds
 
