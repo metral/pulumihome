@@ -9,10 +9,8 @@ If you need to see the output that `pulumi` printed for a given update or previe
    the PPC that the update was in and the the "Pulumi Private Clouds"
    spreedsheet in Google Drive > PulumiAllEmployees > Engineering > Keys And
    Passwords has the endpoint and token.
-3. A build of `ppc` which has the ability to tail log files. If
-   https://github.com/pulumi/pulumi-ppc/pull/213 has been merged, then simply
-   run `make ensure build` in pulumi-ppc. If it hasn't been merged, checkout the
-   TailPPC branch first and then run `make ensure build`
+3. A build of `ppc` which has the ability to tail log files. Building 
+   `pulumi/pulumi-ppc` from HEAD will give you this.
 
 ## Process
 
