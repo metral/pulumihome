@@ -1,6 +1,6 @@
 # Accessing PPC logs for a given update
 
-If you need to see the output that `pulumi` printed for a given update or preview in the cloud (say to understand if a failure is due to a buggy program or there's some underlying Pulumi issue, you can use the `ppc` tool to fetch these, without needing access to the customer's organization.
+If you need to see the output that `pulumi` printed for a given update or preview in the cloud (say to understand if a failure is due to a buggy program or there's some underlying Pulumi issue), you can use the `ppc` tool to fetch these, without needing access to the customer's organization.
 
 ## Things You Need:
 
