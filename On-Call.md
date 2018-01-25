@@ -4,13 +4,17 @@
 
 Our on-call schedule is [here](https://docs.google.com/spreadsheets/d/1J-AWVK1F_VEvIq9K_5PJmHum69jb40DKkUMLeqdI7C8/).
 
-# Primary and Secondary
+# So, You're On Call?
+
+If you're on the schedule, there are some things you'll need to know and do.
+
+## Overview
 
 At all times, there is a *primary* on-call person and a *secondary* on-call person to act as a backup.
 
-TODO: talk about the impact this has on your work schedule.
+Please plan in advance during sprint planning, as if you have on-call duty during your sprint, you will want to budget some time for performing "SRE duties" and proactive improvements to our tools and processes.
 
-# PagerDuty
+## PagerDuty
 
 We use PagerDuty for escalations, and it keeps track of who will get notified. This is not automatically updated as people roll in and out of the rotation, so when you become primary on call, you *MUST* update this. To do so:
 
