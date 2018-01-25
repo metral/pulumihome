@@ -11,4 +11,4 @@ Although DynamoDB is a schemaless key-value store, it has a few attributes that 
 3. DO NOT add new fields with complex (i.e. map/struct) types if the fields of these types are to be set using update expressions. DynamoDB (at least) does not support updating the fields of a nested map attribute if the map 
 attribute itself does not exist (https://forums.aws.amazon.com/thread.jspa?threadID=162907).
 
-In any of the above circumstances, add a new field with the desired type to an existing type in the item.
+In any of the above circumstances, add a new field with the desired type to an existing type in the item. These rules are restated in the [relevant PPC sources](https://github.com/pulumi/pulumi-ppc/blob/master/pkg/state/state.go#L31-L40) for easy access
