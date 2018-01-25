@@ -10,7 +10,7 @@ If you're on the schedule, there are some things you'll need to know and do.
 
 ## Overview
 
-At all times, there is a *primary* on-call person and a *secondary* on-call person to act as a backup.
+At all times, there is a *primary* on-call person and a *secondary* on-call person to act as a backup.  If this is your first, please take 10 minutes to [read this](https://landing.google.com/sre/book/chapters/being-on-call.html).
 
 Please plan in advance during sprint planning, as if you have on-call duty during your sprint, you will want to budget some time for performing "SRE duties" and proactive improvements to our tools and processes.
 
