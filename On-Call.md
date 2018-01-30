@@ -6,23 +6,24 @@ Our on-call schedule is [here](https://docs.google.com/spreadsheets/d/1J-AWVK1F_
 
 # Overview
 
-We run a service that customers use and rely on. When the service isn't working right or customers can't use it, we want to know, we want to fix it, and we want to keep that particular problem from happening again.
+We run a service that customers use and rely on.  When the service isn't working right or customers can't use it, we want to know, we want to fix it, and we want to keep that particular problem from happening again.
 
-Pulumi's oncall rotation makes sure there is a clear path of responsibility to respond to issues when they arise. Beyond the calendar, the oncall rotation is also about making sure the people oncall have the resources, authority, and support they need to respond with confidence.
+Pulumi's oncall rotation makes sure there is a clear path of responsibility to respond to issues when they arise.  Beyond the calendar, the oncall rotation is also about making sure the people oncall have the resources, authority, and support they need to respond with confidence.
 
-If this is your first oncall, please take ten minutes to [read this](https://landing.google.com/sre/book/chapters/being-on-call.html).
+For your first oncall experience, you will "shadow" the oncall process for at least one week before becoming secondary.   
+ Before your first shadow meeting, please make sure to [read this](https://landing.google.com/sre/book/chapters/being-on-call.html).   
 
 # Mechanics
 
 At all times, there is a *primary* oncall person and a *secondary* oncall person to act as a backup.
 
-Oncall is handed off on Tuesday mornings to coincide with our production releases. One week's secondary will be the next week's primary, so that they start their primary shift with context on the state of the service.
+Oncall is handed off on Tuesday mornings to coincide with our production releases.  One week's secondary will be the next week's primary, so that they start their primary shift with context on the state of the service.
 
 Please plan in advance during sprint planning, as if you have on-call duty during your sprint, you will want to budget some time for performing "SRE duties" and proactive improvements to our tools and processes.
 
 # Responsibilities
 
-_These are still very much in flux and incomplete._
+_These are still very much in flux and incomplete; please take the time to review and edit after you have served an oncall rotation._
 
 ## Primary
 
