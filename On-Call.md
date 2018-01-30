@@ -10,9 +10,29 @@ If you're on the schedule, there are some things you'll need to know and do.
 
 ## Overview
 
-At all times, there is a *primary* on-call person and a *secondary* on-call person to act as a backup.  If this is your first, please take 10 minutes to [read this](https://landing.google.com/sre/book/chapters/being-on-call.html).
+At all times, there is a *primary* oncall person and a *secondary* oncall person to act as a backup.
+
+Oncall is handed off on Tuesday mornings to coincide with our production releases. This week's secondary will be next week's primary.
+
+If this is your first, please take 10 minutes to [read this](https://landing.google.com/sre/book/chapters/being-on-call.html).
 
 Please plan in advance during sprint planning, as if you have on-call duty during your sprint, you will want to budget some time for performing "SRE duties" and proactive improvements to our tools and processes.
+
+## Responsibilities
+
+_These are still very much in flux._
+
+### Primary
+
+* Respond to pages and incidents. Triage issues and respond or bring in the help you need.
+* Shepherd this week's production release from staging
+
+### Secondary
+
+* Shepherd this week's staging release from testing
+* Respond (as backup) to pages and incidents if oncall is unavailable
+
+TODO: Define oncall SLO and escalation path
 
 ## PagerDuty
 
