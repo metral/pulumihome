@@ -1,4 +1,8 @@
-The first rule of updating PPCs is _don't_. If the update somehow wedges the Pulumi program, it's possible that a customer would be in a world of hurt. But if you know what you are doing, read on.
+Though we update PPCs as part of our weekly rollout, the process is not *yet* as straightforward or reliable as we would like.
+
+Please read carefully and file issues for any sharp corners.
+
+---
 
 For Pulumi Service repositories, this is all found in `scripts/ops/update-service-ppcs.sh`.
 
