@@ -24,13 +24,15 @@ _These are still very much in flux._
 
 ### Primary
 
-* Respond to pages and incidents. Triage issues and respond or bring in the help you need.
+* Respond to pages and incidents. Triage issues, respond, and bring in the help you need.
 * Shepherd this week's production release from staging
+* Write post-mortems for outages that happen during your shift
+* Triage notifications (`#ops-notifications` in Slack) once per business day
 
 ### Secondary
 
-* Shepherd this week's staging release from testing
 * Respond (as backup) to pages and incidents if oncall is unavailable
+* Shepherd this week's staging release from testing
 
 TODO: Define oncall SLO and escalation path
 
