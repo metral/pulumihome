@@ -10,8 +10,7 @@ We run a service that customers use and rely on.  When the service isn't working
 
 Pulumi's oncall rotation makes sure there is a clear path of responsibility to respond to issues when they arise.  Beyond the calendar, the oncall rotation is also about making sure the people oncall have the resources, authority, and support they need to respond with confidence.
 
-For your first oncall experience, you will "shadow" the oncall process for at least one week before becoming secondary.   
- Before your first shadow meeting, please make sure to [read this](https://landing.google.com/sre/book/chapters/being-on-call.html).   
+Our thinking about oncall is heavily influenced by [this chapter of Google's SRE book](https://landing.google.com/sre/book/chapters/being-on-call.html). Take a chance to read it before your first shift -- or your fiftieth.
 
 # Mechanics
 
@@ -19,11 +18,13 @@ At all times, there is a *primary* oncall person and a *secondary* oncall person
 
 Oncall is handed off on Tuesday mornings to coincide with our production releases.  One week's secondary will be the next week's primary, so that they start their primary shift with context on the state of the service.
 
+New engineers will *shadow* oncall for a week before entering the rotation as primary or secondary. 
+
 Please plan in advance during sprint planning, as if you have on-call duty during your sprint, you will want to budget some time for performing "SRE duties" and proactive improvements to our tools and processes.
 
 # Responsibilities
 
-_These are still very much in flux and incomplete; please take the time to review and edit after you have served an oncall rotation._
+_These are still very much in flux and incomplete. Please take the time to review and edit during your own shift._
 
 ## Primary
 
