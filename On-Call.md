@@ -4,39 +4,46 @@
 
 Our on-call schedule is [here](https://docs.google.com/spreadsheets/d/1J-AWVK1F_VEvIq9K_5PJmHum69jb40DKkUMLeqdI7C8/).
 
-# So, You're On Call?
+# Overview
 
-If you're on the schedule, there are some things you'll need to know and do.
+We run a service that customers use and rely on. When the service isn't working right or customers can't use it, we want to know, we want to fix it, and we want to keep that particular problem from happening again.
 
-## Overview
+Pulumi's oncall rotation makes sure there is a clear path of responsibility to respond to issues when they arise. Beyond the calendar, the oncall rotation is also about making sure the people oncall have the resources, authority, and support they need to respond with confidence.
+
+If this is your first oncall, please take ten minutes to [read this](https://landing.google.com/sre/book/chapters/being-on-call.html).
+
+# Mechanics
 
 At all times, there is a *primary* oncall person and a *secondary* oncall person to act as a backup.
 
-Oncall is handed off on Tuesday mornings to coincide with our production releases. This week's secondary will be next week's primary.
-
-If this is your first, please take 10 minutes to [read this](https://landing.google.com/sre/book/chapters/being-on-call.html).
+Oncall is handed off on Tuesday mornings to coincide with our production releases. One week's secondary will be the next week's primary, so that they start their primary shift with context on the state of the service.
 
 Please plan in advance during sprint planning, as if you have on-call duty during your sprint, you will want to budget some time for performing "SRE duties" and proactive improvements to our tools and processes.
 
-## Responsibilities
+# Responsibilities
 
-_These are still very much in flux._
+_These are still very much in flux and incomplete._
 
-### Primary
+## Primary
 
 * Respond to pages and incidents. Triage issues, respond, and bring in the help you need.
 * Shepherd this week's production release from staging
 * Write post-mortems for outages that happen during your shift
 * Triage notifications (`#ops-notifications` in Slack) once per business day
 
-### Secondary
+## Secondary
 
 * Respond (as backup) to pages and incidents if oncall is unavailable
 * Shepherd this week's staging release from testing
 
+## Everyone else
+
+* Help oncall when they ask
+* Let oncall know about potentially disruptive changes or testing
+
 TODO: Define oncall SLO and escalation path
 
-## PagerDuty
+# PagerDuty
 
 We use PagerDuty for escalations, and it keeps track of who will get notified. This is not automatically updated as people roll in and out of the rotation, so when you become primary on call, you *MUST* update this. To do so:
 
