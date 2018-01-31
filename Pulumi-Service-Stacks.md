@@ -2,7 +2,9 @@ The Pulumi Service's stacks -- such as `testing`, `staging`, and `production` --
 
 As a result, however, there are times when you need to interact with the stacks, for instance to set configuration variables or inspect the checkpoint state to find certain values (like load balancer URLs).
 
-To do this, there is [a handy `scripts/describe-stack.sh` script](https://github.com/pulumi/pulumi-service/blob/master/scripts/describe-stack.sh) that will download the checkpoint file while also giving you information about the load balancer and API DNS addresses.
+:warning: **Be very careful with this checkpoint, as any modifications you make will not be reflected in the source of truth kept in S3.  This is generally only save to use for read-only operations.**
+
+To sync the checkpoint to your local workspace, there is [a handy `scripts/describe-stack.sh` script](https://github.com/pulumi/pulumi-service/blob/master/scripts/describe-stack.sh) that will download the checkpoint file while also giving you information about the load balancer and API DNS addresses.
 
 To run this script, you must override the `AWS_DEFAULT_PROFILE` and `PULUMI_STACK_NAME_OVERRIDE` variables.  First, make sure you have configured AWS profiles for [our distinct accounts per environment](https://docs.google.com/document/d/1Do4YHOQSM6yxnXVef0dcsZ_8sqpOLm4w6Tri0KfzUFM/edit).  Let's assume we are interacting with the `testing` stack and that you have saved the associated AWS profile also as `testing`.  Then, this command will do the trick:
 
