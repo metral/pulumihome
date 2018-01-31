@@ -2,7 +2,7 @@ The Pulumi Service's stacks -- such as `testing`, `staging`, and `production` --
 
 Being fire-and-forget based, there are times when you need to interact with the stacks, for instance to set configuration variables or inspect the checkpoint state to find certain values (like load balancer URLs), and will need to synch state to your workspace in order to do so.
 
-:warning: **Be very careful with the downloaded checkpoint file, as any modifications you make will not be reflected in the source of truth kept in S3.  This is generally only save to use for read-only operations.**
+:warning: **Be very careful when interacting with this stack, as any modifications you make will not be reflected in the source of truth kept in S3.  This is generally only save to use for read-only operations.  We use the aforementioned bash scripts and our CI/CD process for nearly all modifications to the stacks themselves.**
 
 To synch a Pulumi Service stack's checkpoint to your local workspace, there is [a handy `scripts/describe-stack.sh` script](https://github.com/pulumi/pulumi-service/blob/master/scripts/describe-stack.sh) that will download the checkpoint file while also giving you information about the load balancer and API DNS addresses.
 
