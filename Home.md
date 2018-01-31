@@ -18,6 +18,7 @@ Please take a look around and please make it better as you see fit.
     * [Updating the Service](Updating-the-Service) 
     * [Updating PPCs](Updating-PPCs)
 * [Live Site Investigations](Ops-Live-Site-Investigations)
+* [[Fetching Pulumi Service Stacks]]
 * [[Manually Repairing Stacks]]
 * [Reading List](Ops-Reading-List)
 
