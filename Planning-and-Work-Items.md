@@ -70,7 +70,7 @@ We have some "ground rules" for planning and work item management.
 | resolution/norepro	 || 
 | resolution/wontfix	| |
 | status/product-design | Feature or area that needs to be designed from a product perspective|
-| status/tech-design     | Feature or area that needs additional technical design. I.e., implementation is not obvious. | 
+| status/eng-design     | Feature or area that needs additional technical design. I.e., implementation is not obvious. | 
 
 
 ## Adding a new label
