@@ -38,7 +38,6 @@ We have some "ground rules" for planning and work item management.
 
 | Label | Description |
 ---------|----------|
-| area/analyzers | Analyzers |
 | area/cli | CLI |
 | area/core | Engine |
 | area/docs | API docs, user docs, etc |
