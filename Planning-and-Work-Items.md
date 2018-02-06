@@ -53,6 +53,7 @@ We have some "ground rules" for planning and work item management.
 | impact/breaking | **Must be used on PRs that have are a breaking change**. Implies that it will be in the change log. |
 | impact/changelog | **Must be used on PRs with user-facing impact and need to show up in the change log.** If a feature needs product documentation, it must also have this label. The first comment in the PR should have a user-facing description of the PR. This text will be copy-edited before adding to change log. |
 | impact/performance	| Used on issues that track performance work |
+| impact/reliability    | Lurking bugs. Might not be a bug now, but something error-prone for either the team or customers |
 | impact/security | Used on issues and PRs that have a security impact |
 | impact/usability | Usability of some aspect of the system |
 | kind/bug | Product bug. If not user-facing, add the "kind/engineering" label | 
