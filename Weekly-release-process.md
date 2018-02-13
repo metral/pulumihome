@@ -12,7 +12,7 @@ Pulumi's release process follows one-week cycles. On Thursday we choose a commit
 
 Releases to `production` are handled by primary oncall.
 
-Releases to `staging` are handled by secondary oncall. Next week when they're primary oncall, their first task will be to promote that release to `production`, so it's helpful for them to have context on the `staging` payload.
+Releases to `staging` are handled by secondary oncall. Their first task as primary the next week will be to promote that release to `production`, so it's helpful for them to have context on the `staging` payload.
 
 In each case, oncall has the final say about whether to continue or abandon a release.
 
