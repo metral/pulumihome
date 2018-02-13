@@ -1,6 +1,20 @@
-We use a weekly update process to get bits out into production.  Aside from critical hotfixes (requiring manager approval), all deployments should follow this usual process.
+# Weekly release process
 
-The on-call primary is responsible for driving all weekly updates.  The secondary on-call shadows and assists as needed.
+How does our code get to customers, and what happens along the way?
+
+## Overview
+
+Code in the Pulumi service moves from `master` to `staging` to `production`.
+
+Pulumi's release process follows one-week cycles. On Thursday we choose a commit to promote from `master` to `staging`. If all goes well there, that release is promoted to `production` on Tuesday. If everything *doesn't* go well, we decide whether to cherry-pick fixes or abandon the release.
+
+## Roles
+
+Releases to `production` are handled by primary oncall.
+
+Releases to `staging` are handled by secondary oncall. Next week when they're primary oncall, their first task will be to promote that release to `production`, so it's helpful for them to have context on the `staging` payload.
+
+In each case, oncall has the final say about whether to continue or abandon a release.
 
 ## Background: What gets updated?
 
