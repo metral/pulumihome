@@ -52,7 +52,7 @@ We use PagerDuty for escalations, and it keeps track of who will get notified. T
 1. Visit [Pulumi's PagerDuty](https://pulumi.pagerduty.com/incidents), this will require that you log in.
 2. In the right hand "Who is on call now?" box, click on the "Pulumi Oncall" link, to view information about the rotation.
 3. There will be an "Edit Escalation Policy" box on the top right of the screen. If you do not see this, ask Joe to make you a "Manager".
-4. Move yourself from secondary to primary and then add your backup as secondary on call.
+4. Move yourself from secondary to primary and then add your backup as secondary on call. **Make sure "escalate after" is set to 5 minutes.**
 5. Save the policy.
 
 # Alerts Playbook
