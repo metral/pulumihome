@@ -74,7 +74,7 @@ To make the PR mergeable, if it isn't already, first identify the *previous* rel
 ```
 git fetch
 git checkout release/2018-02-15  # new release branch
-git merge release/2018-02-08 --strategy-option ours  # mark merged, take no changes
+git merge release/2018-02-08 --strategy-option ours  # mark merged, prefer our (newer) code
 git push
 ```
 
