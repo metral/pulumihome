@@ -29,14 +29,14 @@ _These are still very much in flux and incomplete. Please take the time to revie
 ## Primary
 
 * Respond to pages and incidents. Triage issues, respond, and bring in the help you need.
-* Shepherd this week's production release from staging
+* Shepherd this week's [production release](https://github.com/pulumi/home/wiki/Weekly-release-process) from staging
 * Write post-mortems for outages that happen during your shift
 * Triage notifications (`#ops-notifications` in Slack) once per business day
 
 ## Secondary
 
 * Respond (as backup) to pages and incidents if oncall is unavailable
-* Shepherd this week's staging release from testing
+* Shepherd this week's [staging release](https://github.com/pulumi/home/wiki/Weekly-release-process) from testing
 
 ## Everyone else
 
