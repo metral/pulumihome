@@ -1,12 +1,10 @@
-# Weekly release process
-
 How does our code get to customers, and what happens along the way?
 
 ## Overview
 
 Code in the Pulumi service moves from `master` to `staging` to `production`.
 
-Pulumi's release process follows one-week cycles. On Thursday we choose a commit to promote from `master` to `staging`. If all goes well there, that release is promoted to `production` on Tuesday. If everything *doesn't* go well, we decide whether to cherry-pick fixes or abandon the release.
+Pulumi's release process follows one-week cycles. On Thursday we choose a commit to promote from `master` to `staging`. If all goes well there, that release is promoted to `production` the following Tuesday. If everything *doesn't* go well, we decide whether to cherry-pick fixes or abandon the release.
 
 ## Roles
 
@@ -24,7 +22,7 @@ Updating the Pulumi Service actually refers to several components. "Changed" mea
 - PPCs attached to the Pulumi Service. This is changed via a new version hash to `pulumi/pulumi-ppc` in `pulumi-service/Gopkg.lock`.
 - The Pulumi SDK being used to run `pulumi update` in fire-and-forget mode, against the Pulumi Service and PPCs. This is updated by editing the `pulumi-service/.travis.yml` file.
 
-Whenever we run the "Weekly Update Process", we will potentially be rolling out a new version of each of these components. All of which pose a great risk to our users without careful testing and qualification.
+Whenever we run the "Weekly Update Process", we will potentially be rolling out a new version of each of these components.
 
 ### Pulumi SDK releases
 
@@ -34,29 +32,15 @@ New SDK releases are built on-demand using the [process outlined here](https://g
 
 Updates to the software running on PPCs are handled similarly to the SDK. The referenced commit hash may be updated several times per sprint, or per week depending on the frequency with which we want to pick up new features, fixes, etc.
 
-## Background: Service environments
+## Service environments
 
-There are three "environments" of the Pulumi Service: testing, staging, and production.
+The Pulumi service is deployed into three different environments:
 
-The exact mechanics of source integration and testing done are described below, but in short:
+- `testing` at https://beta-dot-testing.moolumi.io
+- `staging` at https://beta.moolumi.io
+- `production` at https://beta.pulumi.com
 
-- _testing_ is updated with every commit to `pulumi-service` that gets merged into _master_.. The live site can be accessed at https://beta-dot-testing.moolumi.io.
-- _staging_ is updated every morning, with the latest green build in _testing_. The live site can be accessed at https://beta.moolumi.io. (NOTE: This is a gosh darn lie. We haven't automated promoting testing to staging nightly yet. But we plan on doing that soon.)
-- _production_ is updated once a week, with the latest green build from _staging_. The live site can be accessed at https://beta.pulumi.com.
-
-## Code Promotion Process
-
-The Pulumi Service updating process is (ab)uses Travis. Every update or test step is performed as part of a Travis job. Because of this, it is important to know when and how Travis jobs are triggered.
-
-There are four times of Travis jobs: `push`, `pull_request`, `cron`, and `api`.
-
-A `pull_request` job is created whenever a GitHub pull request is created or source branch is pushed to. We use `pull_request` jobs where the source branch is { _random feature branch_, `master`, or `staging` } to perform testing of changes before we merge them into { `master`, `staging`, or `production` }. Note that the service environment will _not_ be updated as part of this Travis job; we just test the changes.
-
-A `push` job is created whenever a Git branch is updated. This is where we update the Pulumi Service environment to reflect what has been checked in. For example, whenever code gets merged into the `master` branch, the corresponding Travis `push` job runs `pulumi update` on the service in the testing environment and its corresponding PPC(s).
-
-One important thing that falls out of this, is that in order to "roll back" a change you would need to trigger a new `push` job. (e.g. something like `git checkout HEAD^1 --hard && git push origin master --force`.) However, that might not work. If the Pulumi SDK used to deploy the service was updated as part of the commit, rolling back to an older Pulumi SDK might have consequences. (See [#538](https://github.com/pulumi/pulumi-service/issues/538))
-
-An `api` job is one which is triggered using the Travis API or CLI. We use Travis `api` jobs to perform specialized operations or long-running tests. For example, to update customer PPCs we may trigger a new `api` job to run a different set of Makefile targets than typical `push` jobs run.
+The `staging` and `production` environments track the corresponding branches in [pulumi/pulumi-service](https://github.com/pulumi/pulumi-service). The `testing` environment tracks `master`.
 
 ### Testing to Staging
 
@@ -94,3 +78,21 @@ Note that updating customer PPCs is a separate activity. After the Pulumi Servic
 The process of updating customer PPCs [is documented here](https://github.com/pulumi/home/wiki/Updating-PPCs). (Once we've worked out all the kinks and have enough testing, we can add this as an automatic step.)
 
 Once all Customer PPCs have been updated, the release is complete.
+
+## Rolling back releases
+
+If a critical bug is deployed to one of our environments, our current best response is to push *new* code to fix it -- which might mean fixing the bug, or might mean reverting the commit with the bug or the merge commit that brought the bug in.
+
+We know we need a [much better story](https://github.com/pulumi/pulumi-service/issues/538) here.
+
+## Appendix: The different kinds of Travis jobs
+
+Since we use Travis for deployments and verification, it's helpful to know the different kinds of jobs that can run on Travis and how they're triggered:
+
+- A `pull_request` job is created whenever a GitHub pull request is created or source branch is pushed to. We use `pull_request` jobs to check that the code builds and passes simple tests.
+
+- A `push` job is created whenever a Git branch is updated. We use `push` jobs to deploy from `master`, `staging`, and `production` and to run longer tests after deployment.
+
+- A `cron` job runs on a schedule, say `daily` or `weekly`.
+
+- An `api` job is triggered using the Travis API or CLI. We use Travis `api` jobs to perform specialized operations or long-running tests. For example, to update customer PPCs we may trigger a new `api` job to run a different set of Makefile targets than typical `push` jobs run.
