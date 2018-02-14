@@ -42,34 +42,57 @@ The Pulumi service is deployed into three different environments:
 
 The `staging` and `production` environments track the corresponding branches in [pulumi/pulumi-service](https://github.com/pulumi/pulumi-service). The `testing` environment tracks `master`.
 
-### Testing to Staging
+## Promoting code
 
-Every night at 2AM, the service repo attempts to promote the `master` (_testing_ environment) branch to `staging` (_staging_ environment). This is done by creating a GitHub pull request, which is done automatically via tool. (Again, this is a darn line. But hopefully this will be the case soon. For now, you need to manually promote testing to staging.)
+### To `staging`
 
-To do this manually, run the following command. It requires you have a GitHub access token stored in the  `GITHUB_ACCESS_TOKEN` environment variable.
+On Thursday, secondary oncall creates a release branch (e.g. `release/2018-01-01`) from the most recent green build in `testing`, then creates a pull request to merge that branch into `staging`.
 
-```bash
-# Promote the code from the master branch to staging.
-cd ${GOPATH}/src/github.com/pulumi/home
-./scripts/promote-release.sh master staging
+We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for this.
+
+1. [Create a GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) with the **`read:org`**, **`repo`**, and **`user.email`** scopes. The tool itself needs the `repo` scope; the other scopes are [for Travis](https://docs.travis-ci.com/user/github-oauth-scopes/).
+2. Put the token in an environment variable named `GITHUB_TOKEN`.
+3. Run `newrelease`:
+
+    ```bash
+    go install github.com/pulumi/home/cmd/newrelease
+
+    # Dry run. (Optional.)
+    # Test API access to GitHub and Travis and show what commit would be used.
+    newrelease -createbranch=false
+
+    # Choose a commit, and create a release branch and PR.
+    newrelease
+    ```
+
+#### Merging
+
+The PR may complain that the branch can't merge cleanly. This can happen if we've taken cherry picks since the last release.
+
+To make the PR mergeable, if it isn't already, first identify the *previous* release branch by looking at the [most recent merge to `staging`](https://github.com/pulumi/pulumi-service/commits/staging). Then check out the new release branch locally and merge in the old one:
+
+```
+git fetch
+git checkout release/2018-02-15  # new release branch
+git merge release/2018-02-08 --strategy-option ours  # mark merged, take no changes
+git push
 ```
 
-The pull request triggers various Travis jobs, which if they all pass, confirm the bits are good and ready to be promoted. We run a few long-running integration tests as part of pull requests for promoting code between environments. So be sure to keep an eye on the Travis jobs in case they fail and/or need some attention.
+The resulting merge commit should have an **empty diff**.
+
+Get the PR reviewed by your oncall partner, triage and address any CI failure, then submit using the GitHub interface. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment.
 
 Once the `pull_request` job has successfully completed, go ahead and merge the PR. (**Important** select the option to create a merge commit, do **not** rebase or squash the commits.)
 
-Once the pull request is merged, a `push` job will be triggered which causes Travis to actually update the staging environment with the new changes. The steps performed are [documented here](https://github.com/pulumi/home/wiki/Updating-the-Service).
+The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
 
-### Staging to Production
+### To `production`
 
-Every Tuesday at 2PM, the on-call primary selects the latest green candidate deployment from `staging`, and promotes it to the `production` branch (_production_ environment), using the steps used for promoting "Master to "Staging".
+On Tuesday, primary oncall merges the previous week's release branch into `production`.
 
-```bash
-cd ${GOPATH}/src/github.com/pulumi/home
-./scripts/promote-release.sh staging production
-```
+We don't have a tool for this yet, but you can create the PR from the GitHub UI or start with a URL like https://github.com/pulumi/pulumi-service/compare/production...release/2018-02-12.
 
-Like before, we run a lot of additional tests in the pull request job. So it will take a while to complete.
+Send the PR to your oncall partner for review.
 
 #### Customer PPCs
 
@@ -78,6 +101,17 @@ Note that updating customer PPCs is a separate activity. After the Pulumi Servic
 The process of updating customer PPCs [is documented here](https://github.com/pulumi/home/wiki/Updating-PPCs). (Once we've worked out all the kinks and have enough testing, we can add this as an automatic step.)
 
 Once all Customer PPCs have been updated, the release is complete.
+
+## Cherry-picks
+
+To bring small fixes into the `staging` or `production` environment, cherry-pick commits **into the release branch** and then create another PR to merge the release branch back into the target environment(s). The PR to `staging` or `production` should be reviewed; the actually cherry-pick need not be.
+
+```
+git fetch
+git checkout release/2018-03-01
+git cherry-pick -x abcdabcd
+git push
+```
 
 ## Rolling back releases
 
