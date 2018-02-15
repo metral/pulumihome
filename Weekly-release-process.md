@@ -18,7 +18,7 @@ In each case, oncall has the final say about whether to continue or abandon a re
 
 Updating the Pulumi Service actually refers to several components. "Changed" means what would cause a new version of the component to be updated as part of the weekly update process.
 
-- The Pulumi Service (web frontend, API backend). This is changed with every new commit to the `pulumi/pulumi-service` repository.
+- The Pulumi Service (web frontend, API backend). This is changed with every new commit to the `pulumi/pulumi-service` repository. The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
 - PPCs attached to the Pulumi Service. This is changed via a new version hash to `pulumi/pulumi-ppc` in `pulumi-service/Gopkg.lock`.
 - The Pulumi SDK being used to run `pulumi update` in fire-and-forget mode, against the Pulumi Service and PPCs. This is updated by editing the `pulumi-service/.travis.yml` file.
 
@@ -78,7 +78,7 @@ Once the PR is ready -- where "ready" is oncall's judgment but at least means al
 
 As a courtesy, give a heads-up in [`#releases`](https://pulumi.slack.com/messages/C79MDKGMV/) with a link to the Travis job running the deployment.
 
-Once the PR is merged and the Travis job makes it to the head of the queue, the build+deploy takes about 30 minutes and post-build validation takes a little over an hour. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment. The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
+Once the PR is merged and the Travis job makes it to the head of the queue, the build+deploy takes about 30 minutes and post-build validation takes a little over an hour. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment.
 
 #### Dealing with merge conflicts
 
