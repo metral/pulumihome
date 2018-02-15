@@ -52,10 +52,13 @@ We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for t
 
 1. [Create a GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) with the **`read:org`**, **`repo`**, and **`user:email`** scopes. The tool itself needs the `repo` scope; the other scopes are [for Travis](https://docs.travis-ci.com/user/github-oauth-scopes/).
 2. Put the token in an environment variable named `GITHUB_TOKEN`.
-3. Run `newrelease`:
-
+3. In a checkout of the `pulumi/home` repo:
     ```bash
+    cd ~/go/src/pulumi/home  # assuming default $GOPATH
+    dep ensure
     go install github.com/pulumi/home/cmd/newrelease
+
+    # We assume ~/go/bin is on $PATH.
 
     # Dry run. (Optional.)
     # Test API access to GitHub and Travis and show what commit would be used.
