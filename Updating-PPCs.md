@@ -104,36 +104,8 @@ These PPCs will automatically be updated whenever a commit is made to the `maste
 
 ### Customer-Production PPCs
 
-PPCs that our customers use however are _not_ updated automatically with the service, and instead require some additional manual steps. This is to allow for more testing, as well as better coordinating with our customers to avoid disruption.
+PPCs that our customers use however are _not_ updated automatically with the service, and instead require some additional manual steps. This is a historical artifact and will get better.
 
-The current steps for updating these Customer-Production PPCs is as follows. (Assuming things like the `Gopkg.lock` version of the `pulumi-ppc` dependency is correct, and the currently installed Pulumi SDK matches what we want, etc.)
-
-1. Coordinate with the customer to identify when the PPCs can safely be updated. Currently the PPCs will be unavailable during the update, and so we need to ensure any in-progress updates are finished and no updates will be started, otherwise their stacks might become corrupted!
-2. Manually mark the PPCs as being in "maintenance mode". Marking a PPC as being in "maintenance mode" is a flag in the Pulumi Service that will prevent the PPC from receiving any new update requests, and instead returns "503 Service unavailable". This can only be done by manually running a SQL query against the database.  To do this, *first* ensure that you have the production AWS account in your `~/.aws/config` file (under a profile named, say, `production` -- see [this](https://docs.google.com/document/d/1qetreL_sCvRVHAQildw-z3AkXFvg1AKowsxKm2G2h4M) if you need the creds to add this entry), and then set the `AWS_DEFAULT_PROFILE=production`; this will enable you to connect to the production database.  Then run `scripts/launch-mysql-prompt.sh`, which will launch an SQL prompt into which you will type:
-
-```sql
-# Get the Organization ID for the organization, e.g. "moolumi".
-SELECT name, github_login FROM Organizations WHERE github_login = 'moolumi';
-
-# Mark all of the Organization's Clouds as in maintenance mode (flag 0x1)
-UPDATE Clouds SET flags = 1 WHERE org_id = '< org ID from previous query >';
-```
-
-Or, simply:
-
-```sql
-UPDATE Clouds SET flags = 1 WHERE flags = 0 AND org_id IN (
-    SELECT id FROM Organizations WHERE github_login = 'moolumi');
-```
-
-From this point on, `pulumi` commands against that stack will fail, ideally with "[503] Service Unavailable: The requested Cloud is unavailable due to maintenance".
-
-3. Run `travis endpoint --pro --set-default` to prepare to submit Travis jobs.
-4. Run `scripts/ops/launch-update-customer-ppcs-job.sh <TRAVIS_ACCESS_TOKEN>` -- This will spawn a new Travis job that will perform the PPC update. (To fetch your personal `TRAVIS_ACCESS_TOKEN`, run `travis token`.) It will in-turn call `Make travis_api` which will in-turn call `scripts/ops/update-ppcs.sh production_customer`.
-5. The customer PPCs get updated in that Travis job.
-6. When the PPCs are finished being updated, unset the maintenance mode flag:
-
-```sql
-# Clear all of the Organization's Clouds's maintenance mode flags.
-UPDATE Clouds SET flags = 0 WHERE org_id = '< org ID from previous query >';
-```
+1. Run `travis endpoint --pro --set-default` to prepare to submit Travis jobs.
+2. Run `scripts/ops/launch-update-customer-ppcs-job.sh $(travis token)` -- This will spawn a new Travis job that will perform the PPC update. It will in-turn call `make travis_api`  `scripts/ops/update-ppcs.sh production_customer`.
+3. The customer PPCs get updated in that Travis job.
