@@ -50,7 +50,7 @@ On Thursday, secondary oncall creates a release branch (e.g. `release/2018-01-01
 
 We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for this.
 
-1. [Create a GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) with the **`read:org`**, **`repo`**, and **`user.email`** scopes. The tool itself needs the `repo` scope; the other scopes are [for Travis](https://docs.travis-ci.com/user/github-oauth-scopes/).
+1. [Create a GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) with the **`read:org`**, **`repo`**, and **`user:email`** scopes. The tool itself needs the `repo` scope; the other scopes are [for Travis](https://docs.travis-ci.com/user/github-oauth-scopes/).
 2. Put the token in an environment variable named `GITHUB_TOKEN`.
 3. Run `newrelease`:
 
@@ -82,7 +82,7 @@ The resulting merge commit should have an **empty diff**.
 
 Get the PR reviewed by your oncall partner, triage and address any CI failure, then submit using the GitHub interface. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment.
 
-Once the `pull_request` job has successfully completed, go ahead and merge the PR. (**Important** select the option to create a merge commit, do **not** rebase or squash the commits.)
+Once the CI jobs have successfully completed, go ahead and merge the PR. (**Important** select the option to create a merge commit, do **not** rebase or squash the commits.)
 
 The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
 
