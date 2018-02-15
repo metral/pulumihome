@@ -55,15 +55,13 @@ We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for t
 3. In a checkout of the `pulumi/home` repo:
 
     ```bash
-    cd ~/go/src/pulumi/home  # assuming default $GOPATH
+    cd ~/go/src/pulumi/home  # assumes default $GOPATH
     dep ensure
     go install ./cmd/newrelease
 
-    # We assume ~/go/bin is on $PATH.
-
     # Dry run. (Optional.)
     # Test API access to GitHub and Travis and show what commit would be used.
-    newrelease -createbranch=false
+    newrelease -createbranch=false  # assumes ~/go/bin is on the path
 
     # Choose a commit, and create a release branch and PR.
     newrelease
