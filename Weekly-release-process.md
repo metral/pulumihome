@@ -78,7 +78,7 @@ Once the PR is ready -- where "ready" is oncall's judgment but at least means al
 
 As a courtesy, give a heads-up in [`#releases`](https://pulumi.slack.com/messages/C79MDKGMV/) with a link to the Travis job running the deployment.
 
-The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
+Once the PR is merged and the Travis job makes it to the head of the queue, the build+deploy takes about 30 minutes and post-build validation takes a little over an hour. The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
 
 #### Dealing with merge conflicts
 
