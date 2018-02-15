@@ -69,7 +69,15 @@ We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for t
     newrelease
     ```
 
-#### Merging
+#### Submitting
+
+Get the PR reviewed by your oncall partner, triage and address any CI failures, then submit using the GitHub interface. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment.
+
+As a courtesy, give a heads-up in [`#releases`](https://pulumi.slack.com/messages/C79MDKGMV/) with a link to the Travis job running the deployment.
+
+The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
+
+#### Dealing with merge conflicts
 
 The PR may complain that the branch can't merge cleanly. This can happen if we've taken cherry picks since the last release.
 
@@ -83,14 +91,6 @@ git push
 ```
 
 The resulting merge commit should have an **empty diff**.
-
-#### Submitting
-
-Get the PR reviewed by your oncall partner, triage and address any CI failures, then submit using the GitHub interface. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment.
-
-As a courtesy, give a heads-up in [`#releases`](https://pulumi.slack.com/messages/C79MDKGMV/) with a link to the Travis job running the deployment.
-
-The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
 
 ### To `production`
 
