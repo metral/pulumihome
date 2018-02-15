@@ -13,7 +13,7 @@ Please take a look around and please make it better as you see fit.
 * [[On-Call]]
 * [Our AWS Accounts](https://docs.google.com/document/d/1Do4YHOQSM6yxnXVef0dcsZ_8sqpOLm4w6Tri0KfzUFM)
 * Deployments
-    * [[Weekly Update Process]]
+    * [Weekly Update Process](https://github.com/pulumi/home/wiki/Weekly-release-process)
     * [Building the SDK](https://github.com/pulumi/home/wiki/Producing-an-SDK)
     * [Updating the Service](Updating-the-Service) 
     * [Updating PPCs](Updating-PPCs)
