@@ -2,7 +2,7 @@ How does our code get to customers, and what happens along the way?
 
 ## Overview
 
-Code in the Pulumi service moves from `master` to `staging` to `production`.
+Code in the Pulumi service starts in `master`, then moves to `staging` and `production`. We manage this flow by creating **releases** from `master` and **promoting** releases to `staging` and then `production`.
 
 Pulumi's release process follows one-week cycles. On Thursday we choose a commit to promote from `master` to `staging`. If all goes well there, that release is promoted to `production` the following Tuesday. If everything *doesn't* go well, we decide whether to cherry-pick fixes or abandon the release.
 
