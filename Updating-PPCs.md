@@ -14,7 +14,7 @@ Each service environment has a PPC we use for testing attached to the `Moolumi` 
 
 These PPCs will automatically be updated whenever a commit is made to the `master`, `staging`, or `production` branches. Specifically, the operations are:
 
-1. `Make deploy`
+1. `make deploy`
 1. `scripts/update-environment.sh`
 1. `scripts/update-ppcs.sh`
 
