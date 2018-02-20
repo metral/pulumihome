@@ -103,11 +103,9 @@ Have the PR reviewed by your oncall partner and submit the same way you would th
 
 #### Customer PPCs
 
-Note that updating customer PPCs is a separate activity. After the Pulumi Service has been updated, and rolled out to production. (i.e. the PR from `staging` to `production` has successfully been merged and tested.) We then able to update customer PPCs.
+After the Pulumi Service has been updated and rolled out to production, we need to update customer PPCs. That process is documented [here](https://github.com/pulumi/home/wiki/Updating-PPCs).
 
-The process of updating customer PPCs [is documented here](https://github.com/pulumi/home/wiki/Updating-PPCs). (Once we've worked out all the kinks and have enough testing, we can add this as an automatic step.)
-
-Once all Customer PPCs have been updated, the release is complete.
+The release is complete once customer PPCs have all been updated.
 
 ## Cherry-picks
 
