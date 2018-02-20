@@ -20,11 +20,20 @@ These PPCs will automatically be updated whenever a commit is made to the `maste
 
 ### Customer-Production PPCs
 
-PPCs that our customers use however are _not_ updated automatically with the service, and instead require some additional manual steps. This is a historical artifact and will get better.
+PPCs that our customers use are _not_ (yet) updated automatically. Updates to the PPC used to cause downtime and require coordinating with customers. PPCs now remain available during updates, but the manual process remains as a historical artifact.
 
-1. Run `travis endpoint --pro --set-default` to prepare to submit Travis jobs.
-2. Run `scripts/ops/launch-update-customer-ppcs-job.sh $(travis token)` -- This will spawn a new Travis job that will perform the PPC update. It will in-turn call `make travis_api`  `scripts/ops/update-ppcs.sh production_customer`.
-3. The customer PPCs get updated in that Travis job.
+To update customer PPCs:
+
+1. Get a Travis API token.
+   - Log in to the [Travis API Explorer](https://developer.travis-ci.com/explore/#explorer) with your GitHub account and copy the token that appears (blacked-out) after `Authorization: token` in the Explorer view.
+   - Or, if you have the [Travis CLI](https://github.com/travis-ci/travis.rb) installed, you can run `travis token --pro` to print your access token for `travis-ci.com`.
+
+   Make sure not to confuse <tt>travis-ci<b>.org</b></tt> and <tt>travis-ci<b>.com</b></tt> ("Travis Pro"). They're two different services that require different API keys. Here, you should be using a token for Travis Pro.
+
+   The link to the API explorer above goes to `travis-ci.com`. On the command line, use `--org` or `--pro` to choose the endpoint for one command, or `travis endpoint --set-default` with `--org` or `--pro` to set the default for later commands.
+   
+2. Run `scripts/ops/launch-update-customer-ppcs-job.sh $your_travis_token`. This launches a Travis job to perform the update. This runs `scripts/ops/update-ppcs.sh production_customer` as part of the `travis_api` make target.
+3. Find the launched Travis job in the [list of jobs for `pulumi-service`](https://travis-ci.com/pulumi/pulumi-service). The job will be named `Update PPCs (production_customer)`. As for service releases, put a link to this Travis job in [`#releases`](https://pulumi.slack.com/messages/C79MDKGMV/) and follow [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/) and the Travis job for update progress.
 
 ## Standing up a new PPC
 
