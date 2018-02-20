@@ -4,15 +4,37 @@ Please read carefully and file issues for any sharp corners.
 
 ---
 
+## Updating Service PPCs
+
+There are current (as of 1/18) two "types" of PPCs: those that are updated with the service instance, and those in a "customer-production" bucket.
+
+### Service-dependent PPCs
+
+Each service environment has a PPC we use for testing attached to the `Moolumi` organization. This is updated along with the Pulumi service for each environment. The production service environment also has a PPC attached to the `Pulumi` organization too, which is also updated along with the service.
+
+These PPCs will automatically be updated whenever a commit is made to the `master`, `staging`, or `production` branches. Specifically, the operations are:
+
+1. `Make deploy`
+1. `scripts/update-environment.sh`
+1. `scripts/update-ppcs.sh`
+
+### Customer-Production PPCs
+
+PPCs that our customers use however are _not_ updated automatically with the service, and instead require some additional manual steps. This is a historical artifact and will get better.
+
+1. Run `travis endpoint --pro --set-default` to prepare to submit Travis jobs.
+2. Run `scripts/ops/launch-update-customer-ppcs-job.sh $(travis token)` -- This will spawn a new Travis job that will perform the PPC update. It will in-turn call `make travis_api`  `scripts/ops/update-ppcs.sh production_customer`.
+3. The customer PPCs get updated in that Travis job.
+
+## Standing up a new PPC
+
 For Pulumi Service repositories, this is all found in `scripts/ops/update-service-ppcs.sh`.
 
 Things to consider:
 
-Which version of the PPC do you want to use? When updating the PPC we pick up whatever version is checked into the `Gopkg.lock` file in the `pulumi-service` repo. You might need to run `dep ensure --update github.com/pulumi/pulumi-ppc` first.
+- Which version of the PPC do you want to use? When updating the PPC we pick up whatever version is checked into the `Gopkg.lock` file in the `pulumi-service` repo. You might need to run `dep ensure --update github.com/pulumi/pulumi-ppc` first.
 
-Do you want to edit the configuration of the PPC? If you need to change some configuration data, run the following. Be sure to add `--save` and `--stack`! Otherwise your config changes will only be stored locally, and the next person to update them won't have the changes. (A corollary is that you'll want to commit the updated `Pulumi.yaml` file too.)
-
-## Standing up a new PPC
+- Do you want to edit the configuration of the PPC? If you need to change some configuration data, run the following. Be sure to add `--save` and `--stack`! Otherwise your config changes will only be stored locally, and the next person to update them won't have the changes. (A corollary is that you'll want to commit the updated `Pulumi.yaml` file too.)
 
 To stand up a new PPC, first you need a new AWS account to run it in. Second, you need to create a dedicated IAM role in that account which is _used to deploy the PPC_. (But will have nothing to do with the applications the PPC deploys.)
 
@@ -85,27 +107,3 @@ export PULUMI_USE_POPS_S3_BUCKET="true"
 ```
 
 Note that there is a spreadsheet with PPC account info at https://docs.google.com/spreadsheets/d/1ASpyMHUvC1rCN_6cRP6tq1D3378YzSC0PlHzvv_G42I, and the shared passwords doc is at https://docs.google.com/document/d/1qetreL_sCvRVHAQildw-z3AkXFvg1AKowsxKm2G2h4M.
-
-## Updating Service PPCs
-
-Updating PPCs associated with a service instance follows the same steps as listed above, however there is more automation around updating PPCs in-bulk.
-
-There are current (as of 1/18) two "types" of PPCs: those that are updated with the service instance, and those in a "customer-production" bucket.
-
-### Service-dependent PPCs
-
-Each service environment has a PPC we use for testing attached to the `Moolumi` organization. This is updated along with the Pulumi service for each environment. The production service environment also has a PPC attached to the `Pulumi` organization too, which is also updated along with the service.
-
-These PPCs will automatically be updated whenever a commit is made to the `master`, `staging`, or `production` branches. Specifically, the operations are:
-
-1. `Make deploy`
-1. `scripts/update-environment.sh`
-1. `scripts/update-ppcs.sh`
-
-### Customer-Production PPCs
-
-PPCs that our customers use however are _not_ updated automatically with the service, and instead require some additional manual steps. This is a historical artifact and will get better.
-
-1. Run `travis endpoint --pro --set-default` to prepare to submit Travis jobs.
-2. Run `scripts/ops/launch-update-customer-ppcs-job.sh $(travis token)` -- This will spawn a new Travis job that will perform the PPC update. It will in-turn call `make travis_api`  `scripts/ops/update-ppcs.sh production_customer`.
-3. The customer PPCs get updated in that Travis job.
