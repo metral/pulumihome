@@ -95,7 +95,7 @@ The resulting merge commit should have an **empty diff**.
 
 ### To `production`
 
-On Tuesday, primary oncall merges the previous week's release branch into `production`.
+On Tuesday, primary oncall merges the previous week's release branch (e.g. `release/2018-02-12`) into `production`. We merge from the release branch, instead of from `staging`, so we can manage deployments (and cherry-picks) to each environment independently.
 
 We don't have a tool for this yet, but you can create the PR from the GitHub UI or start with a URL like https://github.com/pulumi/pulumi-service/compare/production...release/2018-02-12.
 
