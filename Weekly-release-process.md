@@ -55,7 +55,7 @@ We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for t
 3. In a checkout of the `pulumi/home` repo:
 
     ```bash
-    cd $GOPATH/src/github.com/pulumi/home
+    cd "$(go env GOPATH)/src/github.com/pulumi/home"
     dep ensure
     go install ./cmd/newrelease
 
