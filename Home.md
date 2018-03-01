@@ -20,6 +20,7 @@ Please take a look around and please make it better as you see fit.
 * [Live Site Investigations](Ops-Live-Site-Investigations)
 * [[Pulumi Service Stacks]]
 * [[Manually Repairing Stacks]]
+* How our Release Bucket Permissions Work ([here](https://github.com/pulumi/home/issues/57#issuecomment-344809733) and [here](https://github.com/pulumi/home/issues/64#issuecomment-349088546))
 * [Reading List](Ops-Reading-List)
 
 ### Daily Development
