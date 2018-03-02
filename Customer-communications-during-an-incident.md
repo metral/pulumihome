@@ -1,18 +1,16 @@
-# Customer communications during an incident
-
 Keeping our customers in the loop is a critical part of responding to outages. When our service goes down and customers can’t get their work done, they need to know we value their time and we’re working to fix the problem.
 
-## Guidelines
+# Guidelines
 
-### Who
+## Who
 Everyone at Pulumi is trusted to "speak for the company". Use these guidelines and your best judgment to help make outages less confusing or painful for our customers.
 
 The oncall responder is responsible for making sure customers are informed. They can do it themselves or delegate.
 
-### Where
+## Where
 For now our primary mode of communication with customers is shared Slack channels. This will evolve over time to include a status page, social media, e-mail, etc.
 
-### When and what
+## When and what
 When we recognize our service is having a problem, we should reach out to customers quickly to let them know we’re investigating. Ideally we can share something about the shape of the problem, like “elevated error rates” or “failed updates”, but if we don’t have those details after a few minutes that shouldn’t stop us from communicating.
 
 During an outage, update customers at least once an hour. In each message, describe what we’re doing to solve the problem and indicate when customers can expect to hear from us next. Explain what errors users can expect to see and how exactly the behavior of the service is impacted. If we know about a workaround, tell customers about it.
@@ -23,7 +21,7 @@ Keep explanations high-level and stick to terms customers know. During the outag
 
 When we’re confident the outage is over and the problem will not recur, we should give customers the all-clear. If we think the problem is solved but we’re still monitoring, say that instead.
 
-## Example
+# Example
 **12:15pm**  
 We’re investigating some problems with the service. We should have more information in the next 15 minutes. Sorry for the trouble.
 
@@ -45,7 +43,7 @@ The fix has been rolled out everywhere. We believe things are back to normal but
 **2:00pm**  
 The fix is rolled out everywhere and we’ve verified it addresses the bug you were seeing. Your stacks are ready for use and no other action is required. We’re sorry again for the inconvenience. Please let us know here if you see anything else out of the ordinary.
 
-## Other reading
+# Other reading
 [Pagerduty’s customer liason training](https://response.pagerduty.com/training/customer_liaison/)
 
 Examples of good customer-visible post-mortems:
