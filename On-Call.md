@@ -29,6 +29,7 @@ _These are still very much in flux and incomplete. Please take the time to revie
 ## Primary
 
 * Respond to pages and incidents. Triage issues, respond, and bring in the help you need.
+* Handle or delegate [customer communication](https://github.com/pulumi/home/wiki/Customer-communications-during-an-incident) of incidents or planned downtime.
 * Shepherd this week's [production release](https://github.com/pulumi/home/wiki/Weekly-release-process) from staging
 * Write post-mortems for outages that happen during your shift
 * Triage notifications (`#ops-notifications` in Slack) once per business day
@@ -55,9 +56,11 @@ We use PagerDuty for escalations, and it keeps track of who will get notified. T
 4. Move yourself from secondary to primary and then add your backup as secondary on call. **Make sure "escalate after" is set to 5 minutes.**
 5. Save the policy.
 
-# Alerts Playbook
+# Response playbook
 
 See https://github.com/pulumi/live-site for troubleshooting tips, etc.
+
+When responding to incidents, we need to keep customers in the loop. See [guidelines and examples here](https://github.com/pulumi/home/wiki/Customer-communications-during-an-incident).
 
 # Inspiration
 
