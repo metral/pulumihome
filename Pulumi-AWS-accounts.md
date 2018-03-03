@@ -1,5 +1,6 @@
 | Account name | ID | Log in |
 | --- | --- | --- |
+| (dev) | 153052954103 | n/a |
 | TestCustomer | 678725633224 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=678725633224&displayName=TestCustomer)
 | learningmachine-malta | 977316828113 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=977316828113&displayName=learningmachine-malta)
 | learningmachine-prod | 999780342027 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=999780342027&displayName=learningmachine-prod)
@@ -14,30 +15,26 @@
 | ppc-staging-pulumi-default | 268538227356 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=268538227356&displayName=ppc-staging-pulumi-default)
 | ppc-testing-moolumi-default | 873203032246 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=873203032246&displayName=ppc-testing-moolumi-default)
 | ppc-testing-pulumi-default | 359955403598 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=359955403598&displayName=ppc-testing-pulumi-default)
-| pulumi-dev | 153052954103 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=153052954103&displayName=pulumi-dev)
 | pulumi-production | 058607598222 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=058607598222&displayName=pulumi-production)
 | pulumi-staging | 098437015098 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=098437015098&displayName=pulumi-staging)
 | pulumi-testing | 086028354146 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=086028354146&displayName=pulumi-testing)
+
 
 generated with:
 ```python
 import boto3
 import string
 
-def rename_dev_account(account):
-    if account["Id"] == "153052954103":
-        account["Name"] = "pulumi-dev"
-    return account
-
-organizations = boto3.client('organizations')
-
-accounts = organizations.list_accounts()['Accounts']
-accounts = map(rename_dev_account, accounts)
+organizations = boto3.client("organizations")
+accounts = organizations.list_accounts()["Accounts"]
+accounts = [a for a in accounts if a["Id"] != "153052954103"]
 
 t = string.Template("| ${Name} | ${Id} | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=${Id}&displayName=${Name})")
 
 print("| Account name | ID | Log in |")
 print("| --- | --- | --- |")
-for account in sorted(accounts, key=lambda x: x['Name']):
+print("| (dev) | 153052954103 | n/a |")
+
+for account in sorted(accounts, key=lambda x: x["Name"]):
     print(t.substitute(**account))
 ```
