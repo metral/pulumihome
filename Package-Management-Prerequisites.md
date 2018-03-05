@@ -1,8 +1,6 @@
-# Package Management Prerequisites
-
 Before setting up your machine, no matter the operating system you will need to configure various package managers before you'll be able to build and test many of our projects.
 
-## NPM (JavaScript)
+# JavaScript (NPM)
 
 For our JavaScript repos, we use NPM for package management, and publish private packages inside of our own `@pulumi` organization.  To access them, you will _either_ need an https://npmjs.com/ account _or_ you will need to configure your NPM client to use our private proxy.  The former is preferred, but the latter is relatively easy.
 
@@ -15,7 +13,7 @@ To configure your client to use our proxy, add this to `~/.npmrc`:
 
 where `PULUMI_ACCESS_TOKEN` is the token listed on your https://beta.pulumi.com/account page.
 
-## PyPI (Python)
+# Python (PyPI)
 
 For our Python repos, we use our private PyPI server for package management.  This is temporary, until we are public, since PyPI doesn't have the equivalent of private packages.  To use it, you'll need to add the following to your `pip.conf` file:
 
