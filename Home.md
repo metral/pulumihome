@@ -28,7 +28,6 @@ Please take a look around and please make it better as you see fit.
 ### Daily Development
 
 * Setting up a development machine
-    - [[Development Common]]
     - [[Development on macOS]]
     - [[Development on Linux]]
     - [[Development on Windows]]
