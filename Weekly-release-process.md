@@ -71,8 +71,6 @@ We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for t
 
 Get the PR reviewed by your oncall partner. Triage and address any CI failures by following up with code authors and perhaps taking cherry-picks to the release branch.
 
-You can safely ignore GitHub's warning that the branch is out-of-date. See the instructions [below](https://github.com/pulumi/home/wiki/Weekly-release-process#dealing-with-merge-conflicts) for dealing with merge conflicts.
-
 Once the PR is ready -- where "ready" is oncall's judgment but at least means all CI failures are understood --
  submit using the GitHub interface. **Do not delete the `release/*` branch.**
 
@@ -80,9 +78,18 @@ As a courtesy, give a heads-up in [`#releases`](https://pulumi.slack.com/message
 
 Once the PR is merged and the Travis job makes it to the head of the queue, the build+deploy takes about 30 minutes and post-build validation takes a little over an hour. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment.
 
+
+#### Out-of-date branches
+
+Our release process creates merge commits in `staging` and `production` that will never themselves be merged back into `master`. As a result, GitHub will warn that release branches are out-of-date with the base branches.
+
+To verify these warnings are benign, you can use GitHub's comparison view to check that `staging` and `production` only differ from `master` in merge commits:
+- [Changes in `staging` that aren't in `master`](https://github.com/pulumi/pulumi-service/compare/master...staging#files_bucket)
+- [Changes in `production` that aren't in `master`](https://github.com/pulumi/pulumi-service/compare/master...production#files_bucket)
+
 #### Dealing with merge conflicts
 
-The PR may complain that the branch can't merge cleanly. This can happen if we've taken cherry picks since the last release.
+The PR may warn that the branch can't merge cleanly. This can happen if we've taken cherry picks since the last release.
 
 To make the PR mergeable, if it isn't already, first identify the *previous* release branch by looking at the [most recent merge to `staging`](https://github.com/pulumi/pulumi-service/commits/staging). Then check out the new release branch locally and merge in the old one:
 
