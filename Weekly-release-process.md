@@ -71,6 +71,8 @@ We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for t
 
 Get the PR reviewed by your oncall partner. Triage and address any CI failures by following up with code authors and perhaps taking cherry-picks to the release branch.
 
+You can safely ignore GitHub's warning that the branch is out-of-date. See the instructions [below](https://github.com/pulumi/home/wiki/Weekly-release-process#dealing-with-merge-conflicts) for dealing with merge conflicts.
+
 Once the PR is ready -- where "ready" is oncall's judgment but at least means all CI failures are understood --
  submit using the GitHub interface. **Do not delete the `release/*` branch.**
 
