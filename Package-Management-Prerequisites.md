@@ -24,15 +24,6 @@ extra-index-url = https://${PULUMI_ACCESS_TOKEN}@pypi.pulumi.com/simple
 
 where `PULUMI_ACCESS_TOKEN` is the token listed on your https://beta.pulumi.com/account page.
 
-**NOTE: at the moment, the PyPI server has not yet made its way into production, so use staging for now (https://pypi.moolumi.io/simple):**
-
-```
-[global]
-extra-index-url = https://${PULUMI_ACCESS_TOKEN}@pypi.moolumi.io/simple
-```
-
-Of course, you will need to use your testing account token instead: https://beta.moolumi.io/account.
-
 Note that the location of this file is [different on different operating systems](https://pip.pypa.io/en/stable/user_guide/#config-file):
 
 * On Unix: `$HOME/.config/pip/pip.conf`
