@@ -8,4 +8,4 @@ The following is a working list of design guidelines for packages build on top o
 
 **Do** add enums for any enumerations defined in the AWS SDK.  These are not explicitly projected by Terraform (they are checked dynamically).  These enums should overwrite the `Type` of the property if they are confidently the full set of legal values.
 
-**Do** add JSON schema for JSON valued inputs in the AWS SDK.  These are projected as strings by Terraform.  For now we will continue to project as string, and require users to `JSON.stringify`, but we can provide strong types for the JSON schema as guides.  (NOTE: We may add support to auto-`JSON.stringify` in the future as an optional thing)
+**Do** add JSON schema for JSON valued inputs in the AWS SDK.  These are projected as strings by Terraform.  For now we will continue to project as string, and require users to `JSON.stringify`, but we can provide strong types for the JSON schema as guides.  (NOTE: We may add support to auto-`JSON.stringify` in the future as an optional thing https://github.com/pulumi/pulumi-terraform/issues/129)
