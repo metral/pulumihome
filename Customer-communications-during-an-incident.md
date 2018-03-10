@@ -13,13 +13,17 @@ For now our primary mode of communication with customers is shared Slack channel
 ## When and what
 When we recognize our service is having a problem, we should reach out to customers quickly to let them know we’re investigating. Ideally we can share something about the shape of the problem, like “elevated error rates” or “failed updates”, but if we don’t have those details after a few minutes that shouldn’t stop us from communicating.
 
-During an outage, update customers at least once an hour. In each message, describe what we’re doing to solve the problem and indicate when customers can expect to hear from us next. Explain what errors users can expect to see and how exactly the behavior of the service is impacted. If we know about a workaround, tell customers about it.
+During an outage, update customers at least once an hour. In each message, describe what we’re doing to solve the problem and indicate when customers can expect to hear from us next.
+
+Explain what errors users can expect to see and how we believe the behavior of the service is impacted. That way, if any *new* problems arise customers will let us know instead of assuming it's part of an existing incident. If we have a workaround customers can use safely, let them know.
 
 Our tone with customers should be **honest**, **courteous**, and **apologetic**.
 
 Keep explanations high-level and stick to terms customers know. During the outage, the goal is to give customers enough information to demonstrate we know what’s going on -- or that we're working to find out. Customers can’t act on implementation details and this isn’t the time to explain the finer points of our systems. If we need to, we can follow up with more details in a customer-visible post-mortem or root cause analysis.
 
-When we’re confident the outage is over and the problem will not recur, we should give customers the all-clear. If we think the problem is solved but we’re still monitoring, say that instead.
+When we’re confident the outage is over and the problem will not recur, we should give customers the all-clear. The all-clear message lets customers know they can get back to work _and_ that they should contact us again if they see new or continuing problems.
+
+If we _think_ the problem is solved but we’re still monitoring, say that instead.
 
 # Example
 **12:15pm**  
