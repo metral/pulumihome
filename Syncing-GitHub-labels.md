@@ -1,0 +1,3 @@
+To sync GitHub labels across repos, you can use the the script [apply-labels.sh](https://github.com/pulumi/home/blob/master/scripts/github-labels/apply-labels.sh). See usage instructions in the script itself.
+
+When a new repo is added, add it to the [`REPOS` array](https://github.com/pulumi/home/blob/master/scripts/github-labels/apply-labels.sh#L33). Run the script with `--dry-run` first in order to make sure everything behaves as expected.
