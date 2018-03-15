@@ -2,7 +2,7 @@ We have some "ground rules" for planning and work item management.
 
 ### TL;DR: minimal label requirements
 
-- **PRs that are a breaking change must have the `impact/breaking` label.** This always implies `impact/changelog`, so you don't have to use both labels.
+- **PRs that are a breaking change must have the `impact/breaking` label.** As a convenience when using the GitHub UI to filter, please also use the `impact/changelog` label.
 - **PRs that have a user-facing change must have the `impact/changelog` label.** If a feature needs product documentation, it must  have this label. The PR should have a user-facing description of the change. This text will be copy-edited before adding to change log. So, don't worry about the right user-facing text, just make sure everything relevant is captured.
 - **If an issue is closed without writing code**, use a `resolution` label.
 
