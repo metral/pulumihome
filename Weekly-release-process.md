@@ -104,11 +104,31 @@ The resulting merge commit should have an **empty diff**.
 
 ### To `production`
 
+#### Merge the changes
 On Tuesday, primary oncall merges the previous week's release branch (e.g. `release/2018-02-12`) into `production`. We merge from the release branch, instead of from `staging`, so we can manage deployments (and cherry-picks) to each environment independently.
 
 We don't have a tool for this yet, but you can create the PR from the GitHub UI or start with a URL like https://github.com/pulumi/pulumi-service/compare/production...release/2018-02-12.
 
 Have the PR reviewed by your oncall partner and submit the same way you would the `staging` release.
+
+#### Tag the release
+
+To make it possible to generate a changelog for releases, you should tag the latest commit in `production` with a tag of the current date in the format YYYY-MM-DD. This can be done by running the following commands:
+
+1. In the `pulumi-service` repo, change to the `production` branch:
+
+   ```
+   git checkout --track origin/production # if you don't already have the branch
+   git checkout production # if you do
+   ```
+
+3. Get the latest changes, tag the latest commit, and push tags:
+
+   ```
+   git pull origin         # get latest changes
+   git tag 2018-MM-DD      # tag the release with today's date
+   git push origin --tags  # push the tags to origin
+   ```
 
 #### Customer PPCs
 
