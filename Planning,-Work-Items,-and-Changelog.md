@@ -3,10 +3,13 @@ We have some "ground rules" for planning and work item management.
 ### TL;DR: minimal label requirements
 
 - **PRs that are a breaking change must have the `impact/breaking` label.** As a convenience when using the GitHub UI to filter, please also use the `impact/changelog` label.
-- **PRs that have a user-facing change must have the `impact/changelog` label.** If a feature needs product documentation, it must  have this label. The PR should have a user-facing description of the change. This text will be copy-edited before adding to change log. So, don't worry about the right user-facing text, just make sure everything relevant is captured.
-- **If an issue is closed without writing code**, use a `resolution` label.
+- **PRs that have a user-facing change must have the `impact/changelog` label.** If a feature needs product documentation, it must have this label. The PR should have a user-facing description of the change. This text will be copy-edited before adding to change log. So, don't worry about the right user-facing text, just make sure everything relevant is captured.
+- **PRs that have the label `kind/bug`** will be put in the "Fixed" section of the changelog.
+- **PRs that have the label `kind/feature` or `kind/enhancement`** will be put in the "Added" section of the changelog.
+- **All other PRs** go in the "Changed" section.
 
 ### To also help keep issues orderly
+- **If an issue is closed without writing code**, use a `resolution` label.
 - Use `help wanted` for issues that a community member could pick up. Ensure issue description is clear for someone who is new to the project
 - An `area` label is suggested for all issues, but is not required
 - A `kind` label is strongly suggested for all issues.
