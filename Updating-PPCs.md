@@ -132,6 +132,8 @@ First you need to open up the MySQL prompt for the given service database.
 - Set `PULUMI_STACK_NAME_OVERRIDE` to "production", "staging", or "testing" depending on the service environment you want to update.
 - Run `[pulumi-service] ./scripts/launch-mysql-prompt.sh`.
 
+If you receive an error such as `fatal error: An error occurred (404) when calling the HeadObject operation: Key "v1/production.json" does not exist`, you are most likely in the wrong account.  Ensure that you are using the correct credentials using environment variables from the above instructions.
+
 ### Setting Maintenance Mode
 
 ```
