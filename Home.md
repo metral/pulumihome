@@ -4,7 +4,6 @@ Please take a look around and please make it better as you see fit.
 
 ## General
 
-* [Pulumi Terminology](https://github.com/pulumi/home/wiki/Pulumi-terminology)
 * [[Effective Slack]]
 
 ## Engineering
@@ -22,7 +21,7 @@ Please take a look around and please make it better as you see fit.
     * [Updating PPCs](Updating-PPCs)
 * [Live Site Investigations](Ops-Live-Site-Investigations)
 * [[Pulumi Service Stacks]]
-* [[Manually Repairing Stacks]]
+* [[Manually-Repairing-Pulumi-Cloud-Stacks]]
 * How our Release Bucket Permissions Work ([here](https://github.com/pulumi/home/issues/57#issuecomment-344809733) and [here](https://github.com/pulumi/home/issues/64#issuecomment-349088546))
 * [Reading List](Ops-Reading-List)
 
