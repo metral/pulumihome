@@ -5,6 +5,7 @@ Please take a look around and please make it better as you see fit.
 ## General
 
 * [Pulumi Terminology](https://github.com/pulumi/home/wiki/Pulumi-terminology)
+* [[Effective Slack]]
 
 ## Engineering
 
