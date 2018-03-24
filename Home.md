@@ -16,9 +16,10 @@ Please take a look around and please make it better as you see fit.
     * [List with "assume role" links](https://github.com/pulumi/home/wiki/Pulumi-AWS-accounts)
 * Deployments
     * [Weekly release process](https://github.com/pulumi/home/wiki/Weekly-release-process)
-    * [Building the SDK](https://github.com/pulumi/home/wiki/Producing-an-SDK)
     * [Updating the Service](Updating-the-Service) 
     * [Updating PPCs](Updating-PPCs)
+    * [Building the SDK](https://github.com/pulumi/home/wiki/Producing-an-SDK)
+    * [Updating the Docs Website](https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md)
 * [Live Site Investigations](Ops-Live-Site-Investigations)
 * [[Pulumi Service Stacks]]
 * [[Manually-Repairing-Pulumi-Cloud-Stacks]]
