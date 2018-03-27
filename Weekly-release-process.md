@@ -143,7 +143,8 @@ To bring small fixes into the `staging` or `production` environment, cherry-pick
 ```
 git fetch
 git checkout release/2018-03-01
-git cherry-pick -x abcdabcd
+# -m1 is necessary below if cherry-picking a merge commit
+git cherry-pick -x abcdabcd -m1
 git push
 ```
 
