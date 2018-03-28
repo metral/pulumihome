@@ -6,7 +6,7 @@ Please read carefully and file issues for any sharp corners.
 
 ## Updating Service PPCs
 
-There are current (as of 1/18) two "types" of PPCs: those that are updated with the service instance, and those in a "customer-production" bucket.
+There are current (as of 3/27) two "types" of PPCs: those that are updated with the service instance, and those in a "customer-production" bucket.
 
 ### Service-dependent PPCs
 
