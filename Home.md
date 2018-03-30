@@ -5,6 +5,7 @@ Please take a look around and please make it better as you see fit.
 ## General
 
 * [[Effective Slack]]
+* [[Onboarding a Private Beta Customer]]
 
 ## Engineering
 
