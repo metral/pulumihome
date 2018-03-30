@@ -36,7 +36,9 @@ Please communicate all of the above with as personal a touch as you can.  This i
 
 ## Example invitation email template
 
-Hi <Name>,
+See [Example invitation email](https://docs.google.com/document/d/11B5X_ghxlNUhSOz8q9OdL-RsKNyZEs5Fs9CRZsthTxs/edit#) for formatted message that can be copied directly into email.
+
+Hi `<Name>`,
 
 Thank you for agreeing to participate in the Pulumi private beta! I’m excited for you to test drive Pulumi and share your feedback.
 
@@ -47,9 +49,9 @@ To make sure we have time to integrate your feedback into the product, we’re e
 I’m adding you to pulumi.slack.com so that you can easily chat with me or my team. But feel free to reach out through any other channel as well.  We’re interested in all feedback, ranging from nits on the docs, to the CLI flow, to feedback on the overall experience.
 
 Access instructions
-Go to https://docs.pulumi.com and sign in with your GitHub account
-In the instructions for configuring your NPM client, use the token XXXXX
-(Optional) View GitHub repos in the Pulumi organization (look for an organization invite).
+- Go to https://docs.pulumi.com and sign in with your GitHub account
+- In the instructions for configuring your NPM client, use the token XXXXX
+- (Optional) View GitHub repos in the Pulumi organization (look for an organization invite).
  
 A small reminder: this is a private beta, so please don’t share product details with others. But, if you have a friend or colleague who might be interested in providing feedback, please let us know!
 
