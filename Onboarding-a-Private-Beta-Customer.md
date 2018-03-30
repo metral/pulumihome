@@ -25,7 +25,6 @@ Please communicate all of the above with as personal a touch as you can.  This i
 
 ## Example invitation email templates
 
-```
 Hi <Name>,
 
 Thank you for agreeing to participate in the Pulumi private beta! I’m excited for you to test drive Pulumi and share your feedback.
@@ -46,4 +45,3 @@ A small reminder: this is a private beta, so please don’t share product detail
 I’m looking forward to your feedback!
 
 Donna
-```
