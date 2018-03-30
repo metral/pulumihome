@@ -1,5 +1,16 @@
 There are three steps to onboarding a Private Beta customer.
 
+* Make sure they have an NPM token assigned in the [Pulumi Early Adopters spreadsheet](https://docs.google.com/spreadsheets/d/1JbFINleJ1-r4f-Q4m_ZrTdsZ7VOO7J-lznQamC7NEhE/edit#gid=0) (can be the same token as someone else)
+* Add their GitHub username to the docs.pulumi.com access list by following the instructions below
+* Ask Joe or Luke to invite their email address as a single channel guest on the Slack channel #community-discussion.
+* [Optional for now - but soon required] Add their GitHub username to the Pulumi console whitelist
+* [Optional] If they need GitHub access to one or more projects, we will add them as Collaborators on a case-by-case basis.
+* Send them an invitation email!
+
+## Pulumi Docs Website
+
+See https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md#adding-a-github-user-to-the-whitelist.
+
 ## Pulumi Console
 
 We maintain a whitelist for users who have access to the Pulumi service.  It is stored in a database.
@@ -11,19 +22,19 @@ This isn't exposed via the REST API, so to add new users we'll need to manually 
 INSERT INTO `BetaAccess` (`kind`, `name`) VALUES ("gh-user", "lukehoban");
 ```
 
-## Pulumi Docs Website
-
 ## Slack #community-discussion Access
 
-We add every user to the [#community-discussion](https://pulumi.slack.com/messages/C9SEFSC4C) channel, as a [Single Channel Guest](https://get.slack.help/hc/en-us/articles/202518103-Multi-Channel-and-Single-Channel-Guests).
+We add every user to the [#community-discussion](https://pulumi.slack.com/messages/C9SEFSC4C) channel, as a [Single Channel Guest](https://get.slack.help/hc/en-us/articles/202518103-Multi-Channel-and-Single-Channel-Guests).  Currently only Slack administrators can invite single channel guests - please ping @joe or @luke in #private-beta to ask that a new user be added.
 
 ## (Optional) GitHub Read-Only Access
+
+We will on a case-by-case basis add read-only Collaborators.  If you believe someone should have GitHub access, please post a message on #private-beta to discuss.
 
 ## Personal Touch!
 
 Please communicate all of the above with as personal a touch as you can.  This is a good way to drive engagement.  Please orient people towards [specific examples](https://github.com/pulumi/examples) that might be relevant to their work, and check in regularly, one on one, to see if we can be helpful in making sure they have a great experience.
 
-## Example invitation email templates
+## Example invitation email template
 
 Hi <Name>,
 
