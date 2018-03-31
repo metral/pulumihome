@@ -1,5 +1,3 @@
-# Deploying the Pulumi Docs Website
-
 Steps for how to deploy the Pulumi Documentation website, housed in [pulumi/docs](https://github.com/pulumi/docs).
 
 Before you do anything though, you need to install the SSH key to connect to the machine. Go to
