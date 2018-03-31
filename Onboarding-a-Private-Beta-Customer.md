@@ -55,6 +55,10 @@ The following are the repos we will typically add access to:
 * [pulumi/pulumi-kubernetes](https://github.com/pulumi/pulumi-kubernetes/settings/collaboration)
 * [pulumi/pulumi-terraform](https://github.com/pulumi/pulumi-terraform/settings/collaboration)
 
+**Make sure collaborators have Read-only access:**
+
+![image](https://user-images.githubusercontent.com/3953235/38164793-9021830c-34be-11e8-8e66-17bfd6d9d6b1.png)
+
 In some cases, we may offer less -- for instance, if someone doesn't care about Azure, they may not care to see it -- however, in almost no circumstance should we go beyond this.  Specifically, the PPC and service repos, or anything pertaining to our SaaS product, are **never** shared with non-Pulumi employees.  We also don't share access to pulumi/home since it contains customer code and tests at the moment (this will be fixed before we open source).
 
 ## Personal Touch!
