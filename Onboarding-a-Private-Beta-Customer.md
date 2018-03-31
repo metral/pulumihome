@@ -4,7 +4,7 @@ There are three steps to onboarding a Private Beta customer.
 * Add their GitHub username to the docs.pulumi.com access list by following the instructions below
 * Ask Joe or Luke to invite their email address as a single channel guest on the Slack channel #community-discussion.
 * Add their GitHub username to the Pulumi console whitelist
-* [Optional] If they need GitHub access to one or more projects, we will add them as Collaborators on a case-by-case basis.
+* (Optional) Add GitHub access as collaborators to the core SDK ("to-be-open-source") repos
 * Send them an invitation email!
 
 ## Pulumi Docs Website
@@ -41,9 +41,21 @@ INSERT INTO `BetaAccess` (`kind`, `name`) VALUES ("gh-user", "lukehoban");
 
 We add every user to the [#community-discussion](https://pulumi.slack.com/messages/C9SEFSC4C) channel, as a [Single Channel Guest](https://get.slack.help/hc/en-us/articles/202518103-Multi-Channel-and-Single-Channel-Guests).  Currently only Slack administrators can invite single channel guests - please ping @joe or @luke in #private-beta to ask that a new user be added.
 
-## (Optional) GitHub Read-Only Access
+## GitHub Read-Only Access
 
-We will on a case-by-case basis add read-only Collaborators.  If you believe someone should have GitHub access, please post a message on #private-beta to discuss.
+Although not a strict requirement, for *most* users, we will want to give them read-only access to **some** of our GitHub repos.  We may elect not to do this if there is a concern over a specific person seeing our source code.  But in general, this will ensure a smoother experience, more akin to what will be available when we launch.  It lets people see source code and examples and, more importantly, read and file issues, all of which will help them be more productive using the beta.
+
+The following are the repos we will typically add access to:
+
+* [pulumi/pulumi](https://github.com/pulumi/pulumi/settings/collaboration)
+* [pulumi/examples](https://github.com/pulumi/examples/settings/collaboration)
+* [pulumi/docs](https://github.com/pulumi/docs/settings/collaboration)
+* [pulumi/pulumi-aws](https://github.com/pulumi/pulumi-aws/settings/collaboration)
+* [pulumi/pulumi-azure](https://github.com/pulumi/pulumi-azure/settings/collaboration)
+* [pulumi/pulumi-kubernetes](https://github.com/pulumi/pulumi-kubernetes/settings/collaboration)
+* [pulumi/pulumi-terraform](https://github.com/pulumi/pulumi-terraform/settings/collaboration)
+
+In some cases, we may offer less -- for instance, if someone doesn't care about Azure, they may not care to see it -- however, in almost no circumstance should we go beyond this.  Specifically, the PPC and service repos, or anything pertaining to our SaaS product, are **never** shared with non-Pulumi employees.  We also don't share access to pulumi/home since it contains customer code and tests at the moment (this will be fixed before we open source).
 
 ## Personal Touch!
 
