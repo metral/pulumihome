@@ -45,7 +45,7 @@ We add every user to the [#community-discussion](https://pulumi.slack.com/messag
 
 Although not a strict requirement, for *most* users, we will want to give them read-only access to **some** of our GitHub repos.  We may elect not to do this if there is a concern over a specific person seeing our source code.  But in general, this will ensure a smoother experience, more akin to what will be available when we launch.  It lets people see source code and examples and, more importantly, read and file issues, all of which will help them be more productive using the beta.
 
-The following are the repos we will typically give uses **Collaborator** access to:
+The following are the repos we will typically give users **Collaborator** access to:
 
 * [pulumi/pulumi](https://github.com/pulumi/pulumi/settings/collaboration)
 * [pulumi/examples](https://github.com/pulumi/examples/settings/collaboration)
