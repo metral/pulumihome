@@ -20,7 +20,7 @@ Please take a look around and please make it better as you see fit.
     * [Updating the Service](Updating-the-Service) 
     * [Updating PPCs](Updating-PPCs)
     * [Building the SDK](https://github.com/pulumi/home/wiki/Producing-an-SDK)
-    * [Updating the Docs Website](https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md)
+    * [[Updating the Docs Website]]
 * [Live Site Investigations](Ops-Live-Site-Investigations)
 * [[Pulumi Service Stacks]]
 * [[Manually-Repairing-Pulumi-Cloud-Stacks]]
