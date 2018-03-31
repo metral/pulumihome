@@ -50,6 +50,7 @@ The following are the repos we will typically add access to:
 * [pulumi/pulumi](https://github.com/pulumi/pulumi/settings/collaboration)
 * [pulumi/examples](https://github.com/pulumi/examples/settings/collaboration)
 * [pulumi/docs](https://github.com/pulumi/docs/settings/collaboration)
+* [pulumi/pulumi-cloud](https://github.com/pulumi/pulumi-cloud/settings/collaboration)
 * [pulumi/pulumi-aws](https://github.com/pulumi/pulumi-aws/settings/collaboration)
 * [pulumi/pulumi-azure](https://github.com/pulumi/pulumi-azure/settings/collaboration)
 * [pulumi/pulumi-kubernetes](https://github.com/pulumi/pulumi-kubernetes/settings/collaboration)
