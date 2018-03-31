@@ -3,7 +3,7 @@ There are three steps to onboarding a Private Beta customer.
 * Make sure they have an NPM token assigned in the [Pulumi Early Adopters spreadsheet](https://docs.google.com/spreadsheets/d/1JbFINleJ1-r4f-Q4m_ZrTdsZ7VOO7J-lznQamC7NEhE/edit#gid=0) (can be the same token as someone else)
 * Add their GitHub username to the docs.pulumi.com access list by following the instructions below
 * Ask Joe or Luke to invite their email address as a single channel guest on the Slack channel #community-discussion.
-* [Optional for now - but soon required] Add their GitHub username to the Pulumi console whitelist
+* Add their GitHub username to the Pulumi console whitelist
 * [Optional] If they need GitHub access to one or more projects, we will add them as Collaborators on a case-by-case basis.
 * Send them an invitation email!
 
