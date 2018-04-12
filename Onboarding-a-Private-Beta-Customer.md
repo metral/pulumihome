@@ -1,16 +1,25 @@
-There are three steps to onboarding a Private Beta customer.
+## How to onboard a private beta customer
 
-* Make sure they have an NPM token assigned in the [Pulumi Early Adopters spreadsheet](https://docs.google.com/spreadsheets/d/1JbFINleJ1-r4f-Q4m_ZrTdsZ7VOO7J-lznQamC7NEhE/edit#gid=0) (can be the same token as someone else)
-* Add their GitHub username to the docs.pulumi.com access list by following the instructions below
-* Add their GitHub username to the Pulumi console whitelist
-* (Optional) Add GitHub access as collaborators to the core SDK ("to-be-open-source") repos
-* Send them an invitation, making sure to cc support@pulumi.com
-* (*After the invitation email has been sent*) Ask Joe or Luke to invite their email address as a single channel guest on the Slack channel #community-discussion.
+1. Make sure they have an NPM token assigned in the [Pulumi Early Adopters spreadsheet](https://docs.google.com/spreadsheets/d/1JbFINleJ1-r4f-Q4m_ZrTdsZ7VOO7J-lznQamC7NEhE/edit#gid=0). The convention is that for each "wave" of new users, we use the same NPM token. (This is because the tokens can only be revoked by us, using the Pulumi Bot npm user.)
+1. Add their GitHub username to the docs.pulumi.com access list, following the instructions below
+1. Add their GitHub username to the Pulumi console whitelist, following the instructions below
+1. Send them an email invitation, making sure to cc support@pulumi.com. See example below.
 
+After the invitation email has been sent, ask Joe or Luke to do the following:
+- Add the user with as a collaborator on the [examples](https://github.com/pulumi/examples) repo. Once there is sufficient cleanup of other repos, add them to all the core SDK ("to-be-open-source") repos. See GitHub notes below.
+- Ask Joe or Luke to invite their email address as a single channel guest on the Slack channel #community-discussion.
+
+## What can private beta customers access?
+
+Our engagement plan assumes that **each** private beta customer has access to the following:
+- The docs website
+- The pulumi.com service
+- The GitHub [examples](https://github.com/pulumi/examples) repo, and ideally others
+- (If they have accepted the invite) The Slack channel #community-discussion
 
 ## Pulumi Docs Website
 
-For users whose organization and email domain are not in the whitelist (i.e, private beta customers), their GitHub username can be added to a whitelist. The process below provides access only to [docs.pulumi.com](https://docs.pulumi.com), not beta.pulumi.com.
+For users whose organization and email domain are not in the whitelist (i.e, private beta customers), their GitHub username can be added to a whitelist. The process below provides access only to [docs.pulumi.com](https://docs.pulumi.com), not the pulumi.com service.
 
 To add a user to the whitelist, do the following:
 
