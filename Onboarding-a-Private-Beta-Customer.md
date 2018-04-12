@@ -2,10 +2,11 @@ There are three steps to onboarding a Private Beta customer.
 
 * Make sure they have an NPM token assigned in the [Pulumi Early Adopters spreadsheet](https://docs.google.com/spreadsheets/d/1JbFINleJ1-r4f-Q4m_ZrTdsZ7VOO7J-lznQamC7NEhE/edit#gid=0) (can be the same token as someone else)
 * Add their GitHub username to the docs.pulumi.com access list by following the instructions below
-* Ask Joe or Luke to invite their email address as a single channel guest on the Slack channel #community-discussion.
 * Add their GitHub username to the Pulumi console whitelist
 * (Optional) Add GitHub access as collaborators to the core SDK ("to-be-open-source") repos
-* Send them an invitation email!
+* Send them an invitation, making sure to cc support@pulumi.com
+* (*After the invitation email has been sent*) Ask Joe or Luke to invite their email address as a single channel guest on the Slack channel #community-discussion.
+
 
 ## Pulumi Docs Website
 
@@ -30,7 +31,11 @@ $ sudo service pulumi-docs restart
 
 We maintain a whitelist for users who have access to the Pulumi service.  It is stored in a database.
 
-This isn't exposed via the REST API, so to add new users we'll need to manually add them to the database via SQL-query. Assuming you have `launch-mysql-prompt.sh` setup ([notes on wiki](https://github.com/pulumi/home/wiki/Putting-PPCs-in-maintenance-mode#database-access)), the query to add a user is:
+This isn't exposed via the REST API, so to add new users we'll need to manually add them to the database via SQL-query. 
+
+1. Set up `launch-mysql-prompt.sh`, following the steps in [Database Access](https://github.com/pulumi/home/wiki/Putting-PPCs-in-maintenance-mode#database-access). Use the user **travis-cicd** in the **production** account.
+
+1. Add a user with the following query:
 
 ```
 # Add GitHub user "lukehoban" to the service whitelist.
