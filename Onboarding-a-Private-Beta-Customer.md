@@ -29,18 +29,16 @@ $ sudo service pulumi-docs restart
 
 ## Pulumi Console
 
-We maintain a whitelist for users who have access to the Pulumi service.  It is stored in a database.
-
-This isn't exposed via the REST API, so to add new users we'll need to manually add them to the database via SQL-query. 
+We maintain a whitelist for users who have access to the Pulumi service, stored in a database. However, since the access list isn't exposed via the REST API, you need to add new users manually to the database with a SQL query.
 
 1. Set up `launch-mysql-prompt.sh`, following the steps in [Database Access](https://github.com/pulumi/home/wiki/Putting-PPCs-in-maintenance-mode#database-access). Use the user **travis-cicd** in the **production** account.
 
 1. Add a user with the following query:
 
-```
-# Add GitHub user "lukehoban" to the service whitelist.
-INSERT INTO `BetaAccess` (`kind`, `name`) VALUES ("gh-user", "lukehoban");
-```
+   ```
+   # Add GitHub user "lukehoban" to the service whitelist.
+   INSERT INTO `BetaAccess` (`kind`, `name`) VALUES ("gh-user", "lukehoban");
+   ```
 
 ## Slack #community-discussion Access
 
