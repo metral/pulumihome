@@ -41,7 +41,7 @@ $ aws ecs list-clusters
 
 $ aws sts get-caller-identity --profile pulumi-testing
 # or equivalently
-$ AWS_PROFILE=pulumi-testing aws sts get-caller-identity
+# AWS_PROFILE=pulumi-testing aws sts get-caller-identity
 {
     "Account": "086028354146", 
     "UserId": "AROAJWOEUDFPDZA6MI674:AWS-CLI-session-1523566057", 
