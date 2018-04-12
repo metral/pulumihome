@@ -5,13 +5,31 @@ There is no way to do this through the UI. It must be done by directly editing t
 The maintenance mode flag is the 0x1 bit.
 
 ### Database Access
-First you need to open up the MySQL prompt for the given service database.
 
-- Open up [this doc](https://docs.google.com/document/d/1p1jvOxbyiy_2OYdtWMjgY3W7vVZXx3Hq3O8Eq1Euea8/edit#) and set the `AWS_SECRET_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables for the environment you wish to update. (e.g. user `travis-cicd` in the production account.)
-- Set `PULUMI_STACK_NAME_OVERRIDE` to "production", "staging", or "testing" depending on the service environment you want to update.
-- Run `[pulumi-service] ./scripts/launch-mysql-prompt.sh`.
+#### Prerequisites
+1. Make sure the `mysql` command line tool is installed on your machine
+1. Download [pulumi.058607598222.us-west-2.pem](https://drive.google.com/open?id=0B_ivBLhaCF_ceHIxRWpsM1NSbzg)
+1. Copy the file to your `~/.ssh` folder
+1. `chmod 400 ~/.ssh/pulumi.058607598222.us-west-2.pem`
+
+#### Launch a mysql prompt
+
+1. Open [AWS Role Account Passwords](https://docs.google.com/document/d/1p1jvOxbyiy_2OYdtWMjgY3W7vVZXx3Hq3O8Eq1Euea8/edit#) to get the `AWS_SECRET_KEY_ID` and `AWS_SECRET_ACCESS_KEY` values for your environment. For example, user **travis-cicd** in the **production** account.
+
+1. Run the following: 
+    ```bash
+    export AWS_SECRET_KEY_ID=access_key_from_doc
+    export AWS_SECRET_ACCESS_KEY=secret_key_from_doc
+    export PULUMI_STACK_NAME_OVERRIDE=production # or "staging" or "testing"
+
+    pulumi logout
+    pulumi login --cloud-url local://
+    ./scripts/launch-mysql-prompt.sh # run in [pulumi-service] repo
+    ```
 
 If you receive an error such as `fatal error: An error occurred (404) when calling the HeadObject operation: Key "v1/production.json" does not exist`, you are most likely in the wrong account.  Ensure that you are using the correct credentials using environment variables from the above instructions.
+
+If you are prompted for your Pulumi Access token, that means you didn't correctly set the mode to local stacks (aka "fire and forget"). Run `pulumi logout` and `pulumi login --cloud-url local://` again.
 
 ### Setting Maintenance Mode
 
