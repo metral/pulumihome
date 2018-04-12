@@ -15,19 +15,17 @@ The maintenance mode flag is the 0x1 bit.
 
 #### Launch a mysql prompt
 
-1. Make
+Run the following in the root of the `pulumi-service` repository:
+```bash
+export AWS_PROFILE=pulumi-testing # or "staging" or "production"
+export PULUMI_STACK_NAME_OVERRIDE=testing # or "staging" or "production"
 
-1. Run the following in the root of the `pulumi-service` repository:
-    ```bash
-    export AWS_PROFILE=pulumi-testing # or "staging" or "production"
-    export PULUMI_STACK_NAME_OVERRIDE=testing # or "staging" or "production"
-
-    pulumi logout
-    pulumi login --cloud-url local://
-    ./scripts/launch-mysql-prompt.sh
-    unset AWS_PROFILE
-    unset PULUMI_STACK_NAME_OVERRIDE
-    ```
+pulumi logout
+pulumi login --cloud-url local://
+./scripts/launch-mysql-prompt.sh
+unset AWS_PROFILE
+unset PULUMI_STACK_NAME_OVERRIDE
+```
 
 If you receive an error such as `fatal error: An error occurred (404) when calling the HeadObject operation: Key "v1/production.json" does not exist`, you are most likely in the wrong account. Ensure you're using the right profile.
 
