@@ -72,7 +72,7 @@ provider "aws" {
 }
 ```
 
-## Example `~/.aws/config`
+## Reference `~/.aws/config`
 
 This shared configuration file includes names and IAM roles for many of Pulumi's interesting AWS accounts.
 
