@@ -13,6 +13,8 @@ There are three steps to onboarding a Private Beta customer.
 For users whose organization and email domain are not in the whitelist (i.e, private beta customers), their GitHub username can be added to a whitelist. The process below provides access only to [docs.pulumi.com](https://docs.pulumi.com), not beta.pulumi.com.
 
 To add a user to the whitelist, do the following:
+
+- SSH into the docs website VM using the [instructions here](https://github.com/pulumi/home/wiki/Updating-the-Docs-Website)
 - Open `/home/ubuntu/pulumi-docs/.env` in an editor
 - Add their GitHub username to the list `DOCS_GITHUB_LOGINS`:
 
