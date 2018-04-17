@@ -4,13 +4,15 @@ How does our code get to customers, and what happens along the way?
 
 Code in the Pulumi service starts in `master`, then moves to `staging` and `production`. We manage this flow by creating **releases** from `master` and **promoting** releases to `staging` and then `production`.
 
-Pulumi's release process follows one-week cycles. On Thursday we choose a commit to promote from `master` to `staging`. If all goes well there, that release is promoted to `production` the following Tuesday. If everything *doesn't* go well, we decide whether to cherry-pick fixes or abandon the release.
+## Schedule
+
+We aim to promote code to each environment twice a week. Each Tuesday and Thursday, the release in `staging` is promoted to `production` and a new `staging` release is cut from `master`.
 
 ## Roles
 
-Releases to `production` are handled by primary oncall.
+Releases to `production` are handled by primary oncall because they're best positioned to respond to any problems caused by the release.
 
-Releases to `staging` are handled by secondary oncall. Their first task as primary the next week will be to promote that release to `production`, so it's helpful for them to have context on the `staging` payload.
+Releases to `staging` are handled by secondary oncall. This reduces the load on primary oncall and also lets us run promotions in parallel.
 
 In each case, oncall has the final say about whether to continue or abandon a release.
 
@@ -46,7 +48,7 @@ The `staging` and `production` environments track the corresponding branches in 
 
 ### To `staging`
 
-On Thursday, secondary oncall creates a release branch (e.g. `release/2018-01-01`) from the most recent green build in `testing`, then creates a pull request to merge that branch into `staging`.
+Each Tuesday and Thursday, secondary oncall creates a release branch (e.g. `release/2018-01-01`) from the most recent green build in `testing`, then creates a pull request to merge that branch into `staging`.
 
 We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for this.
 
@@ -105,7 +107,7 @@ The resulting merge commit should have an **empty diff**.
 ### To `production`
 
 #### Merge the changes
-On Tuesday, primary oncall merges the previous week's release branch (e.g. `release/2018-02-12`) into `production`. We merge from the release branch, instead of from `staging`, so we can manage deployments (and cherry-picks) to each environment independently.
+On Tuesday and Thursday, primary oncall merges the release branch that currently matches `staging` (e.g. `release/2018-02-12`) into `production`. We merge from the release branch, instead of from `staging`, so we can manage deployments (and cherry-picks) to each environment independently.
 
 We don't have a tool for this yet, but you can create the PR from the GitHub UI or start with a URL like https://github.com/pulumi/pulumi-service/compare/production...release/2018-02-12.
 
@@ -135,6 +137,10 @@ To make it possible to generate a changelog for releases, you should tag the lat
 After the Pulumi Service has been updated and rolled out to production, we need to update customer PPCs. That process is documented [here](https://github.com/pulumi/home/wiki/Updating-PPCs).
 
 The release is complete once customer PPCs have all been updated.
+
+### Promoting in parallel
+
+Neither of the `staging` or `production` promotions needs to happen "first" on a given Tuesday or Thursday. On the contrary, it's probably best to do the releases concurrently to make it more likely each is finished by a reasonable time.
 
 ## Cherry-picks
 
