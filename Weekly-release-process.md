@@ -38,9 +38,9 @@ Updates to the software running on PPCs are handled similarly to the SDK. The re
 
 The Pulumi service is deployed into three different environments:
 
-- `testing` at https://beta-dot-testing.moolumi.io
-- `staging` at https://beta.moolumi.io
-- `production` at https://beta.pulumi.com
+- `testing` at https://www.pulumi-test.io
+- `staging` at https://www.pulumi-staging.io
+- `production` at https://www.pulumi.com
 
 The `staging` and `production` environments track the corresponding branches in [pulumi/pulumi-service](https://github.com/pulumi/pulumi-service). The `testing` environment tracks `master`.
 
