@@ -10,9 +10,9 @@ We aim to promote code to each environment twice a week. Each Tuesday and Thursd
 
 ## Roles
 
-Releases to `production` are handled by primary oncall because they're best positioned to respond to any problems caused by the release.
+Releases to `production` are handled by primary oncall. If something goes wrong, they're in the best position to respond and they'll have context on what's changed.
 
-Releases to `staging` are handled by secondary oncall. This reduces the load on primary oncall and also lets us run promotions in parallel.
+Releases to `staging` are handled by secondary oncall. This reduces the load on primary oncall and also helps us run promotions in parallel.
 
 In each case, oncall has the final say about whether to continue or abandon a release.
 
