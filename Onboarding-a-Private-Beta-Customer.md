@@ -23,7 +23,7 @@ Our engagement plan assumes that **each** private beta customer has access to th
 
 As of 4/23, Donna, Joe, and Luke have access to generate codes.
 
-To generate an invite URL, run `[scripts/ops/generate-invite-codes.sh](https://github.com/pulumi/pulumi-service/blob/master/scripts/ops/generate-invite-codes.sh)` in the Pulumi Service repo. 
+To generate an invite URL, run [scripts/ops/generate-invite-codes.sh](https://github.com/pulumi/pulumi-service/blob/master/scripts/ops/generate-invite-codes.sh) in the Pulumi Service repo. 
 
 ## Slack #community-discussion Access
 
