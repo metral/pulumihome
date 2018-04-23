@@ -86,3 +86,4 @@ Make sure to CC support@pulumi.com so that other team members can see any issues
 
 See [Example invitation email](https://docs.google.com/document/d/11B5X_ghxlNUhSOz8q9OdL-RsKNyZEs5Fs9CRZsthTxs/edit#) for a formatted message that can be copied directly into email.
 
+So that the invitee can send an invite to friends, include the survey link https://goo.gl/forms/NRVLdW2eLIKP9Bi23, which collects name, email, and currently GitHub username.
