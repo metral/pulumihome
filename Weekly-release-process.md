@@ -144,7 +144,7 @@ Neither of the `staging` or `production` promotions needs to happen "first" on a
 
 ## Cherry-picks
 
-To bring small fixes into the `staging` or `production` environment, cherry-pick commits **into the release branch** and then create another PR to merge the release branch back into the target environment(s). The PR to `staging` or `production` should be reviewed by primary or secondary oncall. The actually cherry-pick need not be.
+To bring small fixes into the `staging` or `production` environment, cherry-pick commits **into the release branch** and then create another PR to merge the release branch back into the target environment(s). The PR to `staging` or `production` should be reviewed by primary or secondary oncall. The cherry-pick itself need not be.
 
 ```
 git fetch
