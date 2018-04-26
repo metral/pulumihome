@@ -1,7 +1,7 @@
 Each service stack has an Aurora instance that's only available from within the service VPC. You can create an SSH tunnel to connect with the MySQL client.
 
 ## Prerequisites
-1. Make sure the `mysql` command line tool is installed on your machine
+1. Make sure the `mysql` command line tool is installed on your machine.
 2. Download [`pulumi.058607598222.us-west-2.pem`](https://drive.google.com/open?id=0B_ivBLhaCF_ceHIxRWpsM1NSbzg), where `058607598222` is the [[ID of the production account|Pulumi AWS accounts]].
 3. Copy the file to your `~/.ssh` folder.
 4. `chmod 400 ~/.ssh/pulumi.058607598222.us-west-2.pem`
