@@ -13,6 +13,7 @@ Run the following in the root of the `pulumi-service` repository:
 ```bash
 export AWS_PROFILE=pulumi-testing # or "staging" or "production"
 export PULUMI_STACK_NAME_OVERRIDE=testing # or "staging" or "production"
+export AWS_DEFAULT_REGION=us-west-2 # This may be required, depending on how your profile is configured
 
 pulumi logout
 pulumi login --cloud-url local://
