@@ -4,7 +4,7 @@
 2. Send them an email invitation, making sure to cc support@pulumi.com. See example below.
 
 After the invitation email has been sent:
-- Ask Joe or Luke to add the user with as a collaborator on the [examples](https://github.com/pulumi/examples) repo. Once there is sufficient cleanup of other repos, add them to all the core SDK ("to-be-open-source") repos. See GitHub notes below.
+- Ask Joe or Luke to add the user with as a collaborator on the [examples](https://github.com/pulumi/examples) repo. Also add them to all the core SDK ("to-be-open-source") repos. See GitHub notes below.
 - Ask Joe, Luke or Donna to invite their email address as a single channel guest on the Slack channel #community-discussion.
 
 Note: because our new onboarding process does not require a GitHub username, we will implement this feature: [Add a webhook to notify when a new user has signed up #1231](https://github.com/pulumi/pulumi-service/issues/1231). Before this feature has been rolled out, we will still ask folks for GitHub usernames, since the docs website has a number of links to the `examples` repo. GitHub usernames are stored in the `BetaAccess` table.
