@@ -42,9 +42,15 @@ You should never need to do this, since we always queue builds automatically for
 
 If you find yourself having to produce SDKs manually, we should figure out why that is and add automation so you don't have to.
 
-## Updating the docs website
-Once you've made a new release and we've validate it, you'll probably want to update the [install page on docs.pulumi.com](https://docs.pulumi.com/install/). The /releases/ endpoint on `docs.pulumi.com` will proxy any requests for published SDKs without a prerelease tag to the S3, so you do not need to worry about uploading binaries anywhere.  However, you'll want to update the "latest" version.
+## Listing the release and updating documentation
+
+In order for customers to get the new release, you need to update the [install page on docs.pulumi.com](https://docs.pulumi.com/install/). Note that the /releases/ endpoint on `docs.pulumi.com` will proxy any requests for non-prerelease published SDKs to the right S3 bucket.
 
 1. In your `pulumi/docs` repository, update [`install/index.md`](https://github.com/pulumi/docs/blob/master/install/index.md). Update the variable `installer_version` in the YAML [front matter](https://jekyllrb.com/docs/frontmatter/). Verify that the links are correct when you generate the site locally.
-2. Commit and then Push. (If you create a GitHub PR, be sure to merge that into `master` before proceeding to the next step.)
-3. Follow the directions in https://github.com/pulumi/pulumi-service/blob/master/cmd/docs/DEVOPS.md for information on how to regenerate the docs website.
+2. Generate a new changelog, following the instructions in the docs repo readme [Generating a change log](https://github.com/pulumi/docs#generating-a-change-log).
+3. Update the quickstart and reference content to integrate any breaking changes. Add or remove known issues from [known-issues.md](https://github.com/pulumi/docs/blob/master/reference/known-issues.md).
+4. Update the READMEs and `package.json` in [Pulumi examples](https://github.com/pulumi/examples). 
+5. Generate new API reference docs, following the instructions in https://github.com/pulumi/docs#development. 
+6. Edit [dashboard.json](https://github.com/pulumi/docs/blob/master/dashboard.json) to add the new release in the Console dashboard "News" card.
+7. Merge your changes into master. Then, create a new PR to merge into production.
+8. To push the new content live, follow the instructions in [Updating Website Content](https://github.com/pulumi/home/wiki/Updating-the-Docs-Website#updating-website-content).
