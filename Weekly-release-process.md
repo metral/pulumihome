@@ -113,25 +113,6 @@ We don't have a tool for this yet, but you can create the PR from the GitHub UI 
 
 Have the PR reviewed by your oncall partner and submit the same way you would the `staging` release.
 
-#### Tag the release
-
-To make it possible to generate a changelog for releases, you should tag the latest commit in `production` with a tag of the current date in the format YYYY-MM-DD. This can be done by running the following commands:
-
-1. In the `pulumi-service` repo, change to the `production` branch:
-
-   ```
-   git checkout --track origin/production # if you don't already have the branch
-   git checkout production # if you do
-   ```
-
-3. Get the latest changes, tag the latest commit, and push tags:
-
-   ```
-   git pull origin         # get latest changes
-   git tag 2018-MM-DD      # tag the release with today's date
-   git push origin --tags  # push the tags to origin
-   ```
-
 #### Customer PPCs
 
 After the Pulumi Service has been updated and rolled out to production, we need to update customer PPCs. That process is documented [here](https://github.com/pulumi/home/wiki/Updating-PPCs).
