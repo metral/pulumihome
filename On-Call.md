@@ -30,14 +30,14 @@ _These are still very much in flux and incomplete. Please take the time to revie
 
 * Respond to pages and incidents. Triage issues, respond, and bring in the help you need.
 * Handle or delegate [customer communication](https://github.com/pulumi/home/wiki/Customer-communications-during-an-incident) of incidents or planned downtime.
-* Shepherd this week's [production release](https://github.com/pulumi/home/wiki/Weekly-release-process) from staging
+* Shepherd [production releases](https://github.com/pulumi/home/wiki/Weekly-release-process) from staging
 * Write post-mortems for outages that happen during your shift
 * Triage notifications (`#ops-notifications` in Slack) once per business day
 
 ## Secondary
 
 * Respond (as backup) to pages and incidents if oncall is unavailable
-* Shepherd this week's [staging release](https://github.com/pulumi/home/wiki/Weekly-release-process) from testing
+* Shepherd [staging releases](https://github.com/pulumi/home/wiki/Weekly-release-process) from testing
 
 ## Everyone else
 
