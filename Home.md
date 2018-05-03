@@ -28,6 +28,10 @@ Please take a look around and please make it better as you see fit.
 * How our Release Bucket Permissions Work ([here](https://github.com/pulumi/home/issues/57#issuecomment-344809733) and [here](https://github.com/pulumi/home/issues/64#issuecomment-349088546))
 * [Reading List](Ops-Reading-List)
 
+### Analytics
+
+- [[Analytics queries on prod database]]
+
 ### Daily Development
 
 * Setting up a development machine
@@ -41,3 +45,4 @@ Please take a look around and please make it better as you see fit.
 * [Integration Test Performance](https://github.com/pulumi/home/wiki/Integration-Test-Performance-Reports)
 * [Pulumi Design Notes (PDNs)](https://drive.google.com/drive/folders/0B0siYR6Ttr5LVk85eU9NYmI1UW8)
 * [[Working With DynamoDB]]
+
