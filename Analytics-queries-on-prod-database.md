@@ -36,7 +36,7 @@ group by o.github_login
 order by Stacks;
 ```
 
-Deployments and last deployment time per user
+## Deployments and last deployment time per user
 
 ```sql
 select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
