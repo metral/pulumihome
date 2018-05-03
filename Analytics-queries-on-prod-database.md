@@ -1,4 +1,4 @@
-A list of useful queries on how customers are using the service.
+A list of useful queries on how customers are using the service. Connect to the prod database by following the instructions in [[Accessing the service database in production]].
 
 ## Users and deployments
 
