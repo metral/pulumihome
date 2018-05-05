@@ -4,9 +4,7 @@ Queries for collecting usage data from production systems - the production datab
 
 A list of useful queries on how customers are using the service. Connect to the prod database by following the instructions in [[Accessing the service database in production]].
 
-
-
-## Users and deployments
+### Users and deployments
 
 ```sql
 select Users.github_login, count(*) as updates 
@@ -16,13 +14,13 @@ group by Users.id
 order by updates desc;
 ```
 
-## Users who have logged in to the service
+### Users who have logged in to the service
 
 ```sql
 select github_login, email, created from Users order by created desc;
 ```
 
-## Deployments per user 
+### Deployments per user 
 
 ```sql
 select Users.email, Users.created as OnboardDate, count(ProgramUpdates.id) as deployments
@@ -32,7 +30,7 @@ group by Users.id
 order by Users.created;
 ```
 
-## Stacks per organization (stacks that have not been deleted)
+### Stacks per organization (stacks that have not been deleted)
 
 ```sql
 select o.github_login, count(p.stack_name) as Stacks
@@ -42,7 +40,7 @@ group by o.github_login
 order by Stacks;
 ```
 
-## Deployments and last deployment time per user
+### Deployments and last deployment time per user
 
 ```sql
 select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
@@ -52,7 +50,7 @@ group by u.id
 order by u.created;
 ```
 
-## Used invite codes
+### Used invite codes
 
 ```sql
 select create_user.github_login as Inviter, invite_user.github_login as InvitedGitHub, invite_user.email InvitedEmail, invite_user.created as JoinDate
@@ -62,7 +60,7 @@ from InviteCodes i
 order by JoinDate;
 ```
 
-## Beta access users who have logged in
+### Beta access users who have logged in
 Users who were given direct access to the private beta
 
 ```sql
@@ -75,7 +73,7 @@ order by b.modified;
 
 We have an Athena table defined in our prod account in `us-west-2`.
 
-## Downloads by date and route
+### Downloads by date and route
 
 See [in console](https://us-west-2.console.aws.amazon.com/athena/home?force&force=&region=us-west-2#query/saved/5e5b129a-1f6f-4981-8a66-63b475b65681).
 
