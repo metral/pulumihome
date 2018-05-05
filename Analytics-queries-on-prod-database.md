@@ -1,4 +1,10 @@
+Queries for collecting usage data from production systems - the production database and the production cloudfront logs.
+
+# Prod Database
+
 A list of useful queries on how customers are using the service. Connect to the prod database by following the instructions in [[Accessing the service database in production]].
+
+
 
 ## Users and deployments
 
@@ -63,4 +69,19 @@ Users who were given direct access to the private beta
 select b.name, b.modified from BetaAccess b
    inner join Users u on u.github_login = b.name
 order by b.modified;
+```
+
+# Prod Cloudfront Logs
+
+We have an Athena table defined in our prod account in `us-west-2`.
+
+## Downloads by date and route
+
+See [in console](https://us-west-2.console.aws.amazon.com/athena/home?force&force=&region=us-west-2#query/saved/5e5b129a-1f6f-4981-8a66-63b475b65681).
+
+```sql
+SELECT date, uri, count(*) AS downloads
+FROM cloudfront_logs
+GROUP BY  date, uri
+ORDER BY  date, uri;
 ```
