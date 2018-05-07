@@ -2,45 +2,28 @@
 
 ## Overview
 
-Our SDK is comprised of these repos, in order of dependencies:
+The Pulumi SDK is made up of the CLI and language specific packages (e.g `@pulumi/pulumi`, `@pulumi/aws`, and `@pulumi/cloud`)
 
-* [`pulumi/pulumi`](https://github.com/pulumi/pulumi): the core engine
-* [`pulumi/pulumi-terraform`](https://github.com/pulumi/pulumi-terraform): the Terraform bridge for our resource providers
-* [`pulumi/pulumi-aws`](https://github.com/pulumi/pulumi-aws): the AWS provider package
-* [`pulumi/pulumi-cloud`](https://github.com/pulumi/pulumi-cloud): the Pulumi Cloud Framework packages
+The CLI and language packages ship independently from one another, and each language package can ship independently from one another.
 
-In general, we build and tag each one using semvers.  The process of updating versions is [outlined here](https://github.com/pulumi/home/wiki/Managing-Repo-Versions), however suffice it to say, it is manual and labor intensive at the moment.
+In the past, releasing a new SDK has meant building a new version of the CLI and `@pulumi/pulumi`, and then building "up the stack", updating each package to depend on the just released version of all its dependencies. We did this in the past because multiple copies of the base pulumi runtime package could not be loaded into an application at once, so we wanted to make we had a consistent set of packages that would all depend on a unified `@pulumi/pulumi` reference.  We no longer have this dependency, so we should be able to publish packages independently of one another.
 
-:construction: *We are actively working on automation to make this more...automated.*
+Every build out of master or a branch named `release/...` will publish a release.  We use git tags for versioning today, so the build number is based on the tags present when we do the build. This means we end up tagging a build *before* we produce it, which is not great but that is where we are today.
 
-As we tag versions, our CI jobs will publish builds (per the below).  As soon as all of the above SDK repos are built, a job in [`pulumi/sdk`](https://github.com/pulumi/sdk) will run to produce the final package.
+## Building and releasing the entire stack
 
-After doing this, you will need to update the consuming services, [`pulumi/pulumi-ppc`](https://github.com/pulumi/pulumi-ppc), [`pulumi/pulumi-service`](https://github.com/pulumi/pulumi-service), and [`pulumi/home`](https://github.com/pulumi/home) to consume the new SDK. This will require updates to the version specified in the `.travis.yml` file in addition to normal edits to `Gopkg.toml` followed by `dep ensure update`.
+In each repository, we have a branch called `release/0.<minor-version>` (for example, `release/0.11` for the 0.11.X versions of packages).  We create this branch when we want to do the first release of a minor version, and then use it for all future patch releases.  We have a separate branch so we can easily go back and make hot fixes if needed.
 
-## Publishing Builds
+Since we use git tags to compute our versions, we tag commits in this branch with `v0.<minor-number>.<patch>` with an optional `-rcX` pre-release tag, while doing pre-releases.  So the normal flow for releasing a package is:
 
-When Travis or AppVeyor build any branch (or tag) successfully, they run our publishing scripts to upload binaries to [s3://eng.pulumi.com/releases](https://s3.console.aws.amazon.com/s3/buckets/eng.pulumi.com/releases/?region=us-east-1#).
+1. Get the code in the release branch.  We either do this by merging master into the release branch (if we are comfortable taking all the changes) or `git cherry-pick`'ing changes from master into the release branch.
+2. tag HEAD of `master` with a new tag for the `-dev` version of the next release:  For example, If we merged code into the release branch to produce `v0.11.3`, we should tag HEAD of master with `v0.11.4-dev`.  This ensures that the next build out of master will have the correct version.  You'll want to push the tags with `git push origin --tags` after tagging, and you can also abort the job Travis will queue on push (we've already built the code, no need to build it again).
+3. Do any necessary dependency updates.  The `Gopkg.toml` files that we have in the release branches use branch constraints on packages, so `dep ensure -update <repository-path>` should do the thing you most often want, which is to update your dependencies based on the `HEAD` of their release branches.  In the case of our provider packages generated (i.e. the ones generated using `tfgen`) there's a section in `resources.go` which must also be updated, which specifies the version of dependencies for the packages we generate (see https://github.com/pulumi/pulumi-aws/blob/0d75d81515ddda0438b44969fdcecd007cd1dec7/resources.go#L1287-L1299 as an example).  Today we always bump these versions as well, to ensure that only one copy of each package ends up in a user's `node_modules` folder.  In repositories like `pulumi-cloud` we hard-code versions into `package.json` in the `peerDependencies` section, and our publish processes promotes them to actual dependencies, so these need to be updated as well.
+4. Tag the commit, creating an annotated tag.  We use annotated tags because they record time stamps, allowing `git describe --tags` to pick the "newer" one, if a single commit is tagged multiple times.  `git tag -a <tag-name> -m <message>` is the way to do this.  I usually just a message which is the same as the tag name.  As an example: `git tag -a v0.11.0-rc1 -m "v0.11.0-rc1"`.
+5. Push the new commits, as well as the tags: `git push origin release/0.11 ; git push origin --tags`
+6. Travis will queue a build for both the push and the tag, so I normally go in to the travis console and abort one of the jobs, to save CI resources.  Note that we can't publish the same version of a package twice, so if we don't abort one, the job that runs second will fail when it tries to publish.
 
-We publish each build under three different names:
-1. The full SHA of the commit we are building
-2. The name of branch we are building (e.g. master)
-3. The value returned by `git describe --tags` which is a name based on the newest tag reachable from the commit we are building.
-
-Each repository produces an archive that is designed to be extracted into a root folder (`PULUMI_DIR`) which is the install location of Pulumi on a end user machine.
-
-To create an SDK, we need to combine builds from all the branches we care about and then archive the combined build. Because we currently ship node modules as part of our SDK, we also need to ensure that we've npm installed dependencies for each module we ship. Since this process could end up pulling down platform specific dependencies, we need to do this for each platform we support.
-
-Because we have a bunch of repositories, simply combining builds from each one could lead to problems, since we haven't validated the bits work well together. Because of this, we use `pulumi-cloud` to help us determine what components to use to produce an SDK.
-
-We build the SDK by automatically queuing builds to the [pulumi/sdk](https://github.com/pulumi/sdk) repository after every green build job in pulumi-cloud (see [queue-sdk-build.sh](https://github.com/pulumi/pulumi-cloud/blob/master/scripts/queue-sdk-build.sh)), that build ends up calling [build-sdk.sh](https://github.com/pulumi/sdk/blob/master/scripts/build-sdk.sh) passing a commit hash for `pulumi-cloud` and the version tag we used for `pulumi-cloud`. These are passed to the `build-sdk` scripts.
-
-The script clones `pulumi-cloud` at the specific commit, then use the `Gopkg.lock` file to determine the versions of all the dependencies to include in the SDK. Doing this, we are certain that our SDK contains the same bits we just validated in `pulumi-cloud`.  This SDK is published to our `rel.pulumi.com` S3 bucket in the production account.
-
-## Building an SDK manually
-
-You should never need to do this, since we always queue builds automatically for each pulumi-cloud build. If the SDK builds fail, you can just have Travis or AppVeyor rebuild. You could also run `./scripts/queue-sdk-build.sh` manually from `pulumi-cloud` (you'll need your Travis API Key (you can get this from the Travis UI or by running `travis token --pro` locally if you've installed the travis CLI) and [AppVeyor API Key](https://ci.appveyor.com/api-token) to do so).
-
-If you find yourself having to produce SDKs manually, we should figure out why that is and add automation so you don't have to.
+We repeat the above process in dependency order for {`pulumi`, `pulumi-terraform`, `pulumi-aws`, `pulumi-azure`, `pulumi-kubernetes`, and finally `pulumi-cloud`}.
 
 ## Listing the release and updating documentation
 
