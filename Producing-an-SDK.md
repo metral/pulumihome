@@ -23,7 +23,7 @@ Since we use git tags to compute our versions, we tag commits in this branch wit
 5. Push the new commits, as well as the tags: `git push origin release/0.11 ; git push origin --tags`
 6. Travis will queue a build for both the push and the tag, so I normally go in to the travis console and abort one of the jobs, to save CI resources.  Note that we can't publish the same version of a package twice, so if we don't abort one, the job that runs second will fail when it tries to publish.
 
-We repeat the above process in dependency order for {`pulumi`, `pulumi-terraform`, `pulumi-aws`, `pulumi-azure`, `pulumi-kubernetes`, and finally `pulumi-cloud`}.
+We repeat the above process in dependency order for {`pulumi`, `pulumi-terraform`, `pulumi-aws`, `pulumi-azure`, `pulumi-kubernetes`, `pulumi-aws-infra`, and finally `pulumi-cloud`}.
 
 ## Listing the release and updating documentation
 
