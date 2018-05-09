@@ -1,7 +1,5 @@
 | Account name | ID | Log in |
 | --- | --- | --- |
-| Account name | ID | Log in |
-| --- | --- | --- |
 | (dev) | 153052954103 | n/a |
 | TestCustomer | 678725633224 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=678725633224&displayName=TestCustomer)
 | learningmachine-malta | 977316828113 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=977316828113&displayName=learningmachine-malta)
