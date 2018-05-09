@@ -1,10 +1,13 @@
 | Account name | ID | Log in |
 | --- | --- | --- |
+| Account name | ID | Log in |
+| --- | --- | --- |
 | (dev) | 153052954103 | n/a |
 | TestCustomer | 678725633224 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=678725633224&displayName=TestCustomer)
 | learningmachine-malta | 977316828113 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=977316828113&displayName=learningmachine-malta)
 | learningmachine-prod | 999780342027 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=999780342027&displayName=learningmachine-prod)
 | learningmachine-stage | 127455204268 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=127455204268&displayName=learningmachine-stage)
+| logs-vault | 031982275711 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=031982275711&displayName=logs-vault)
 | ppc-production-learningmachine-auto | 750427423503 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=750427423503&displayName=ppc-production-learningmachine-auto)
 | ppc-production-learningmachine-malta | 894273677487 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=894273677487&displayName=ppc-production-learningmachine-malta)
 | ppc-production-learningmachine-prod | 396386917111 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=396386917111&displayName=ppc-production-learningmachine-prod)
