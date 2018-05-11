@@ -35,6 +35,6 @@ Submit the changes through Travis or run `./scripts/update-stack.sh` locally wit
 
 > Until [pulumi/pulumi-terraform#151](/pulumi/pulumi-terraform/issues/151) is fixed, the cluster may fail to create due to a timeout.
 >
-> As a crude workaround, rebuild `pulumi-aws` and manually change every timeout in `vendor/terraform-providers/terraform-provider-aws/aws/resource_aws_rds_cluster.go` from `d.Timeout(...)` to `120 * time.Minute`.
+> As a crude workaround, build your own `pulumi-aws` after manually changing every timeout in `vendor/terraform-providers/terraform-provider-aws/aws/resource_aws_rds_cluster.go` from `d.Timeout(...)` to `120 * time.Minute`.
 
 Creating the new Aurora cluster will take about 40 minutes, and the instance pointing to it will be ready in another 10 minutes or so.
