@@ -1,6 +1,6 @@
 If something goes very wrong, we may need to replace the service Aurora cluster with a new one restored from a snapshot.
 
-These steps were last tested against mattdr's dev instance on 2018-05-11.
+These steps were last tested against mattdr's dev instance on 2018-05-11. They take about two hours.
 
 ## Choose a snapshot to restore
 
