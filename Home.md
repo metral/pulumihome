@@ -30,7 +30,7 @@ Please take a look around and please make it better as you see fit.
 
 ### Analytics
 
-- [[Analytics queries on prod database]]
+- [Analytics queries on prod database](https://github.com/pulumi/home/wiki/Analytics-queries-on-prod)
 
 ### Daily Development
 
