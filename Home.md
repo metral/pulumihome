@@ -45,4 +45,4 @@ Please take a look around and please make it better as you see fit.
 * [Integration Test Performance](https://github.com/pulumi/home/wiki/Integration-Test-Performance-Reports)
 * [Pulumi Design Notes (PDNs)](https://drive.google.com/drive/folders/0B0siYR6Ttr5LVk85eU9NYmI1UW8)
 * [[Working With DynamoDB]]
-
+* [[Purging SoftDeleted Stacks]]
