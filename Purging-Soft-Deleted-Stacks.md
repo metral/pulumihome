@@ -161,7 +161,7 @@ was removed:
 SELECT TABLE_NAME, TABLE_ROWS FROM information_schema.tables WHERE table_schema = "pulumi";
 ```
 
-## Troubleshooting / Diangostics
+## Troubleshooting / Diagnostics
 
 Long query that appears to be stuck? Have another engineer SSH into the database and run
 `SHOW FULL PROCESSLIST;`. That will provide some diagnostic information for active queries.
