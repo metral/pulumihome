@@ -1,5 +1,3 @@
-# Purging Soft-deleted Stack Data
-
 The Pulumi Service performs a soft-delete for stacks, allowing users to undelete that stack and
 recover update history, checkpoints, etc. This is done by setting a `deleted_at` timestamp on the
 `Programs` row in our database. The value `0` meaning the `Program` (stack) has not been deleted.
