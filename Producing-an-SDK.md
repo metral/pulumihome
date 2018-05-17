@@ -38,3 +38,9 @@ In order for customers to get the new release, you need to update the [install p
 7. Edit [latest-version](https://github.com/pulumi/docs/blob/master/latest-version) to set the latest CLI version that the CLI will use for version checks. (The CLI will not request this directly, but through an API endpoint on the service that proxies requests to this file on the docs site.)
 8. Merge your changes into master. Then, create a new PR to merge into production.
 9. To push the new content live, follow the instructions in [Updating Website Content](https://github.com/pulumi/home/wiki/Updating-the-Docs-Website#updating-website-content).
+
+## Release Validation
+
+Prior to release, we run two pieces of E2E validation:
+1. Run the LM test in `pulumi/home` with the full set of new versions of CLI and packages
+2. Update the service to use the latest CLI (and optionally, new packages especially if there are new patch releases without breaking changes that can be updated in the lock files).
