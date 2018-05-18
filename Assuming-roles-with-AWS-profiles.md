@@ -1,8 +1,10 @@
-The AWS SDKs and CLI let you switch between different named bundles of configuration called _profiles_. You can read more about using profiles in the CLI [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html).
+The AWS SDKs and CLI let you switch between different named bundles of configuration called _profiles_. Profiles make it easier to use _assumed-role_ credentials.
 
-> Using profiles with the AWS SDK for Go may require setting `AWS_SDK_LOAD_CONFIG`. See "Shared Config Fields" [here](https://docs.aws.amazon.com/sdk-for-go/api/aws/session/#pkg-index).
+You can read more about using profiles in the [AWS CLI documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html).
 
-Profiles let you use _assumed-role_ credentials easily. For example, if your `~/.aws/config` file has your user credentials:
+## Setting up and using profiles
+
+Let's say your `~/.aws/credentials` file has your user credentials:
 
 ```ini
 [default]
@@ -16,12 +18,16 @@ Then you can add an entry to `~/.aws/config` to start with those credentials and
 [profile pulumi-testing]
 role_arn = arn:aws:iam::086028354146:role/OrganizationAccountAccessRole
 source_profile = default
+
+# Each profile has to specify a region. One might expect `region` or
+# other settings to be inherited, but `source_profile` is only for
+# specifying credentials to assume the IAM role.
 region = us-west-2
 ```
 
-> Each profile has to specify a region. One might expect `region` or other settings to be inherited, but `source_profile` is only for specifying credentials to assume the IAM role.
+You can find an example `config` file [below](#reference-awsconfig) with roles for many Pulumi accounts.
 
-Now you can use that profile with the CLI:
+Now you can use that profile with the AWS CLI:
 
 ```
 $ aws sts get-caller-identity
@@ -63,6 +69,18 @@ $ aws ecs list-clusters --profile pulumi-testing
 }
 ```
 
+### Using AWS profiles with `pulumi` or `terraform`
+
+The AWS SDK for Go -- used by the Terraform and Pulumi AWS providers -- doesn't read `~/.aws/config` by default. Just setting `AWS_PROFILE` may lead to an error like:
+
+```
+error: failed to load resource plugin aws: failed to configure pkg 'aws' resource provider: No valid credential sources found for AWS Provider.
+	Please see https://terraform.io/docs/providers/aws/index.html for more information on
+	providing credentials for the AWS Provider
+```
+
+To make `AWS_PROFILE` work, you must also set `AWS_SDK_LOAD_CONFIG=1`. See "Shared Config Fields" [here](https://docs.aws.amazon.com/sdk-for-go/api/aws/session/#pkg-index).
+
 Profiles can also be used with Terraform by setting `profile` in the `provider` block:
 
 ```hcl
@@ -71,6 +89,10 @@ provider "aws" {
   profile = "pulumi-testing"
 }
 ```
+
+### Fallback: `assume-role`
+
+If a tool, for whatever reason, doesn't support AWS profiles and insists on receiving credentials in environment variables, you can try [`assume-role`](https://github.com/remind101/assume-role).
 
 ## Reference `~/.aws/config`
 
