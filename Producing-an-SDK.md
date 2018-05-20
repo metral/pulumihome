@@ -30,14 +30,15 @@ We repeat the above process in dependency order for {`pulumi`, `pulumi-terraform
 In order for customers to get the new release, you need to update the [install page on docs.pulumi.com](https://docs.pulumi.com/install/). Note that the /releases/ endpoint on `docs.pulumi.com` will proxy any requests for non-prerelease published SDKs to the right S3 bucket.
 
 1. In your `pulumi/docs` repository, update [`install/index.md`](https://github.com/pulumi/docs/blob/master/install/index.md). Update the variable `installer_version` in the YAML [front matter](https://jekyllrb.com/docs/frontmatter/). Verify that the links are correct when you generate the site locally.
-2. Generate a new changelog, following the instructions in the docs repo readme [Generating a change log](https://github.com/pulumi/docs#generating-a-change-log).
-3. Update the quickstart and reference content to integrate any breaking changes. Add or remove known issues from [known-issues.md](https://github.com/pulumi/docs/blob/master/reference/known-issues.md).
-4. Update the READMEs and `package.json` in [Pulumi examples](https://github.com/pulumi/examples). 
-5. Generate new API reference docs, following the instructions in https://github.com/pulumi/docs#development. 
-6. Edit [dashboard.json](https://github.com/pulumi/docs/blob/master/dashboard.json) to add the new release in the Console dashboard "News" card.
-7. Edit [latest-version](https://github.com/pulumi/docs/blob/master/latest-version) to set the latest CLI version that the CLI will use for version checks. (The CLI will not request this directly, but through an API endpoint on the service that proxies requests to this file on the docs site.)
-8. Merge your changes into master. Then, create a new PR to merge into production.
-9. To push the new content live, follow the instructions in [Updating Website Content](https://github.com/pulumi/home/wiki/Updating-the-Docs-Website#updating-website-content).
+1. Generate a new changelog, following the instructions in the docs repo readme [Generating a change log](https://github.com/pulumi/docs#generating-a-change-log).
+1. Update the quickstart and reference content to integrate any breaking changes. Add or remove known issues from [known-issues.md](https://github.com/pulumi/docs/blob/master/reference/known-issues.md).
+1. Update the READMEs and `package.json` in [Pulumi examples](https://github.com/pulumi/examples). 
+1. Generate new API reference docs, following the instructions in https://github.com/pulumi/docs#development. 
+1. Edit [dashboard.json](https://github.com/pulumi/docs/blob/master/dashboard.json) to add the new release in the Console dashboard "News" card.
+1. Edit [latest-version](https://github.com/pulumi/docs/blob/master/latest-version) to set the latest CLI version that the CLI will use for version checks. (The CLI will not request this directly, but through an API endpoint on the service that proxies requests to this file on the docs site.)
+1. Install the latest `pulumi` CLI. Then, generate new CLI documentation by running `pulumi gen-markdown reference/cli` in the docs repo. 
+1. Merge your changes into master. Then, create a new PR to merge into production.
+1. To push the new content live, follow the instructions in [Updating Website Content](https://github.com/pulumi/home/wiki/Updating-the-Docs-Website#updating-website-content).
 
 ## Release Validation
 
