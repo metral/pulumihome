@@ -30,6 +30,16 @@ group by Users.id
 order by Users.created;
 ```
 
+GitHub username instead of email:
+
+```sql
+select u.github_login, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
+from Users u
+   left join ProgramUpdates p on u.id = p.requested_by
+group by u.id
+order by LastDeploymentTime desc;
+```
+
 ### Stacks per organization (stacks that have not been deleted)
 
 ```sql
