@@ -96,7 +96,7 @@ ORDER BY  date, uri;
 
 To exclude users from Seattle (the best proxy currently for non-Pulumi users):
 
-```
+```sql
 SELECT date,
        uri,
        count(*) AS downloads
@@ -108,7 +108,7 @@ ORDER BY  date, uri;
 
 To get all unique IP addresses that have downloaded Pulumi along with the first time they downloaded:
 
-```
+```sql
 SELECT requestip, min(date) as firstSeen, count(*) as numDownloads
 FROM cloudfront_logs
 WHERE location NOT LIKE 'SEA%'
