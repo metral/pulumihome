@@ -47,7 +47,7 @@ select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
 from Users u
    left join ProgramUpdates p on u.id = p.requested_by
 group by u.id
-order by u.created;
+order by LastDeploymentTime desc;
 ```
 
 ### Used invite codes
