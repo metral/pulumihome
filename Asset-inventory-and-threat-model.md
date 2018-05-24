@@ -3,9 +3,19 @@
 ### NPM
 - Pulumi packages
 
+Threats:
+- An attacker might delete our packages or upload their own.
+
+  Mitigation: read-only permissions for most members (TODO), strong passwords and 2FA for admins (TODO)
+
 ### Travis
 - Pulumi source code
-- Pulumi AWS credentials
+- Credentials
+  - GitHub
+  - AWS (must have deploy rights)
+  - NPM (must be writer)
+  - Pulumi service
+- SSH keys for Pulumi infrastructure
 
 ### GitHub
 - Pulumi source code
