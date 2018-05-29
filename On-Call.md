@@ -4,6 +4,8 @@
 
 Our on-call schedule is [here](https://docs.google.com/spreadsheets/d/1J-AWVK1F_VEvIq9K_5PJmHum69jb40DKkUMLeqdI7C8/).
 
+See the schedule [as a calendar](https://calendar.google.com/calendar/embed?title=Pulumi%20Oncall&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=au6qoa0bsoe3ctaq41qrm8nbbug02jak%40import.calendar.google.com&amp;color=%232F6309&amp;src=ppbjs9685famnbe0mcb2pvic91aq8ad4%40import.calendar.google.com&amp;color=%235F6B02&amp;ctz=America%2FLos_Angeles).
+
 # Overview
 
 We run a service that customers use and rely on.  When the service isn't working right or customers can't use it, we want to know, we want to fix it, and we want to keep that particular problem from happening again.
