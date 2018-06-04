@@ -85,7 +85,9 @@ We have an Athena table defined in our prod account in `us-west-2`.
 
 ### Downloads by date and route
 
-See [in console](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/5e5b129a-1f6f-4981-8a66-63b475b65681) in the production account (058607598222).
+See [in console](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/5e5b129a-1f6f-4981-8a66-63b475b65681) in the production account (058607598222)
+run the following queries. (All against the "default" database, which already has the
+expected tables.)
 
 ```sql
 SELECT date, uri, count(*) AS downloads
