@@ -23,7 +23,7 @@ select github_login, email, created from Users order by created desc;
 ### Deployments per user 
 
 ```sql
-select Users.email, Users.created as OnboardDate, count(ProgramUpdates.id) as deployments
+select Users.email, Users.github_login, Users.created as OnboardDate, count(ProgramUpdates.id) as deployments
 from Users
    left join ProgramUpdates on Users.id = ProgramUpdates.requested_by
 group by Users.id
