@@ -117,3 +117,14 @@ WHERE location NOT LIKE 'SEA%'
 GROUP BY requestip
 ORDER BY firstSeen
 ```
+
+Look at long-tail requests over the past couple of days:
+
+```sql
+SELECT date, host, uri, time, timetaken
+FROM cloudfront_logs
+WHERE date BETWEEN date '2018-06-10' AND date '2018-06-13'
+ORDER BY timetaken desc
+LIMIT 100;
+```
+
