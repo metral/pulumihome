@@ -128,3 +128,12 @@ ORDER BY timetaken desc
 LIMIT 100;
 ```
 
+Or from the ALB:
+
+```sql
+SELECT domain_name, request_processing_time, target_processing_time, response_processing_time, time, request_verb, request_url
+FROM alb_logs
+ORDER BY target_processing_time DESC
+LIMIT 100;
+```
+
