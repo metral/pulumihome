@@ -42,6 +42,7 @@ Threats:
   - User data
     - GitHub login
     - GitHub access token with user:email and read:org scopes
+    - Pulumi access tokens (currently not hashed)
     - Name
     - E-mail address
   - Stack data
