@@ -133,6 +133,7 @@ Or from the ALB:
 ```sql
 SELECT domain_name, request_processing_time, target_processing_time, response_processing_time, time, request_verb, request_url
 FROM alb_logs
+WHERE time BETWEEN '2018-06-10T00:00:00Z' and '2018-06-14T00:00:00Z'
 ORDER BY target_processing_time DESC
 LIMIT 100;
 ```
