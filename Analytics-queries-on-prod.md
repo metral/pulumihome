@@ -54,6 +54,7 @@ order by Stacks;
 
 **Filter out users who haven't deployed**
 
+```sql
 select * from (
     select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
     from Users u
@@ -62,6 +63,7 @@ select * from (
     order by LastDeploymentTime desc 
 ) as t
 where t.Deployments > 0;
+```
 
 **All users**
 
