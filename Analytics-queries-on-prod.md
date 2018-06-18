@@ -52,6 +52,19 @@ order by Stacks;
 
 ### Deployments and last deployment time per user
 
+**Filter out users who haven't deployed**
+
+select * from (
+    select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
+    from Users u
+    left join ProgramUpdates p on u.id = p.requested_by
+    group by u.id
+    order by LastDeploymentTime desc 
+) as t
+where t.Deployments > 0;
+
+**All users**
+
 ```sql
 select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
 from Users u
