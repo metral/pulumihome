@@ -35,6 +35,17 @@ select * from (
 where t.Deployments > 0;
 ```
 
+**Users filtered by sign-up date**
+
+select * from (
+    select u.email, u.created, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
+    from Users u
+    left join ProgramUpdates p on u.id = p.requested_by
+    group by u.id
+    order by LastDeploymentTime desc 
+) as t
+where t.Deployments > 0 and t.created > date("2018-06-18 00:00:00");
+
 **All users**
 
 ```sql
