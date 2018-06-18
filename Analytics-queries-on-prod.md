@@ -138,3 +138,12 @@ ORDER BY target_processing_time DESC
 LIMIT 100;
 ```
 
+# Prod https://pulumi.io CloudFront Logs
+
+All searches on docs site:
+
+```
+SELECT date, time, location, requestip, querystring, referrer FROM pulumiio_cloudfront_logs
+WHERE uri LIKE '%search.html%'
+ORDER BY date DESC, time DESC
+```
