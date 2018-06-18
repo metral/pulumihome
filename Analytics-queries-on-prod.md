@@ -20,6 +20,31 @@ order by updates desc;
 select github_login, email, created from Users order by created desc;
 ```
 
+### Deployments and last deployment time per user
+
+**Filter out users who haven't deployed**
+
+```sql
+select * from (
+    select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
+    from Users u
+    left join ProgramUpdates p on u.id = p.requested_by
+    group by u.id
+    order by LastDeploymentTime desc 
+) as t
+where t.Deployments > 0;
+```
+
+**All users**
+
+```sql
+select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
+from Users u
+   left join ProgramUpdates p on u.id = p.requested_by
+group by u.id
+order by LastDeploymentTime desc;
+```
+
 ### Deployments per user 
 
 ```sql
@@ -48,50 +73,6 @@ from Programs p
    left join Organizations o on p.org_id = o.id
 group by o.github_login
 order by Stacks;
-```
-
-### Deployments and last deployment time per user
-
-**Filter out users who haven't deployed**
-
-```sql
-select * from (
-    select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
-    from Users u
-    left join ProgramUpdates p on u.id = p.requested_by
-    group by u.id
-    order by LastDeploymentTime desc 
-) as t
-where t.Deployments > 0;
-```
-
-**All users**
-
-```sql
-select u.email, count(p.id) as Deployments, max(p.created) as LastDeploymentTime
-from Users u
-   left join ProgramUpdates p on u.id = p.requested_by
-group by u.id
-order by LastDeploymentTime desc;
-```
-
-### Used invite codes
-
-```sql
-select create_user.github_login as Inviter, invite_user.github_login as InvitedGitHub, invite_user.email InvitedEmail, invite_user.created as JoinDate
-from InviteCodes i
-   inner join Users create_user on create_user.id = i.created_by
-   inner join Users invite_user on invite_user.id = i.used_by
-order by JoinDate;
-```
-
-### Beta access users who have logged in
-Users who were given direct access to the private beta
-
-```sql
-select b.name, b.modified from BetaAccess b
-   inner join Users u on u.github_login = b.name
-order by b.modified;
 ```
 
 # Prod Cloudfront Logs
