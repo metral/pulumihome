@@ -88,6 +88,37 @@ group by o.github_login
 order by Stacks;
 ```
 
+# Event Data
+
+The Pulumi Service has an `Events` table we write one-time event information to for our own analytics purposes. Longer term this should go in another database, or some 3rd party service. But for the time being its a simple table with schema `created, user_id, event, [optional] resource_id`.
+
+NOTE: These queries will need to be updated every time we add a new event type (integer value).
+
+## Events over the past day
+
+```
+SELECT
+    CASE event
+    WHEN  1 THEN "NewUserEvent"
+    WHEN  2 THEN "NewStackEvent"
+    WHEN  3 THEN "StackUpdateEvent"
+    WHEN  4 THEN "LoginEvent"
+    WHEN  5 THEN "UpdateAccessTokenEvent"
+    WHEN  6 THEN "StackDeletedEvent"
+    WHEN  7 THEN "StackPreviewEvent"
+    WHEN  8 THEN "StackRefreshEvent"
+    WHEN  9 THEN "StackDestroyEvent"
+    WHEN 10 THEN "StackImportEvent"
+    WHEN 11 THEN "StackExportEvent"
+    WHEN 12 THEN "NewOrganizationEvent"
+    WHEN 13 THEN "InviteStackCollaborator"
+    WHEN 14 THEN "InviteOrganizationMemberEvent"
+    END as event_type, COUNT(*)
+FROM Events
+WHERE created <= CURDATE() && created > (CURDATE() - INTERVAL 1 DAY)
+GROUP BY event;
+```
+
 # Prod Cloudfront Logs
 
 We have an Athena table defined in our prod account in `us-west-2`.
