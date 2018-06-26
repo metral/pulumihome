@@ -1,10 +1,17 @@
-*Please revise with more details.*
-
 # Schedule
 
-Our on-call schedule is [here](https://docs.google.com/spreadsheets/d/1J-AWVK1F_VEvIq9K_5PJmHum69jb40DKkUMLeqdI7C8/).
+Our on-call schedule is [here](https://docs.google.com/spreadsheets/d/1EOZTw_HfXb37oiX9_I765H1eKJE7HAxVZgQJ8VbGACg/edit#gid=0).
 
-See the schedule [as a calendar](https://calendar.google.com/calendar/embed?title=Pulumi%20Oncall&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=au6qoa0bsoe3ctaq41qrm8nbbug02jak%40import.calendar.google.com&amp;color=%232F6309&amp;src=ppbjs9685famnbe0mcb2pvic91aq8ad4%40import.calendar.google.com&amp;color=%235F6B02&amp;ctz=America%2FLos_Angeles).
+See the primary and secondary schedules [as a calendar](https://calendar.google.com/calendar/embed?title=Pulumi%20Oncall&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=au6qoa0bsoe3ctaq41qrm8nbbug02jak%40import.calendar.google.com&amp;color=%232F6309&amp;src=ppbjs9685famnbe0mcb2pvic91aq8ad4%40import.calendar.google.com&amp;color=%235F6B02&amp;ctz=America%2FLos_Angeles).
+
+We have [[instructions on how to add oncall to your calendar automatically|Adding your oncall schedule to Google Calendar]].
+
+You can add these WebCal feeds to Google Calendar to see who's oncall right now:
+
+| Rotation | WebCal feed |
+| --- | --- |
+| Primary | webcal://pulumi.pagerduty.com/private/1ac6154c1561df2337fde2dec1f8660d396ba4dca9690606573ee2ad91661761/feed/PDW8FBN |
+| Secondary | webcal://pulumi.pagerduty.com/private/1ac6154c1561df2337fde2dec1f8660d396ba4dca9690606573ee2ad91661761/feed/PKO4HT1 |
 
 # Overview
 
