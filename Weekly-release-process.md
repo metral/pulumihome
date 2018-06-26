@@ -46,7 +46,7 @@ The `staging` and `production` environments track the corresponding branches in 
 
 ### To `staging`
 
-Each Tuesday and Thursday, secondary oncall creates a release branch (e.g. `release/2018-01-01`) from the most recent green build in `testing`, then creates a pull request to merge that branch into `staging`.
+Each Tuesday and Thursday, primary oncall creates a release branch (e.g. `release/2018-01-01`) from the most recent green build in `testing`, then creates a pull request to merge that branch into `staging`.
 
 We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for this.
 
