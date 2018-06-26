@@ -76,7 +76,7 @@ Once the PR is ready -- where "ready" is oncall's judgment but at least means al
 
 As a courtesy, give a heads-up in [`#releases`](https://pulumi.slack.com/messages/C79MDKGMV/) with a link to the Travis job running the deployment. You should also take a quick look at the "badges" on the [dashboard for](https://github.com/pulumi/home/blob/master/infrastructure/stress-tester/README.md) the Stress Tester app, to ensure that the current pass rate is 100% against the testing environment. (i.e. there aren't any known problems.)
 
-Once the PR is merged and the Travis job makes it to the head of the queue, the build+deploy takes about 30 minutes and post-build validation takes a little over an hour. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment.
+Once the PR is merged and the Travis job makes it to the head of the queue, the build+deploy takes about 30 minutes. Watch [`#ops-notifications`](https://pulumi.slack.com/messages/C8FNQFZQQ/), [`#builds`](https://pulumi.slack.com/messages/C5J0XFWRJ/), and [Travis](https://travis-ci.com/pulumi/pulumi-service) for updates on the build and deployment.
 
 
 #### Out-of-date branches
