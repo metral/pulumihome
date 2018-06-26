@@ -94,9 +94,9 @@ The PR may warn that the branch can't merge cleanly. This can happen if we've ta
 To make the PR mergeable, if it isn't already, first identify the *previous* release branch by looking at the [most recent merge to `staging`](https://github.com/pulumi/pulumi-service/commits/staging). Then check out the new release branch locally and merge in the old one:
 
 ```
-git fetch
+git fetch  # make sure we have an up-to-date ref to the previous release branch
 git checkout release/2018-02-15  # new release branch
-git merge release/2018-02-08 --strategy-option ours  # mark merged, prefer our (newer) code
+git merge origin/release/2018-02-08 --strategy-option ours  # mark merged, prefer our (newer) code
 git push
 ```
 
