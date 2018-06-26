@@ -10,7 +10,7 @@ Sign into [PagerDuty](https://pulumi.pagerduty.com/). Click the profile picture 
 
 On the "On-Call Timeline" tab, click "Export", right-click "iCalendar File", and click "Copy Link Address":
 
-> *NOTE*: "WebCal feed" probably works too. Maybe even better? mattdr just didn't want to take these screenshots again.
+> **NOTE**: "WebCal feed" probably works too. Maybe even better? mattdr just didn't want to take these screenshots again.
 
 > ![copy "icalendar file" link](https://user-images.githubusercontent.com/1052311/40677413-6e31c192-6332-11e8-949a-346dee969fa0.png)
 
