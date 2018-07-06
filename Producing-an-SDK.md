@@ -30,7 +30,8 @@ We repeat the above process in dependency order for {`pulumi`, `pulumi-terraform
 In order for customers to get the new release, you need to update the [install page on docs.pulumi.com](https://docs.pulumi.com/install/). Note that the /releases/ endpoint on `docs.pulumi.com` will proxy any requests for non-prerelease published SDKs to the right S3 bucket.
 
 1. In your `pulumi/docs` repository, update [`install/index.md`](https://github.com/pulumi/docs/blob/master/install/index.md). Update the variable `installer_version` in the YAML [front matter](https://jekyllrb.com/docs/frontmatter/). Verify that the links are correct when you generate the site locally.
-1. Generate a new changelog, following the instructions in the docs repo readme [Generating a change log](https://github.com/pulumi/docs#generating-a-change-log).
+1. Generate a new changelog, following the instructions in the docs repo readme [Generating a change log](https://github.com/pulumi/docs#generating-a-change-log). 
+   - A list of contributors will be generated, based on pull request authors. Change the text to something like, "We'd like to thank these  community members for their contributions to this release". Remove Pulumi team members from the list.
 1. Update the quickstart and reference content to integrate any breaking changes. Add or remove known issues from [known-issues.md](https://github.com/pulumi/docs/blob/master/reference/known-issues.md).
 1. Update the READMEs and `package.json` in [Pulumi examples](https://github.com/pulumi/examples). 
 1. Generate new API reference docs, following the instructions in https://github.com/pulumi/docs#development. 
