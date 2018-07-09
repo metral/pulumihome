@@ -39,6 +39,7 @@ Please take a look around and please make it better as you see fit.
     - [[Development on macOS]]
     - [[Development on Linux]]
     - [[Development on Windows]]
+* [[Code Review at Pulumi]]
 * [[Planning, Work Items, and Changelog]]
 * [[Managing Repo Versions]]
 * [Running the Pulumi Service](https://github.com/pulumi/home/wiki/Running-the-Pulumi-Service)
