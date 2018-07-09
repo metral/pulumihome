@@ -3,7 +3,7 @@
 Code review spreads knowledge, improves quality, and avoids silos. We're all in this together.
 
 ## The policy
-All code at Pulumi must be reviewed and approved by another engineer before it's checked in. That includes infrastructure code and configuration (e.g. a Dockerfile or .travis.yml).
+**All code at Pulumi must be reviewed and approved by another engineer before it's checked in.** That includes infrastructure code and configuration (e.g. a Dockerfile or .travis.yml).
 
 There is one exception: comment-only changes of no more than a few lines may be submitted without review.
 
