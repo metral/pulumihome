@@ -6,7 +6,7 @@
 Threats:
 - An attacker might delete our packages or upload their own.
 
-  Mitigation: read-only permissions for most members (TODO), strong passwords and 2FA for admins (TODO)
+  Mitigation: Limited membership, 2FA for users
 
 ### Travis
 - Pulumi source code
