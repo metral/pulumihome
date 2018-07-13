@@ -2,6 +2,7 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 
 ## The List
 - [ ] Per-stack AWS bill evaluator
+- [ ] Serverless Slack bot component
 
 ## Past Projects
 - [Twilio Typescript Component](https://github.com/pulumi/examples/tree/master/twilio-ts-component)
