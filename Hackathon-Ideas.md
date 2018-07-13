@@ -2,3 +2,8 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 
 ## The List
 - [ ] Per-stack AWS bill evaluator
+
+## Past Projects
+- [Twilio Typescript Component](https://github.com/pulumi/examples/tree/master/twilio-ts-component)
+- [k8s Jenkins Component](https://github.com/pulumi/examples/tree/master/kubernetes-ts-jenkins)
+- [EKS Example](https://github.com/pulumi/examples/tree/pgavlin/eks/aws-ts-eks)
