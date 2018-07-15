@@ -5,6 +5,7 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [ ] Serverless Slack bot component
 - [ ] [Factorio](http://factorio.com/) server, state persisted on S3
 - [ ] Alerting stack (send SMS, automated voice, etc. in response to event)
+- [ ] Remove now dead code referencing PPCs
 
 ## Past Projects
 - [Twilio Typescript Component](https://github.com/pulumi/examples/tree/master/twilio-ts-component)
