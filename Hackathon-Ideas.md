@@ -6,6 +6,7 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [ ] [Factorio](http://factorio.com/) server, state persisted on S3
 - [ ] Alerting stack (send SMS, automated voice, etc. in response to event)
 - [ ] Remove now dead code referencing PPCs
+- [ ] Simple implementation of an "import from terraform" service using https://github.com/pulumi/tf2pulumi
 
 ## Past Projects
 - [Twilio Typescript Component](https://github.com/pulumi/examples/tree/master/twilio-ts-component)
