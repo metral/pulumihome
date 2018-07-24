@@ -9,6 +9,7 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [ ] Simple implementation of an "import from terraform" service using https://github.com/pulumi/tf2pulumi
 - [ ] A set of Babel extensions that restrict JS to a pure, hermitic, control-flow-less subset. For the crowd that like HCL because it's "not programming". Advantage: you can just flip a switch and turn on "real" JS at any time!
 - [ ] A converter from a set of Swagger API definitions to a Pulumi provider
+- [ ] A demo with [go-cloud](https://github.com/google/go-cloud), using one of their examples but not using Terraform
 
 ## Past Projects
 - [Twilio Typescript Component](https://github.com/pulumi/examples/tree/master/twilio-ts-component)
