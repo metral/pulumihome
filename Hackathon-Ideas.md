@@ -11,6 +11,11 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [ ] A converter from a set of Swagger API definitions to a Pulumi provider
 - [ ] A demo with [go-cloud](https://github.com/google/go-cloud), using one of their examples but not using Terraform
 - [ ] Pulumify a deployment of Hashicorp Vault and mix it up with @ellismg's application-level secrets
+- [ ] Google Calendar resource provider and Pulumi app for managing shared team vacation calendar
+- [ ] PagerDuty resource provider and Pulumi app for managing oncall schedule
+- [ ] "Deploy with Pulumi" VS Code extension
+- [ ] Experiment with GraphQL-based API in the service and front-end feature that uses it
+- [ ] Deploy Gatsby to S3/CloudFront with Pulumi
 
 ## Past Projects
 - [Twilio Typescript Component](https://github.com/pulumi/examples/tree/master/twilio-ts-component)
