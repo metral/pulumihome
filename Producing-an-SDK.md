@@ -2,9 +2,13 @@
 
 ## Overview
 
-The Pulumi SDK is made up of the CLI and language specific packages (e.g `@pulumi/pulumi`, `@pulumi/aws`, and `@pulumi/cloud`)
+The Pulumi SDK is made up of the CLI and language specific packages (e.g `@pulumi/pulumi`, `@pulumi/aws`, and `@pulumi/cloud`).  The CLI and packages ship independently from one another.
 
-The CLI and packages ship independently from one another.
+A release of the SDK includes the following:
+- [ ] Build and release the subset of the entire stack that is needed for the desired release
+- [ ] Validate the release in `home` and `pulumi-service` repos
+- [ ] List the release and update documentation
+- [ ] Update examples and/or templates as needed
 
 In the past, releasing a new SDK has meant building a new version of the CLI and `@pulumi/pulumi`, and then building "up the stack", updating each package to depend on the just released version of all its dependencies. We did this in the past because multiple copies of the base pulumi runtime package could not be loaded into an application at once, so we wanted to make we had a consistent set of packages that would all depend on a unified `@pulumi/pulumi` reference.  We no longer have this dependency, so we should be able to publish packages independently of one another.
 
