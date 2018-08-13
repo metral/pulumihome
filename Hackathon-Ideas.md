@@ -16,6 +16,7 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [ ] "Deploy with Pulumi" VS Code extension
 - [ ] Experiment with GraphQL-based API in the service and front-end feature that uses it
 - [ ] Deploy Gatsby to S3/CloudFront with Pulumi
+- [ ] Analyze a Pulumi program's checkpoint / resources and generate the specific IAM policy necessary to update the stack.
 
 ## Past Projects
 - [Twilio Typescript Component](https://github.com/pulumi/examples/tree/master/twilio-ts-component)
