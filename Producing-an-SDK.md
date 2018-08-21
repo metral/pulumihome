@@ -14,6 +14,60 @@ In the past, releasing a new SDK has meant building a new version of the CLI and
 
 Every build out of master or a branch named `release/...` will publish a release.  We use git tags for versioning today, so the build number is based on the tags present when we do the build. This means we end up tagging a build *before* we produce it, which is not great but that is where we are today.
 
+## Building and releasing a package
+
+While we have not yet set the major version of any of our packages to be one or higher, and hence can make breaks at any point in development, we try to bump the minor version number only when there has been a breaking change. That means folks using `^` version constraints will never float across minor versions and hence it should always be safe to upgrade their packages. So before making a release, understand if there have been any breaking changes from the previous release. If not, the process for doing a new release is straightforward.
+
+We have a release branch in every repository for each minor version we've released. When you want to release a new patch release, you first want to merge the existing code in master (at whatever commit you want to release) into the corresponding release branch
+
+```sh
+# Check out the release branch locally
+$ git checkout release/0.15
+
+# Ensure our local copy has all the changes from origin
+$ git pull
+
+# Merge is changes from master
+$ git merge master
+```
+
+If there are conflicts, fix them up and then commit the resulting merge.
+
+After the merge has been committed, we need to tag the commit with the version number to use for the release. Since there are no breaking changes, we'll just bump the patch version from the previous release. If you don't know the old version, running `./scripts/get-version` from the root of the repository will tell you the current version.
+
+Our build uses git tags to determine the current version, so you need to tag the current commit to set it's version. We use amended tags so that our tags have timestamps associated with them. This ensures if we tag the same commit multiple times, we get the "newest" version each time we compute the version from the tag. For example, if the last release of a package was `v0.15.0`, and we are ready to release `v0.15.1`, after merging, run the following:
+
+```
+$ git tag -a -m "v0.15.1" v0.15.1
+```
+
+After tagging, you can run `./scripts/get-version` to ensure the command worked as expected. Note the leading `v` on the tag, which is important.
+
+In addition to tagging the commit we are going to release, we need to tag `master`'s HEAD commit so that future builds from master are versioned as `-dev` builds of the next release.
+
+In this case, when we've tagged `v0.15.1` in the release branch, we want to create a tag called `v0.15.2-dev` on the main commit in the master branch:
+
+```
+$ git checkout master
+$ git tag -a -m "v0.15.2-dev" v0.15.2-dev
+```
+
+Once this is complete, we can push the changes to GitHub with:
+
+```
+$ git push release/0.15 --tags
+```
+
+Which will push both the release branch as well as all the tags we've created.
+
+There is one final step. Pushing these tags and branches to GitHub will cause multiple Travis builds to be queued.  One for each pushed branch and one for each pushed tags.  Of these builds, the only interesting one is the tagged build for the release we want to build.
+
+To save Travis resources, you should go ahead and cancel the other builds. You can do this in the Travis UI at  `https://travis-ci.com/`. 
+
+When you are on this page, in the left will be a list of queued and running builds. There should be at least three for the repository you just pushed. If you click on an individual build, it will bring up the build details, which will include the branch or tag that the build corresponds to. You can click the "Cancel job" button to cancel the build.
+
+If you don't do this, we'll both do extra work in CI and one of the two jobs in the release branch will end up failing (it will try to publish a package to NPM with the same version as the other build that just completed, and NPM will reject that).
+
 ## Building and releasing the entire stack
 
 In each repository, we have a branch called `release/0.<minor-version>` (for example, `release/0.11` for the 0.11.X versions of packages).  We create this branch when we want to do the first release of a minor version, and then use it for all future patch releases.  We have a separate branch so we can easily go back and make hot fixes if needed.
