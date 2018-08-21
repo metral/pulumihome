@@ -14,7 +14,7 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [ ] Google Calendar resource provider and Pulumi app for managing shared team vacation calendar
 - [ ] PagerDuty resource provider and Pulumi app for managing oncall schedule
 - [ ] "Deploy with Pulumi" VS Code extension
-- [ ] Experiment with GraphQL-based API in the service and front-end feature that uses it
+- [X] Experiment with GraphQL-based API in the service and front-end feature that uses it (@swgillespie did it - doesn't really work out)
 - [ ] Deploy Gatsby to S3/CloudFront with Pulumi
 - [ ] Analyze a Pulumi program's checkpoint / resources and generate the specific IAM policy necessary to update the stack.
 
