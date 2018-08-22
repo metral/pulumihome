@@ -1,6 +1,10 @@
 This page is intended to capture a list of ideas for hackathon projects. Ideally these ideas are hackathon-sized or easily decomposable into hackathon-sized chunks. The precise definition of "hackathon-sized" is flexible, but "achievable in 4-6 hours" is a good starting point.
 
-## The List
+## Requests for 2/23
+- [ ] A "normal" Kubernetes app - live in the inner loop of Kubernetes application development
+- [ ] A cloud+kubernetes app - use RDS and/or S3 with a Kubernetes app
+
+## Other Ideas
 - [ ] Per-stack AWS bill evaluator
 - [ ] Serverless Slack bot component
 - [ ] [Factorio](http://factorio.com/) server, state persisted on S3
