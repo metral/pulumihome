@@ -7,6 +7,8 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
    - Discourse? [Matt] + EKS + Windows
 - [ ] Helm Test Harness
 - [ ] Helm [Justin]
+  - Two tier app
+  - MySQL Helm chart
 - [ ] Kubernetes on every platform
    - Try writing apps on: { GKE, AKS, EKS, Minikube }
    - Write high-order provider libraries for: { GKE }
