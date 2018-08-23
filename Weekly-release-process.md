@@ -117,12 +117,6 @@ Have the PR reviewed by your oncall partner and submit the same way you would th
 
 Before merging however, take a quick look at the "badges" on the [dashboard for](https://github.com/pulumi/home/blob/master/infrastructure/stress-tester/README.md) the Stress Tester app, to ensure that the current pass rate is 100% against the staging environment. (i.e. there aren't any known problems.)
 
-#### Customer PPCs
-
-After the Pulumi Service has been updated and rolled out to production, we need to update customer PPCs. That process is documented [here](https://github.com/pulumi/home/wiki/Updating-PPCs).
-
-The release is complete once customer PPCs have all been updated.
-
 ## Cherry-picks
 
 To bring small fixes into the `staging` or `production` environment, cherry-pick commits **into the release branch** and then create another PR to merge the release branch back into the target environment(s). The PR to `staging` or `production` should be reviewed by primary or secondary oncall. The cherry-pick itself need not be.
