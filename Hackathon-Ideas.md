@@ -5,8 +5,9 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [ ] A cloud+kubernetes app - use RDS and/or S3 with a Kubernetes app
 - [ ] Helm Test Harness
 - [ ] Kubernetes on every platform
-   - { GKE, AKS, EKS, Minikube }
-   - X { macOS, Linux, Windows }
+   - Try writing apps on: { GKE, AKS, EKS, Minikube }
+   - Write libraries for: { GKE }
+   - Try writing apps on { macOS, Linux, Windows }
    - Better test coverage
 - [ ] Heptio QuickStart
 - [ ] OpenFaaS
