@@ -6,7 +6,7 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [ ] Helm Test Harness
 - [ ] Kubernetes on every platform
    - Try writing apps on: { GKE, AKS, EKS, Minikube }
-   - Write libraries for: { GKE }
+   - Write high-order provider libraries for: { GKE }
    - Try writing apps on { macOS, Linux, Windows }
    - Better test coverage
 - [ ] Heptio QuickStart
