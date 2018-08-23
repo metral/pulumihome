@@ -72,9 +72,9 @@ We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for t
 Get the PR reviewed by your oncall partner. Triage and address any CI failures by following up with code authors and perhaps taking cherry-picks to the release branch.
 
 Once the PR is ready -- where "ready" is oncall's judgment but at least means all CI failures are understood --
- submit using the GitHub interface.
+ submit using the GitHub interface. You should **ALWAYS** click "Create Merge Commit". The reason for that is to allow for cherry picks without merge conflicts if needed.
 
-**Do not do a SQUASH.  Do a MERGE**
+![image](https://user-images.githubusercontent.com/4029847/44553758-68bffe00-a6e3-11e8-8f71-4e80df4b6ce7.png)
 
 **Do not delete the `release/*` branch.**
 
