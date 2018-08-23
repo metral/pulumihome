@@ -2,17 +2,23 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 
 ## Requests for 2/23
 - [ ] A "normal" Kubernetes app - live in the inner loop of Kubernetes application development
+  - Pat
 - [ ] A cloud+kubernetes app - use RDS and/or S3 with a Kubernetes app
+   - Discourse? [Matt] + EKS + Windows
 - [ ] Helm Test Harness
+- [ ] Helm [Justin]
+  - 
 - [ ] Kubernetes on every platform
    - Try writing apps on: { GKE, AKS, EKS, Minikube }
    - Write high-order provider libraries for: { GKE }
    - Try writing apps on { macOS, Linux, Windows }
    - Better test coverage
-- [ ] Heptio QuickStart
-- [ ] OpenFaaS
-- [ ] "Blueprints" Sidecars (Envoy, Prometheus, Istio, Linkerd)
-- [ ] Spinnaker CI/CD integration
+- [ ] Heptio QuickStart [Joe]
+- [ ] OpenFaaS [Pat] + GKE + macOS
+- [ ] "Blueprints" Sidecars (Envoy, Prometheus, Istio, Linkerd) 
+  - [Cyrus for Prometheus] Node client app
+  - [Sean Envoy]
+- [ ] Spinnaker CI/CD integration [Chris]
 
 ## Other Ideas
 - [ ] Per-stack AWS bill evaluator
