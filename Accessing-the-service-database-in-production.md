@@ -24,4 +24,4 @@ unset PULUMI_STACK_NAME_OVERRIDE
 
 If you receive an error such as `fatal error: An error occurred (404) when calling the HeadObject operation: Key "v1/production.json" does not exist`, you are most likely in the wrong account. Ensure you're using the right profile.
 
-If you are prompted for your Pulumi Access token, that means you didn't correctly set the mode to local stacks (aka "fire and forget"). Run `pulumi logout` and `pulumi login --cloud-url local://` again.
+If you are prompted for your Pulumi Access token, that means you didn't correctly set the mode to local stacks (aka "fire and forget"). Run `pulumi logout` and `pulumi login --local` again.
