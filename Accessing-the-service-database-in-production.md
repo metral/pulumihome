@@ -16,7 +16,7 @@ export PULUMI_STACK_NAME_OVERRIDE=testing # or "staging" or "production"
 export AWS_DEFAULT_REGION=us-west-2 # This may be required, depending on how your profile is configured
 
 pulumi logout
-PULUMI_DEBUG_COMMANDS=1 pulumi login --cloud-url local://
+PULUMI_DEBUG_COMMANDS=1 pulumi login --local
 ./scripts/launch-mysql-prompt.sh
 unset AWS_PROFILE
 unset PULUMI_STACK_NAME_OVERRIDE
