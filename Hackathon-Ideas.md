@@ -1,27 +1,5 @@
 This page is intended to capture a list of ideas for hackathon projects. Ideally these ideas are hackathon-sized or easily decomposable into hackathon-sized chunks. The precise definition of "hackathon-sized" is flexible, but "achievable in 4-6 hours" is a good starting point.
 
-## Requests for 2/23
-- [ ] A "normal" Kubernetes app - live in the inner loop of Kubernetes application development
-  - Pat
-- [ ] A cloud+kubernetes app - use RDS and/or S3 with a Kubernetes app
-   - Discourse? [Matt] + EKS + Windows
-- [ ] Helm Test Harness
-- [ ] Helm [Justin]
-  - Two tier app
-  - MySQL Helm chart
-- [ ] Kubernetes on every platform
-   - Try writing apps on: { GKE, AKS, EKS, Minikube }
-   - Write high-order provider libraries for: { GKE }
-   - Try writing apps on { macOS, Linux, Windows }
-   - Better test coverage
-- [ ] Heptio QuickStart [Joe]
-- [ ] OpenFaaS [Pat] + GKE + macOS
-- [ ] "Blueprints" Sidecars (Envoy, Prometheus, Istio, Linkerd) 
-  - [Cyrus for Prometheus] Node client app
-  - [Sean Envoy]
-- [ ] Spinnaker CI/CD integration [Chris]
-
-## Other Ideas
 - [ ] Per-stack AWS bill evaluator
 - [ ] Serverless Slack bot component
 - [ ] [Factorio](http://factorio.com/) server, state persisted on S3
@@ -38,6 +16,7 @@ This page is intended to capture a list of ideas for hackathon projects. Ideally
 - [X] Experiment with GraphQL-based API in the service and front-end feature that uses it (@swgillespie did it - doesn't really work out)
 - [ ] Deploy Gatsby to S3/CloudFront with Pulumi
 - [ ] Analyze a Pulumi program's checkpoint / resources and generate the specific IAM policy necessary to update the stack.
+- [ ] Reminders tool: post a note + date/time for reminder to an HTTP endpoint, then send a text or email with the note at the date/time
 
 ## Past Projects
 - [Twilio Typescript Component](https://github.com/pulumi/examples/tree/master/twilio-ts-component)
