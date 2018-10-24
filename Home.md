@@ -37,6 +37,7 @@ Please take a look around and please make it better as you see fit.
 
 ### Daily Development
 
+* [[New engineering team hire]]
 * Setting up a development machine
     - [[Development on macOS]]
     - [[Development on Linux]]
