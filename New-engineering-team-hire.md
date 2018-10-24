@@ -11,6 +11,7 @@
 - Make sure you have access to our AWS account and also setup 2FA.
 - Install Docker if you plan to run the service locally at all. 
   - Regardless of whether you plan on running anything locally, if you are going to deploy a stack, you will need Docker to run `docker build`s.
+- When installing the `go` dependencies, be sure to check the CI environment scripts to get the specific versions. The README file of each repo does its best to call out the specific versions needed, but when in doubt, check [this](https://github.com/pulumi/scripts/blob/master/ci/install-common-toolchain.sh#L11) script.
 
 ### Run the pulumi-service API and UI locally (recommended)
 > This setup is to connect the locally running API service to the storage service, created as part of your personal pulumi stack, in the pulumi AWS account.
