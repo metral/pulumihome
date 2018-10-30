@@ -93,7 +93,6 @@ In order for customers to get the new release, you need to update the [install p
 1. Update the quickstart and reference content to integrate any breaking changes. Add or remove known issues from [known-issues.md](https://github.com/pulumi/docs/blob/master/reference/known-issues.md).
 1. Update the READMEs and `package.json` in [Pulumi examples](https://github.com/pulumi/examples). 
 1. Generate new API reference docs, following the instructions in https://github.com/pulumi/docs#development. 
-1. Edit [dashboard.json](https://github.com/pulumi/docs/blob/master/dashboard.json) to add the new release in the Console dashboard "News" card.
 1. Edit [latest-version](https://github.com/pulumi/docs/blob/master/latest-version) to set the latest CLI version that the CLI will use for version checks. (The CLI will not request this directly, but through an API endpoint on the service that proxies requests to this file on the docs site.)
 1. Install the latest `pulumi` CLI. Then, generate new CLI documentation by running `pulumi gen-markdown reference/cli` in the docs repo. 
 1. Merge your changes into master. Then, create a new PR to merge into production.
