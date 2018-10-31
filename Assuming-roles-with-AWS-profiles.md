@@ -107,13 +107,28 @@ role_arn = arn:aws:iam::086028354146:role/OrganizationAccountAccessRole
 source_profile = default
 region = us-west-2
 
+[profile pulumi-testing-readonly]
+role_arn = arn:aws:iam::086028354146:role/ReadOnly-OrganizationAccountAccessRole
+source_profile = default
+region = us-west-2
+
 [profile pulumi-staging]
 role_arn = arn:aws:iam::098437015098:role/OrganizationAccountAccessRole
 source_profile = default
 region = us-west-2
 
+[profile pulumi-staging-readonly]
+role_arn = arn:aws:iam::098437015098:role/ReadOnly-OrganizationAccountAccessRole
+source_profile = default
+region = us-west-2
+
 [profile pulumi-production]
 role_arn = arn:aws:iam::058607598222:role/OrganizationAccountAccessRole
+source_profile = default
+region = us-west-2
+
+[profile pulumi-production-readonly]
+role_arn = arn:aws:iam::058607598222:role/ReadOnly-OrganizationAccountAccessRole
 source_profile = default
 region = us-west-2
 
