@@ -60,9 +60,7 @@ and then re-run `brew install awscli` again, so that it can complete the linking
   ```error in pipenv setup command: 'install_requires' must be a string or list of strings containing valid project/version requirement specifiers; Expected version spec in requests[security];python_version<"2.7" at ;python_version<"2.7"```
   - This is because the version of the python package called `setuptools` isn't up-to-date. So run, `sudo easy_install -U setuptools` to fix this.
 - If you also run into an error about the `pipenv: command not found`, then your installation of `pipenv` may not be in the `PATH`. So add it to your path with this:
-  - First, you can run `sudo pip install pipenv`
-  - and then
-  ```
-  export PYTHON_BIN_PATH="$(python -m site --user-base)/bin"
-  export PATH="$PATH:$PYTHON_BIN_PATH"
-  ```
+  - First, run `sudo pip3 install pipenv`
+    - Note that we are using `pip3`, since we use Python3 in our Python SDK.
+    - This means, you must have installed `python3` either using `brew` or downloaded the Python3 installer from the official Python site.
+  - Installing via the official Python3 installer means, it'll update your bash profile and add Python3 to your `Path` automatically.
