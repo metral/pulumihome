@@ -1,5 +1,7 @@
 # Schedule
 
+The weekly livesite summary document is [here](https://docs.google.com/document/d/12-0rsxf3qMdUvRvHSSHg5SvGv_dKILprPWnc5HLCAeU/edit#)
+
 Our on-call schedule is [here](https://pulumi.pagerduty.com/schedules).
 
 We have [[instructions on how to add oncall to your calendar automatically|Adding your oncall schedule to Google Calendar]].
