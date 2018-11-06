@@ -1,6 +1,6 @@
 # Schedule
 
-Our on-call schedule is [here](https://docs.google.com/spreadsheets/d/1EOZTw_HfXb37oiX9_I765H1eKJE7HAxVZgQJ8VbGACg/edit#gid=0).
+Our on-call schedule is [here](https://pulumi.pagerduty.com/schedules).
 
 See the primary and secondary schedules [as a calendar](https://calendar.google.com/calendar/embed?title=Pulumi%20Oncall&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=au6qoa0bsoe3ctaq41qrm8nbbug02jak%40import.calendar.google.com&amp;color=%232F6309&amp;src=ppbjs9685famnbe0mcb2pvic91aq8ad4%40import.calendar.google.com&amp;color=%235F6B02&amp;ctz=America%2FLos_Angeles).
 
