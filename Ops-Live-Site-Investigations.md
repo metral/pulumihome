@@ -8,14 +8,6 @@ There are many different _CloudWatch Log Streams_ being sent to that log group. 
 
 The "pulumi-web" logs are for the console frontend, and are unlikely to contain anything interesting. The logs you are interested in are "pulumi-service" log streams, which correspond to the API service.
 
-## Looking at PPC Logs
-
-**TODO**: Document using `pulumi-service/blob/master/scripts/ppc/logs-ppc.sh` as that is much easier.
-
-To look at the logs for a PPC, log into the AWS console and then switch to the AWS account the PPC is housed in. (Refer to the [spreadsheet of doom](https://docs.google.com/spreadsheets/d/1ASpyMHUvC1rCN_6cRP6tq1D3378YzSC0PlHzvv_G42I/edit?ts=5a1c642f#gid=0). Then be sure to switch to the region the PPC service is running in. e.g. `us-east-1`. From there, head to the CloudWatch console.
-
-There are two log groups for the PPC. The logs of the Lambda proxying requests to the PPC ECS service (not super interesting, but log group named soemthing like "/aws/lambda/learningmachine-ppc-stage-endpoint3afd83ba1ae1ce77") and the logs for the ECS service, running the `ppcd` program (log group named something like "learningmachine-ppc-stage1aaace62").
-
 ## Getting Site Administrator Access
 
 The Pulumi Service has a way to grant a user access to view resources they normally wouldn't be authorized to. The `Users` table has a `site_access` field, which when non-zero, implies a special set of site access privileges.
