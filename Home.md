@@ -25,6 +25,7 @@ Please take a look around and please make it better as you see fit.
     * [Building the SDK](https://github.com/pulumi/home/wiki/Producing-an-SDK)
     * [[Updating the Docs Website]]
 * [Live Site Investigations](Ops-Live-Site-Investigations)
+  * [Production Incident Reports](Production-Incident-Reports)
 * [[Pulumi Service Stacks]]
 * [[Pulumi Websites]]
 * [[Manually-Repairing-Pulumi-Cloud-Stacks]]
