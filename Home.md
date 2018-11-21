@@ -35,7 +35,7 @@ Please take a look around and please make it better as you see fit.
 ### Analytics
 
 - [Analytics queries on prod database](https://github.com/pulumi/home/wiki/Analytics-queries-on-prod)
-- [Querying secret config usage on prod database](https://github.com/pulumi/home/wiki/config-secret-usage)
+- [[Configuration Secret Usage]]
 
 ### Daily Development
 
