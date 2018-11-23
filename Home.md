@@ -54,6 +54,9 @@ Please take a look around and please make it better as you see fit.
 * [[Purging Soft-Deleted Stacks]]
 
 #### Testing
+
+> Google Drive folder with information about test data is [here](https://drive.google.com/drive/u/1/folders/1SkLYWgEQpqkI7sqnWkuiBx8_u_ivMB6x).
+
 ##### Identities
 
 We have tests that test the login flow and the relationships between pulumi `Organizations` and OAuth identity-backed organizations like GitHub's organizations (`GitHubOrganizations`) and GitLab's groups (`GitLabOrganizations`).
