@@ -52,3 +52,14 @@ Please take a look around and please make it better as you see fit.
 * [Pulumi Design Notes (PDNs)](https://drive.google.com/drive/folders/0B0siYR6Ttr5LVk85eU9NYmI1UW8)
 * [[Working With DynamoDB]]
 * [[Purging Soft-Deleted Stacks]]
+
+#### Testing
+##### Identities
+
+We have tests that test the login flow and the relationships between pulumi `Organizations` and OAuth identity-backed organizations like GitHub's organizations (`GitHubOrganizations`) and GitLab's groups (`GitLabOrganizations`).
+
+To that extent we have test accounts on GitHub and GitLab whose settings (username, org memberships etc.) must remain as-is. For details on what these test accounts are, see [this](https://docs.google.com/spreadsheets/d/1k-qy39wStLDdC9HfoPo3bdrk10jDASBMJvqeaP2zf_k/edit#gid=910719858) Google Doc on our Team Drive.
+
+##### Stripe
+
+Stripe provides test credit cards and corresponding tokens to use when programmatically creating charges. See [this](https://stripe.com/docs/testing) for more information.
