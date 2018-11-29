@@ -187,3 +187,15 @@ SELECT date, time, location, requestip, querystring, referrer FROM pulumiio_clou
 WHERE uri LIKE '%search.html%'
 ORDER BY date DESC, time DESC
 ```
+
+# Prod https://api.pulumi.io ALB Logs
+
+See [in console](https://us-west-2.console.aws.amazon.com/athena/home?force&region=us-west-2#query/saved/5e5b129a-1f6f-4981-8a66-63b475b65681) in the production account (058607598222)
+you can use Athena to query the ALB logs.
+
+CLI versions (via `User-Agent` header) over the past 30 days:
+
+```sql
+SELECT DISTINCT user_agent FROM "default"."alb_logs" 
+WHERE from_iso8601_timestamp(time) > (current_timestamp - interval '30' day) AND regexp_like(user_agent, 'pulumi-cli.*\(v[0-9]+\.[0-9]+\.[0-9]+;.*')
+```
