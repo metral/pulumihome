@@ -28,7 +28,7 @@ Select the organization you created from the organization dropdown menu. You sho
 
 > Members must have an active and valid role in your GitLab group, so that you may invite them.
 
-From the People tab, you can invite additional members in your group to also use Pulumi. By inviting members in your GitLab group to join Pulumi, you can collborate with them more easily and share stacks, just like you would collaborate on a project on GitLab.
+From the People tab, you can invite additional members in your group to also use Pulumi. By inviting members in your group to join Pulumi, you can collaborate with them more easily and share stacks, just like you would collaborate on a project on GitLab.
 
 ## Running Pulumi on GitLab
 
@@ -36,7 +36,7 @@ Pulumi can be run in [many CI/CD environments](https://pulumi.io/reference/cd.ht
 
 ## Deep-linkning to your GitLab projects, branches and commits
 
-When you run Pulumi in a GitLab-based repo, the pulumi CLI recongizes the correct metadata based on your repository's `remote` configuration and uses that information to enhance your experience on `app.pulumi.com`.
+When you run Pulumi in a GitLab-based repo, the pulumi CLI recognizes the correct metadata based on your repository's `remote` configuration and uses that information to enhance your experience on `app.pulumi.com`.
 
 Here's an example of a project hosted on gitlab.com.
 
