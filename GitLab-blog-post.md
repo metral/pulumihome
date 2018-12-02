@@ -56,8 +56,10 @@ Click the **GitLab** sign-in button on https://app.pulumi.com, Pulumi will redir
 
 Yes. Signing-in with a GitLab account will create a new account. That means, your stacks and activity will stay with the other account. You can migrate them by performing a [`pulumi stack export`](https://pulumi.io/reference/cli/pulumi_stack_export.html) from your source stack and then importing it using [`pulumi stack import`](https://pulumi.io/reference/cli/pulumi_stack_import.html) in a new stack in your GitLab-based account.
 
+The ability to link multiple identities to the same Pulumi account is in the works and will be coming soon!
+
 ### How do I login into the pulumi CLI on my local machine using my GitLab-backed Pulumi account?
 
 One of the benefits of using `app.pulumi.com` is to track the state of your stacks. When you are running the pulumi CLI on your machine, you can login into your account by typing `pulumi login`. There are two options for you to complete the login process. You can either create an Access Token on `app.pulumi.com` or simply press **ENTER** to let the CLI launch the browser. 
 
-If you would like to let the CLI launch the browser, ensure that you are already signed-in using GitLab on Pulumi. This way, when the browser is launched by the CLI, your Pulumi account based on your GitLab identity would be used.
+If you would like to let the CLI launch the browser, ensure that you are already signed-in using GitLab at `app.pulumi.com` using your machine's _default_ browser. This way, when the browser is launched by the CLI, your Pulumi account based on your GitLab identity would be automatically used.
