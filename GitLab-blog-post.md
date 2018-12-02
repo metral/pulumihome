@@ -10,12 +10,15 @@ And with Pulumi on GitLab, you truly never have to leave GitLab, not even to pro
 
 Learn more about GitLab [here](https://about.gitlab.com/why/).
 
-## Creating a GitLab-backed Pulumi organization
+## Logging-in and creating a GitLab-backed Pulumi organization
 
 - Log into `app.pulumi.com` using the GitLab Sign-in.
-- Click on the organizations dropdown menu and select **Add an organization**.
 
 `screenshot-1`
+
+- Click on the organizations dropdown menu and select **Add an organization**.
+
+`screenshot-2`
 
 - On the next page, you may select your GitLab group, based on which a Pulumi organization will be created.
 - Once the organization is created, you can create stacks in your newly created organization, so that other members of your organization can collaborate with you.
@@ -40,11 +43,11 @@ When you run Pulumi in a GitLab-based repo, the pulumi CLI recognizes the correc
 
 Here's an example of a project hosted on gitlab.com.
 
-`screenshot-2`
+`screenshot-3`
 
 Here's the same project with some activity having links to the commit-hash, and the branch in which this stack was updated.
 
-`screenshot-3`
+`screenshot-4`
 
 ## FAQs
 
