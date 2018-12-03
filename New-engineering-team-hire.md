@@ -1,6 +1,18 @@
-# Local setup
+# Your First Week at Pulumi
 
-### Prerequisites
+Welcome to the team!
+
+In your first week, your main deliverable is yourself - making sure you are are setup and ready to contribute to Pulumi!  Here are a few of the things you should target for your first week:
+
+- [ ] Make sure you have access to GSuite, Slack, GitHub, AWS and LastPass.  You'll also eventually need access to Azure, GCP, PagerDuty and more.
+- [ ] Make sure you can build, test and dogfood at least https://github.com/pulumi/pulumi and https://github.com/pulumi/pulumi-service.  There are many other repos, but those two are the core homes for our open source offering and backend service respectively.
+- [ ] Build a Pulumi application, using the product end-to-end, and send out notes on your experience to the team (a gdoc and a ping on Slack).  This is a great way to get a customer-centric feeling for the whole product before diving into a more focused project.
+- [ ] Find out what your first project will be, and get oriented.  Ask who you should talk to on the team to get up to speed on the project.
+- [ ] Grab at least 1 issue to fix and send a PR for.  We love it when new employees can merge in their first PR within the first week!  (and ideally, even deliver it to customers in a release!)
+
+# Setting up your dev machine
+
+## Prerequisites
 
 - Follow [pulumi/home - README](https://github.com/pulumi/home/blob/master/README.md)
   - This will basically help you do the following,
@@ -9,9 +21,17 @@
     - Setup `node`, `yarn`, `npm` etc.
 - After this, you can take specific paths depending on the type of local setup you would like to have.
 - Make sure you have access to our AWS account and also setup 2FA.
-- Install Docker if you plan to run the service locally at all. 
-  - Regardless of whether you plan on running anything locally, if you are going to deploy a stack, you will need Docker to run `docker build`s.
+- Install Docker (you will need this for building/running the pulumi service, and for running many Pulumi applications). 
 - When installing the `go` dependencies, be sure to check the CI environment scripts to get the specific versions. The README file of each repo does its best to call out the specific versions needed, but when in doubt, check [this](https://github.com/pulumi/scripts/blob/master/ci/install-common-toolchain.sh#L11) script.
+
+## Building the pulumi/pulumi repo
+> This repo is the CLI repo. 
+- The repo already has a comprehensive [README](https://github.com/pulumi/pulumi/blob/master/README.md) file that talks about local development.
+- Along with the specific version for `gometalinter`, which you would have come across in the README inside the `pulumi/home` repo, I have also found that the `pip` version is currently set to `10.0.0` as per `pulumi/build/tool-versions.sh`.
+  - You can install the specific version that is mentioned in that script by running (macOS) `sudo easy_install pip==x.y.z`, where x.y.z is the version.
+
+## Building and running the pulumi/pulumi-service repo
+> This repo is the Pulumi service hosted at https://app.pulumi.com and https://api.pulumi.com.  Everyone shoud make sure they can build this repo, but not everyone will need to have a personal instance of it (only needed if you are actively developing in the codebase).
 
 ### Run the pulumi-service API and UI locally (recommended)
 > This setup is to connect the locally running API service to the storage service, created as part of your personal pulumi stack, in the pulumi AWS account.
@@ -32,13 +52,7 @@
 - Refer to [pulumi-service/doc/running-locally](https://github.com/pulumi/pulumi-service/blob/master/doc/running-locally.md)
 - The above guide will walk you through the steps to setup a local database, local object store etc.
 
-### Building the pulumi/pulumi repo
-> This repo is the CLI repo. 
-- The repo already has a comprehensive README file that talks about local development.
-- Along with the specific version for `gometalinter`, which you would have come across in the README inside the `pulumi/home` repo, I have also found that the `pip` version is currently set to `10.0.0` as per `pulumi/build/tool-versions.sh`.
-  - You can install the specific version that is mentioned in that script by running (macOS) `sudo easy_install pip==x.y.z`, where x.y.z is the version.
-
-### Troubleshooting
+# Troubleshooting
 
 ##### (macOS) Error from homebrew while installing `awscli`
 
