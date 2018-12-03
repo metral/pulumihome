@@ -31,6 +31,7 @@ Please take a look around and please make it better as you see fit.
 * [[Manually-Repairing-Pulumi-Cloud-Stacks]]
 * How our Release Bucket Permissions Work ([here](https://github.com/pulumi/home/issues/57#issuecomment-344809733) and [here](https://github.com/pulumi/home/issues/64#issuecomment-349088546))
 * [Reading List](Ops-Reading-List)
+* [[Manually setting up billing for an Organization]]
 
 ### Analytics
 
@@ -65,4 +66,4 @@ To that extent we have test accounts on GitHub and GitLab whose settings (userna
 
 ##### Stripe
 
-Stripe provides test credit cards and corresponding tokens to use when programmatically creating charges. See [this](https://stripe.com/docs/testing) for more information.
+Stripe provides test credit cards and corresponding tokens to use when pro grammatically creating charges. See [this](https://stripe.com/docs/testing) for more information.
