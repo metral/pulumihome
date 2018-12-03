@@ -66,3 +66,7 @@ The ability to link multiple identities to the same Pulumi account is in the wor
 One of the benefits of using `app.pulumi.com` is to track the state of your stacks. When you are running the pulumi CLI on your machine, you can login into your account by typing `pulumi login`. There are two options for you to complete the login process. You can either create an Access Token on `app.pulumi.com` or simply press **ENTER** to let the CLI launch the browser. 
 
 If you would like to let the CLI launch the browser, ensure that you are already signed-in using GitLab at `app.pulumi.com` using your machine's _default_ browser. This way, when the browser is launched by the CLI, your Pulumi account based on your GitLab identity would be automatically used.
+
+### Can I connect a GitLab identity to my existing Pulumi account?
+
+Not yet. But it is coming soon!
