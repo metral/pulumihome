@@ -10,7 +10,7 @@ And with Pulumi on GitLab, you truly never have to leave GitLab, not even to pro
 
 Learn more about GitLab [here](https://about.gitlab.com/why/).
 
-## Logging-in and creating a GitLab-backed Pulumi organization
+## Login and create a GitLab-backed Pulumi organization
 
 - Log into `app.pulumi.com` using the GitLab Sign-in.
 
