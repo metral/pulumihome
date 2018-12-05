@@ -4,7 +4,7 @@
 
 The Pulumi SDK is made up of the CLI and language specific packages (e.g `@pulumi/pulumi`, `@pulumi/aws`, and `@pulumi/cloud`).  The CLI and packages ship independently from one another.  Because of this, we are able to release our individual packages independently.
 
-## Releasing a new version of a package.
+## Releasing a new version of a package
 
 1. Ensure that the `CHANGELOG.md` in the root is up to date. You'll want to edit it to add a date to the version we are about to release and to add a new version above it that lets us track all the unreleased changes we'll do next.  If you are just adding the date, feel free to merge directly into master without review.
 
