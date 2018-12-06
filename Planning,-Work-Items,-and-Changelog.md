@@ -1,14 +1,6 @@
 We have some "ground rules" for planning and work item management.
 
-### TL;DR: minimal label requirements
-
-- **PRs that are a breaking change must have the `impact/breaking` label.** As a convenience when using the GitHub UI to filter, please also use the `impact/changelog` label.
-- **PRs that have a user-facing change must have the `impact/changelog` label.** If a feature needs product documentation, it must have this label. The PR should have a user-facing description of the change. This text will be copy-edited before adding to change log. So, don't worry about the right user-facing text, just make sure everything relevant is captured.
-- **PRs that have the label `kind/bug`** will be put in the "Fixed" section of the changelog.
-- **PRs that have the label `kind/feature` or `kind/enhancement`** will be put in the "Added" section of the changelog.
-- **All other PRs** go in the "Changed" section.
-
-### To also help keep issues orderly
+### Help keep issues orderly
 - **If an issue is closed without writing code**, use a `resolution` label.
 - Use `help wanted` for issues that a community member could pick up. Ensure issue description is clear for someone who is new to the project
 - An `area` label is suggested for all issues, but is not required
@@ -53,8 +45,6 @@ We have some "ground rules" for planning and work item management.
 | customer/feedback | Feedback received from customers |
 | customer/onboarding | Customer onboarding and customer success work |
 | help wanted | Formerly named "status/job-jar". Issues that community can pick up. |
-| impact/breaking | **Must be used on PRs that have are a breaking change**. Implies that it will be in the change log. |
-| impact/changelog | **Must be used on PRs with user-facing impact and need to show up in the change log.** If a feature needs product documentation, it must also have this label. The first comment in the PR should have a user-facing description of the PR. This text will be copy-edited before adding to change log. |
 | impact/performance	| Used on issues that track performance work |
 | impact/reliability    | Lurking bugs. Might not be a bug now, but something error-prone for either the team or customers |
 | impact/security | Used on issues and PRs that have a security impact |
