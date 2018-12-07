@@ -40,11 +40,16 @@ In your first week, your main deliverable is yourself - making sure you are are 
   - The steps will walk you through running `pulumi-service/scripts/create-stack.sh` to create a stack of your own in AWS.
 - After that, for the `pulumi-service` repo...
 - In your GOPATH directory, create a folder `pulumi` under `src/github.com`.
-- Then clone the `pulumi-service` repo.
+- Using a terminal, run these commands from the `pulumi-service` repo (you may have already done this as part of setting up your own dev stack):
+
+> You should (and may need to) run `make ensure` occasionally, if any `Go` dependencies have been updated.
+
   - Running `make ensure` should pull down all necessary dependencies.
   - Running `make build` will build.
   - Running `make lint` will run the linter.
-- Now you can run `pulumi-service/scripts/run-service.sh` and the `[Pulumi Console UI](https://github.com/pulumi/pulumi-service/tree/master/cmd/console2)`
+- Register OAuth apps for use with the service running on `localhost` on [GitHub](https://github.com/settings/developers) and [GitLab](https://gitlab.com/profile/applications).
+  - You may have already created apps for your dev stack, but these are specifically for your `localhost` and should not be checked-in. See [this](https://github.com/pulumi/pulumi-service/pull/2584#event-2012942101) issue in the `pulumi/pulumi-service` repo.
+- Now you can run `pulumi-service/scripts/run-service.sh` and the [`Pulumi Console UI`](https://github.com/pulumi/pulumi-service/tree/master/cmd/console2)
 
 ### Run the pulumi-service API, UI and also the DB locally
 > This setup is to run _everything_ locally.
