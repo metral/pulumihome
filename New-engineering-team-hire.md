@@ -51,6 +51,15 @@ In your first week, your main deliverable is yourself - making sure you are are 
   - You may have already created apps for your dev stack, but these are specifically for your `localhost` and should not be checked-in. See [this](https://github.com/pulumi/pulumi-service/pull/2584#event-2012942101) issue in the `pulumi/pulumi-service` repo.
 - Now you can run `pulumi-service/scripts/run-service.sh` and the [`Pulumi Console UI`](https://github.com/pulumi/pulumi-service/tree/master/cmd/console2)
 
+### Run the pulumi-service UI locally using pulumi-test.io
+
+> This slightly simpler setup allows you to run just the UI locally, using the Pulumi test service (at https://app.pulumi-test.io) as an API backend. If the work you're doing is limited to the web application, you may find it a little easier to work with.
+
+1. Run `./scripts/run-console frontend`, then navigate to http://localhost:3000/login, bypassing the normal login flow in order to apply an access token that you'll obtain from the test service in the next step.
+1. Navigate to https://app.pulumi-test.io and sign in.
+1. Browse to Account Settings and click New Access token.
+1. Copy the new token and paste it into the Fake Login view and click Login. You should now be signed in.
+
 ### Run the pulumi-service API, UI and also the DB locally
 > This setup is to run _everything_ locally.
 
