@@ -19,18 +19,13 @@ Oncall has the final say about whether to continue or abandon a release.
 Updating the Pulumi Service actually refers to several components. "Changed" means what would cause a new version of the component to be updated as part of the weekly update process.
 
 - The Pulumi Service (web frontend, API backend). This is changed with every new commit to the `pulumi/pulumi-service` repository. The mechanics of the service deployment are described [here](https://github.com/pulumi/home/wiki/Updating-the-Service).
-- PPCs attached to the Pulumi Service. This is changed via a new version hash to `pulumi/pulumi-ppc` in `pulumi-service/Gopkg.lock`.
-- The Pulumi SDK being used to run `pulumi update` in fire-and-forget mode, against the Pulumi Service and PPCs. This is updated by editing the `pulumi-service/.travis.yml` file.
+- The Pulumi SDK being used to run `pulumi update` in fire-and-forget mode, against the Pulumi Service. This is updated by editing the `pulumi-service/.travis.yml` file.
 
 Whenever we run the "Weekly Update Process", we will potentially be rolling out a new version of each of these components.
 
 ### Pulumi SDK releases
 
 New SDK releases are built on-demand using the [process outlined here](https://github.com/pulumi/home/wiki/Producing-an-SDK).  New SDKs may be built multiple times per week, or just a couple times per sprint, depending on the frequency with which we want to get new features, fixes, and improvements out to customers.  Part of the SDK updating process is also updating the hashes in consuming service repos.  So, by the time we get to the weekly update process, the SDK being used will have been determined for us.
-
-### Pulumi PPC releases
-
-Updates to the software running on PPCs are handled similarly to the SDK. The referenced commit hash may be updated several times per sprint, or per week depending on the frequency with which we want to pick up new features, fixes, etc.
 
 ## Service environments
 
@@ -145,4 +140,4 @@ Since we use Travis for deployments and verification, it's helpful to know the d
 
 - A `cron` job runs on a schedule, say `daily` or `weekly`.
 
-- An `api` job is triggered using the Travis API or CLI. We use Travis `api` jobs to perform specialized operations or long-running tests. For example, to update customer PPCs we may trigger a new `api` job to run a different set of Makefile targets than typical `push` jobs run.
+- An `api` job is triggered using the Travis API or CLI. We use Travis `api` jobs to perform specialized operations or long-running tests.
