@@ -56,10 +56,10 @@ We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for t
 
     # Dry run. (Optional.)
     # Test API access to GitHub and Travis and show what commit would be used.
-    newrelease -createbranch=false  # assumes ~/go/bin is on the $PATH
+    newrelease  # assumes ~/go/bin is on the $PATH
 
     # Choose a commit, and create a release branch and PR.
-    newrelease
+    newrelease -createbranch=true
     ```
 
 #### Submitting
