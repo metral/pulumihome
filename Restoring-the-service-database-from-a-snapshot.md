@@ -1,40 +1,80 @@
 If something goes very wrong, we may need to replace the service Aurora cluster with a new one restored from a snapshot.
 
-These steps were last tested against mattdr's dev instance on 2018-05-11. They take about two hours.
+These steps were last tested against christian's dev instance on 2018-12-21. They take about one hour to complete.
 
 ## Choose a snapshot to restore
 
 ### Find the Aurora cluster
 
-The Aurora cluster can be found in the Pulumi snapshot or from `pulumi stack -i | grep databaseClusterId`.
+The ID for the active Aurora cluster can be found in the Pulumi snapshot or by running `pulumi stack`, after selecting the stack that you want to restore to (e.g. here, `testing`):
 
-It can also be found if you know the database _instance_ identifier, which you can find from e.g. the `PULUMI_DATABASE_ENDPOINT` environment variable in the definition for the service ECS task. Go to the RDS console in the appropriate account and region, find the instance in the "Instances" view, and look for the "Cluster" section of the instance details page.
+```
+$ cd infrastructure
+$ pulumi stack select testing
+$ pulumi stack -i | grep databaseClusterId
+    databaseClusterId          tf-20181221140607370200000001
+```
 
-The cluster and instance IDs will look like `tf-20171108003110516600000002`.
+Copy the cluster ID for use in the next step.
 
 ### Find the snapshot
 
-In the RDS console "Snapshots" view, filter the snapshots by the cluster ID and select the "best" available snapshot -- hopefully the most recent, unless we're restoring an old DB because of longer-term data corruption.
+[In the RDS console "Snapshots" view](https://us-west-2.console.aws.amazon.com/rds/home?region=us-west-2#db-snapshots:), filter the list of snapshots by the `databaseClusterId` you obtained above and select the "best" available snapshot -- hopefully the most recent, unless we're restoring an old DB because of longer-term data corruption. (You can sort by the Snapshot Creation Time column.)
 
-The snapshot name will look like `rds:tf-20180503000923005800000002-2018-05-11-11-599`.
+Copy the snapshot name for use below. It will look like `rds:tf-20180503000923005800000002-2018-05-11-11-599`.
 
 ## Add new Aurora cluster to infrastructure
 
 Edit the `infrastructure` Pulumi program (specifically `database.ts`) to:
+
 1. Add a new Aurora cluster created from the identified snapshot.
-2. Add an Aurora instance targeting the new cluster.
-3. Export the new instance to the rest of the infrastructure.
+1. Add an Aurora instance targeting the new cluster.
+1. Export the new instance to the rest of the infrastructure.
 
-Don't remove the old resources as part of this deployment -- that adds delay and unnecessary risk to recovery. New resources will need new names or Pulumi will fail with a `Duplicate resource URN` error.
+This process will not remove the old resources as part of this deployment -- that adds delay and unnecessary risk to recovery. Also note that the new resources (cluster, instance and s3 bucket) will be given new names to prevent Pulumi from failing with a `Duplicate resource URN` error.
 
-Use [this commit](https://github.com/pulumi/pulumi-service/commit/584213163bbb11d8b53d390ce728e5c4da1138d0) as a template.
+Using [this commit](https://github.com/pulumi/pulumi-service/commit/584213163bbb11d8b53d390ce728e5c4da1138d0) as a template, change the value of `databaseCluster2`'s `snapshotIdentifier` to the snapshot name you identified above:
+
+```
+let databaseCluster2 = new aws.rds.Cluster("databaseCluster2", {
+    ...
+    snapshotIdentifier: "YOUR_SNAPSHOT_NAME",
+});
+```
+
+## Preview your changes
+
+```
+$ cd infrastructure
+$ make build && pulumi preview
+```
+
+You should see that a new cluster, instance snapshot will be created:
+
+```
+Previewing update (testing):
+
+     Type                        Name                       Plan        Info
+     pulumi:pulumi:Stack         pulumi-service-testing 
+ +   ├─ aws:s3:Bucket            snapshot2                  create
+ +   ├─ aws:rds:Cluster          databaseCluster2           create
+ +   ├─ aws:rds:ClusterInstance  databaseInstance2          create
+ +-  ├─ aws:ecs:TaskDefinition   apiTaskDefinition          replace     [diff: ~containerDefinitions]
+ ~   └─ aws:ecs:Service          api-                       update      [diff: ~taskDefinition]
+
+Resources:
+    + 3 to create
+    ~ 1 to update
+    +-1 to replace
+    3 changes. 48 unchanged
+```
 
 ## Deploy
 
-Submit the changes through Travis or run `./scripts/update-stack.sh` locally with the appropriate values of `AWS_PROFILE`, `PULUMI_STACK_NAME_OVERRIDE`.
+Submit the changes through Travis, or if you have access keys and an AWS profile set up locally for the environment you're targeting, you can run `./scripts/update-stack.sh` directly by setting the appropriate values of `AWS_PROFILE` and `PULUMI_STACK_NAME_OVERRIDE`:
 
-> Until [pulumi/pulumi-terraform#151](/pulumi/pulumi-terraform/issues/151) is fixed, the cluster may fail to create due to a timeout.
->
-> As a crude workaround, build your own `pulumi-aws` after manually changing every timeout in `vendor/terraform-providers/terraform-provider-aws/aws/resource_aws_rds_cluster.go` from `d.Timeout(...)` to `120 * time.Minute`.
+```
+$ AWS_PROFILE=pulumi-testing PULUMI_STACK_NAME_OVERRIDE=testing ./scripts/update-stack.sh
+```
 
 Creating the new Aurora cluster will take about 40 minutes, and the instance pointing to it will be ready in another 10 minutes or so.
