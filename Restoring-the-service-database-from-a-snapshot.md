@@ -77,4 +77,10 @@ Submit the changes through Travis, or if you have access keys and an AWS profile
 $ AWS_PROFILE=pulumi-testing PULUMI_STACK_NAME_OVERRIDE=testing ./scripts/update-stack.sh
 ```
 
-Creating the new Aurora cluster will take about 40 minutes, and the instance pointing to it will be ready in another 10 minutes or so.
+Creating the new Aurora cluster will take about 40 minutes, and the instance pointing to it will be ready in another 10 minutes or so. Do not commit your changes to GitHub -- we'll need to make a few more changes first.
+
+## Removing the inactive cluster
+
+At the end of this process we'll have two running DB clusters. When you're ready to dispose of the inactive one, you'll need to dispose of the cluster and instance first, followed by the cluster's s3 bucket, to allow AWS to save a final snapshot of the cluster into that bucket. If you attempt to destroy all three resources at once, `pulumi update` will likely fail on the absence of the final-snapshot bucket. 
+
+See this issue for additional context: https://github.com/pulumi/pulumi-service/issues/2610 
