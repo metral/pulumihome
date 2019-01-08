@@ -43,7 +43,21 @@ The `staging` and `production` environments track the corresponding branches in 
 
 Each Tuesday and Thursday, primary oncall creates a release branch (e.g. `release/2018-01-01`) from the most recent green build in `testing`, then creates a pull request to merge that branch into `staging`.
 
-We use a [tool](https://github.com/pulumi/home/tree/master/cmd/newrelease) for this.
+We use a Slack [bot](https://github.com/pulumi/home/tree/master/infrastructure/platypull) for this. Every Tuesday and Thursday at 10AM PST (and 9AM during Daylight Savings Time, i.e., PDT.). The bot will post a message in the `releases` Slack channel with three possible actions. So you don't have to do anything other than respond to the message posted by the bot. If you would like it to create a release PR, then you simply press "Yes" and the bot will take it from there.
+
+Here's a preview of one such interaction with the bot:
+
+![screen shot 2019-01-08 at 13 13 40](https://user-images.githubusercontent.com/1466314/50859224-a0081200-1347-11e9-9f89-b3e1fa55d493.png)
+
+![screen shot 2019-01-08 at 13 13 48](https://user-images.githubusercontent.com/1466314/50859227-a1393f00-1347-11e9-8726-fa345afe51a6.png)
+
+When you don't want to create a release PR, simply respond by clicking the "No" button. This will result in a response from the bot confirming your action not to create a PR, which will look something like this:
+
+![screen shot 2019-01-08 at 13 21 48](https://user-images.githubusercontent.com/1466314/50859505-65eb4000-1348-11e9-811b-316efb30ef14.png)
+
+#### Problems with the Slack bot? You can still use the manual way to create a release PR for `staging`.
+
+The source for the tool is located [here](https://github.com/pulumi/home/tree/master/cmd/newrelease).
 
 1. [Create a GitHub personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) with the **`read:org`**, **`repo`**, and **`user:email`** scopes. The tool itself needs the `repo` scope; the other scopes are [for Travis](https://docs.travis-ci.com/user/github-oauth-scopes/).
 2. Put the token in an environment variable named `GITHUB_TOKEN`.
