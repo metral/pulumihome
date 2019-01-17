@@ -1,4 +1,4 @@
-We have a data warehouse and Metabase front-end for self-service query and analytics as well as general-purpose shared dashboards over our key data stores.
+We have a data warehouse and [Metabase](https://metabase.corp.pulumi.com/) front-end for self-service query and analytics as well as general-purpose shared dashboards over our key data stores.
 
 The Metabase front end is available at https://metabase.corp.pulumi.com.  You can login with an `@pulumi.com` Google account.
 
