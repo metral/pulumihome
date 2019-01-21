@@ -8,7 +8,7 @@ The Pulumi SDK is made up of the CLI and language specific packages (e.g `@pulum
 
 1. Ensure that the `CHANGELOG.md` in the root is up to date. You'll want to edit it to add a date to the version we are about to release and to add a new version above it that lets us track all the unreleased changes we'll do next.  If you are just adding the date, feel free to merge directly into master without review.
 
-2. Tag the commit we you want to release with a tag'd version number. For example, if we are releasing v0.16.5 of a package, do the following (after you've merged in the `CHANGELOG.md` changes):
+2. Tag the commit you want to release with a tag'd version number. For example, if we are releasing v0.16.5 of a package, do the following (after you've merged in the `CHANGELOG.md` changes):
 
 ```sh
 $ git checkout master
@@ -23,6 +23,19 @@ $ git tag v0.16.5-rc.1
 ```
 
 When releasing an RC, you need not update the `CHANGELOG.md` file (since we have, of course, not released yet!)
+
+3. Update API docs.  In the `pulumi/docs` repo, run the following, after ensuring you have your package repo checked out at the release commit.  Replace `yourpackagename` with `aws`, `azure`, `eks` as necessary for the release you are doing.
+
+```
+$ PKGS=yourpackagename ./scripts/run_typedoc.sh
+```
+
+To regenerate all API docs, run the following - which will fetch all package repos, checkout at latest release, build, and then regenerate docs.
+
+```
+$ ./scripts/update_repos.sh
+$ ./scripts/run_typedoc.sh
+```
 
 ### Releasing a hotfix for an existing package
 
