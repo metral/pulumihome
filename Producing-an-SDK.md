@@ -68,7 +68,7 @@ $ git push origin ellismg/hot-fix-for-0.16.4 v0.16.5
 
 6. When merging the PR into master, ensure that you use the "CREATE MERGE COMMIT" option. Otherwise, the commit tag will be pointing at an orphaned commit. Also, the builds out of master will continued to be published as dev builds of the just released version (e.g. `v0.16.5-dev` instead of the new correct value, `v0.16.6-dev`)
 
-## Listing the release and updating documentation
+## Listing a new CLI release and updating documentation
 
 In order for customers to get the new release, you need to update the [install page on docs.pulumi.com](https://docs.pulumi.com/install/). Note that the /releases/ endpoint on `docs.pulumi.com` will proxy any requests for non-prerelease published SDKs to the right S3 bucket.
 
