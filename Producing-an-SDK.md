@@ -16,13 +16,13 @@ $ git tag v0.16.5
 $ git push origin v0.16.5
 ```
 
-  If you'd like to release a build as a release candidate instead, append a `-rc.X` suffix to the TAG (where X is the RC number):
+ If you'd like to release a build as a release candidate instead, append a `-rc.X` suffix to the TAG (where X is the RC number):
 
 ```sh
 $ git tag v0.16.5-rc.1
 ```
 
-  When releasing an RC, you need not update the `CHANGELOG.md` file (since we have, of course, not released yet!)
+ When releasing an RC, you need not update the `CHANGELOG.md` file (since we have, of course, not released yet!)
 
 3. Update API docs.  In the `pulumi/docs` repo, run the following, after ensuring you have your package repo checked out at the release commit.  Replace `yourpackagename` with `aws`, `azure`, `eks` as necessary for the release you are doing.
 
