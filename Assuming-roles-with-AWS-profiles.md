@@ -132,6 +132,11 @@ role_arn = arn:aws:iam::058607598222:role/ReadOnly-OrganizationAccountAccessRole
 source_profile = default
 region = us-west-2
 
+[profile pulumi-broomevideo]
+role_arn = arn:aws:sts::034665324040:assumed-role/OrganizationAccountAccessRole
+source_profile = default
+region = us-west-2
+
 [profile ppc-production-learningmachine-prod]
 role_arn = arn:aws:iam::396386917111:role/OrganizationAccountAccessRole
 source_profile = default
