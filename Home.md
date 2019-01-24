@@ -64,9 +64,15 @@ Please take a look around and please make it better as you see fit.
 
 ##### Identities
 
-We have tests that test the login flow and the relationships between pulumi `Organizations` and OAuth identity-backed organizations like GitHub's organizations (`GitHubOrganizations`) and GitLab's groups (`GitLabOrganizations`).
+We have tests that test the login flow and the relationships between pulumi `Organizations` and OAuth identity-backed organizations like GitHub's organizations (`GitHubOrganizations`), GitLab's groups (`GitLabOrganizations`), and Bitbucket Teams (`BitbucketOrganizations`).
 
-To that extent we have test accounts on GitHub and GitLab whose settings (username, org memberships etc.) must remain as-is. For details on what these test accounts are, see [this](https://docs.google.com/spreadsheets/d/1k-qy39wStLDdC9HfoPo3bdrk10jDASBMJvqeaP2zf_k/edit#gid=910719858) Google Doc on our Team Drive.
+To that extent we have test accounts on GitHub, GitLab, and Bitbucket whose settings (username, org memberships etc.) must remain as-is. For details on what these test accounts are, see [this](https://docs.google.com/spreadsheets/d/1k-qy39wStLDdC9HfoPo3bdrk10jDASBMJvqeaP2zf_k/edit#gid=910719858) Google Doc on our Team Drive.
+
+##### Atlassian Bitbucket Tests
+
+Bitbucket access tokens expire in 2 hours. The mechanism to get a fresh access token is to use the `refresh_token` grant type. The refresh token for a user is tied to a specific set of OAuth client credentials. This means, one cannot take the refresh token for a user produced by our staging OAuth consumer, and try to use it with our testing OAuth consumer. They are not interchangeable.
+
+We use AWS Secrets Manager to store the refresh tokens for the test accounts and these can be used only with our testing OAuth consumer with the `refresh_token` OAuth grant type. Furthermore, Travis CI doesn't have env vars per branch, so we have the same refresh tokens in AWS Secrets Manager in all of the AWS accounts. When you run the tests locally, you need to have the client credentials for our testing OAuth consumer under the env vars [`TEST_BITBUCKET_OAUTH_ID`](https://github.com/pulumi/pulumi-service/blob/master/cmd/service/model/bitbucket/testutils.go#L54) and [`TEST_BITBUCKET_OAUTH_SECRET`](https://github.com/pulumi/pulumi-service/blob/master/cmd/service/model/bitbucket/testutils.go#L55). Otherwise, the tests where an Atlassian user is involved, will be skipped.
 
 ##### Stripe
 
