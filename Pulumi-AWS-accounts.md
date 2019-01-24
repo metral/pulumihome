@@ -19,6 +19,7 @@
 | pulumi-production | 058607598222 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=058607598222&displayName=pulumi-production)
 | pulumi-staging | 098437015098 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=098437015098&displayName=pulumi-staging)
 | pulumi-testing | 086028354146 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=086028354146&displayName=pulumi-testing)
+| pulumi-broomevideo | 034665324040 | [AWS console](https://signin.aws.amazon.com/switchrole?roleName=OrganizationAccountAccessRole&account=034665324040&displayName=pulumi-broomevideo)
 
 
 generated with:
