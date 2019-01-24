@@ -74,6 +74,8 @@ Bitbucket access tokens expire in 2 hours. The mechanism to get a fresh access t
 
 We use AWS Secrets Manager to store the refresh tokens for the test accounts and these can be used only with our testing OAuth consumer with the `refresh_token` OAuth grant type. Furthermore, Travis CI doesn't have env vars per branch, so we have the same refresh tokens in AWS Secrets Manager in all of the AWS accounts. When you run the tests locally, you need to have the client credentials for our testing OAuth consumer under the env vars [`TEST_BITBUCKET_OAUTH_ID`](https://github.com/pulumi/pulumi-service/blob/master/cmd/service/model/bitbucket/testutils.go#L54) and [`TEST_BITBUCKET_OAUTH_SECRET`](https://github.com/pulumi/pulumi-service/blob/master/cmd/service/model/bitbucket/testutils.go#L55). Otherwise, the tests where an Atlassian user is involved, will be skipped.
 
+The testing environment's OAuth consumer can be found [here](https://bitbucket.org/account/user/pulumi/api). It's the **Pulumi (Testing)** app. If you don't have access to the **pulumi** Bitbucket Team, contact one of the admins (@praneetloke or @chrsmith).
+
 ##### Stripe
 
 Stripe provides test credit cards and corresponding tokens to use when pro grammatically creating charges. See [this](https://stripe.com/docs/testing) for more information.
