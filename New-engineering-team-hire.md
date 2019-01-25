@@ -9,7 +9,22 @@ In your first week, your main deliverable is yourself - making sure you are are 
 - [ ] Build a Pulumi application, using the product end-to-end, and send out notes on your experience to the team (a gdoc and a ping on Slack).  This is a great way to get a customer-centric feeling for the whole product before diving into a more focused project.
 - [ ] Find out what your first project will be, and get oriented.  Ask who you should talk to on the team to get up to speed on the project.
 - [ ] Grab at least 1 issue to fix and send a PR for.  We love it when new employees can merge in their first PR within the first week!  (and ideally, even deliver it to customers in a release!)
+- [ ] (Optional) To get to know you better, it'd be fun for you to send the team (all@pulumi.com) a Pulumi Welcome email: give a brief description of who you are, and tell us two truths and a lie about yourself for us to guess.
 
+# Quick Links
+
+- [Setting up your Dev Machine](#setting-up-your-dev-machine)
+  - [Prerequisites](#prerequisites)
+  - [Building the pulumi/pulumi repo](#building-and-running-the-pulumipulumi-service-repo)
+      - [Run the pulumi-service API and UI locally (recommended)](#run-the-pulumi-service-api-and-ui-locally-recommended)
+      - [Run the pulumi-service UI locally using pulumi-test.io](#run-the-pulumi-service-ui-locally-using-pulumi-testio)
+      - [Run the pulumi-service API, UI and also the DB locally](#run-the-pulumi-service-api-ui-and-also-the-db-locally)
+- [Troubleshooting](#troubleshooting)
+- [Helpful Extras](#helpful-extras)
+  - [Bookmarks](#bookmarks)
+  - [Common Slack Channels](#common-slack-channels)
+  - [Expense Reimbursements](#expense-reimbursements)
+  
 # Setting up your dev machine
 
 ## Prerequisites
@@ -24,7 +39,7 @@ In your first week, your main deliverable is yourself - making sure you are are 
 - Install Docker (you will need this for building/running the pulumi service, and for running many Pulumi applications). 
 - When installing the `go` dependencies, be sure to check the CI environment scripts to get the specific versions. The README file of each repo does its best to call out the specific versions needed, but when in doubt, check [this](https://github.com/pulumi/scripts/blob/master/ci/install-common-toolchain.sh#L11) script.
 
-## Building the pulumi/pulumi repo
+## Building the `pulumi/pulumi` repo
 > This repo is the CLI repo. 
 - The repo already has a comprehensive [README](https://github.com/pulumi/pulumi/blob/master/README.md) file that talks about local development.
 - Along with the specific version for `gometalinter`, which you would have come across in the README inside the `pulumi/home` repo, I have also found that the `pip` version is currently set to `10.0.0` as per `pulumi/build/tool-versions.sh`.
@@ -92,3 +107,42 @@ and then re-run `brew install awscli` again, so that it can complete the linking
     - Note that we are using `pip3`, since we use Python3 in our Python SDK.
     - This means, you must have installed `python3` either using `brew` or downloaded the Python3 installer from the official Python site.
   - Installing via the official Python3 installer means, it'll update your bash profile and add Python3 to your `Path` automatically.
+  
+  
+# Helpful Extras
+
+## Bookmarks
+
+  - [GitHub](https://github.com/pulumi)
+  - [TravisCI](https://travis-ci.com/pulumi/)
+  - [Issue & Milestone Tracking](https://d8efg0nsy6.execute-api.us-west-2.amazonaws.com/stage/)
+  - [Spin Up CoLaDa YouTube Channel](https://www.youtube.com/playlist?list=PLyy8Vx2ZoWlrX60uBUQMJEJJ2ZUJpLcRB)
+  - [AWS Dashboard](https://pulumi.signin.aws.amazon.com/console)
+  - [GCP Dashboard](https://console.cloud.google.com/home/dashboard?project=pulumi-development)
+  - [Azure Dashboard](https://portal.azure.com)
+  - [Google Team Drive](https://drive.google.com/drive/u/1/folders/0APqzMxOiU3B2Uk9PVA)
+  - [Pulumi Company Values](https://docs.google.com/document/d/1mOx24KMniXMvqM8n2QtrJ-tTM7f5x0aq__Nc7FoY2_8/edit?usp=sharing)
+  - [Holiday Schedule](https://drive.google.com/open?id=1Ql0Y2oamJA594EO2I6uNSgADlc_GcMiQdCROYQifv0g)
+  - [New Employee Guide](https://sites.google.com/s/0BzY3-yG4XlqfN3p1TWJBZ1RHVUE/p/0BzY3-yG4XlqfRTdITmtlVjY0WWs/edit?authuser=1)
+  - [Downtown Food Trucks](https://www.seattlefoodtruck.com/search/downtown)
+
+## Common Slack Channels
+
+  - #engineering
+  - #random
+  - #general
+  - #shoutouts
+  - #kubernetes
+  - #blogs
+  - #coffee
+  - #lunch
+  - #releases
+  - #sales
+  - #marketing
+  - #builds
+  
+## Expense Reimbursements
+
+Create a shareable folder on Google Drive that contains pics of the receipts, along with a Google Sheet for the expenses noting the date, expense, description, amount, and total.
+
+Please email Eric, and share this folder: eric@pulumi.com
